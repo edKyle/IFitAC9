@@ -14,6 +14,7 @@
 		27098D931D3CC2440021543E /* AchievementStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27098D911D3CC2440021543E /* AchievementStoryboard.storyboard */; };
 		27098D971D3CC48D0021543E /* ScrollableGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D961D3CC48D0021543E /* ScrollableGraphView.swift */; };
 		27098D991D3CC5380021543E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D981D3CC5380021543E /* UserViewController.swift */; };
+		27098D9B1D3CCECD0021543E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D9A1D3CCECD0021543E /* CurrentUser.swift */; };
 		9095AD1C4ABDB94734ED86D7 /* Pods_IFitAC9.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		27098D921D3CC2440021543E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AchievementStoryboard.storyboard; sourceTree = "<group>"; };
 		27098D961D3CC48D0021543E /* ScrollableGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableGraphView.swift; sourceTree = "<group>"; };
 		27098D981D3CC5380021543E /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		27098D9A1D3CCECD0021543E /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IFitAC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DD7BA9DE5410810141BF984 /* Pods-IFitAC9.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFitAC9.release.xcconfig"; path = "Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +57,7 @@
 		27098D731D3CC1340021543E = {
 			isa = PBXGroup;
 			children = (
+				27098D9C1D3CCED20021543E /* model */,
 				27098D7E1D3CC1340021543E /* IFitAC9 */,
 				27098D7D1D3CC1340021543E /* Products */,
 				49A3DC4F7B148BBF0D0AC8AF /* Pods */,
@@ -99,6 +102,15 @@
 				27098D961D3CC48D0021543E /* ScrollableGraphView.swift */,
 			);
 			name = UserStoryboard;
+			sourceTree = "<group>";
+		};
+		27098D9C1D3CCED20021543E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				27098D9A1D3CCECD0021543E /* CurrentUser.swift */,
+			);
+			name = model;
+			path = IFitAC9;
 			sourceTree = "<group>";
 		};
 		49A3DC4F7B148BBF0D0AC8AF /* Pods */ = {
@@ -235,6 +247,7 @@
 			files = (
 				27098D991D3CC5380021543E /* UserViewController.swift in Sources */,
 				27098D971D3CC48D0021543E /* ScrollableGraphView.swift in Sources */,
+				27098D9B1D3CCECD0021543E /* CurrentUser.swift in Sources */,
 				27098D801D3CC1340021543E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
