@@ -15,6 +15,13 @@
 		27098D971D3CC48D0021543E /* ScrollableGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D961D3CC48D0021543E /* ScrollableGraphView.swift */; };
 		27098D991D3CC5380021543E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D981D3CC5380021543E /* UserViewController.swift */; };
 		27098D9B1D3CCECD0021543E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D9A1D3CCECD0021543E /* CurrentUser.swift */; };
+		6BB703DE1D3CDCFB00406E63 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703DD1D3CDCFB00406E63 /* AchievementViewController.swift */; };
+		6BB703E11D3CDD4800406E63 /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703DF1D3CDD4800406E63 /* AchievementTableViewCell.swift */; };
+		6BB703E21D3CDD4800406E63 /* AchievementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB703E01D3CDD4800406E63 /* AchievementTableViewCell.xib */; };
+		6BB703E51D3CFCE800406E63 /* ArchievementListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703E31D3CFCE800406E63 /* ArchievementListTableViewCell.swift */; };
+		6BB703E61D3CFCE800406E63 /* ArchievementListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB703E41D3CFCE800406E63 /* ArchievementListTableViewCell.xib */; };
+		6BB703E81D3DDFBB00406E63 /* GoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703E71D3DDFBB00406E63 /* GoalDetailViewController.swift */; };
+		6BB703EA1D3DDFEA00406E63 /* PriceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703E91D3DDFEA00406E63 /* PriceDetailViewController.swift */; };
 		9095AD1C4ABDB94734ED86D7 /* Pods_IFitAC9.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +38,13 @@
 		27098D981D3CC5380021543E /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		27098D9A1D3CCECD0021543E /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IFitAC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BB703DD1D3CDCFB00406E63 /* AchievementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
+		6BB703DF1D3CDD4800406E63 /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
+		6BB703E01D3CDD4800406E63 /* AchievementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AchievementTableViewCell.xib; sourceTree = "<group>"; };
+		6BB703E31D3CFCE800406E63 /* ArchievementListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchievementListTableViewCell.swift; sourceTree = "<group>"; };
+		6BB703E41D3CFCE800406E63 /* ArchievementListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArchievementListTableViewCell.xib; sourceTree = "<group>"; };
+		6BB703E71D3DDFBB00406E63 /* GoalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalDetailViewController.swift; sourceTree = "<group>"; };
+		6BB703E91D3DDFEA00406E63 /* PriceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetailViewController.swift; sourceTree = "<group>"; };
 		6DD7BA9DE5410810141BF984 /* Pods-IFitAC9.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFitAC9.release.xcconfig"; path = "Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +96,7 @@
 				27098D881D3CC1340021543E /* LaunchScreen.storyboard */,
 				27098D951D3CC3040021543E /* UserStoryboard */,
 				27098D941D3CC2E40021543E /* AchievementStoryboard */,
+				6BB703EB1D3DDFFF00406E63 /* ArchievementController */,
 			);
 			path = IFitAC9;
 			sourceTree = "<group>";
@@ -120,6 +135,20 @@
 				6DD7BA9DE5410810141BF984 /* Pods-IFitAC9.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6BB703EB1D3DDFFF00406E63 /* ArchievementController */ = {
+			isa = PBXGroup;
+			children = (
+				6BB703DD1D3CDCFB00406E63 /* AchievementViewController.swift */,
+				6BB703E91D3DDFEA00406E63 /* PriceDetailViewController.swift */,
+				6BB703E71D3DDFBB00406E63 /* GoalDetailViewController.swift */,
+				6BB703DF1D3CDD4800406E63 /* AchievementTableViewCell.swift */,
+				6BB703E01D3CDD4800406E63 /* AchievementTableViewCell.xib */,
+				6BB703E31D3CFCE800406E63 /* ArchievementListTableViewCell.swift */,
+				6BB703E41D3CFCE800406E63 /* ArchievementListTableViewCell.xib */,
+			);
+			name = ArchievementController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +212,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB703E61D3CFCE800406E63 /* ArchievementListTableViewCell.xib in Resources */,
 				27098D8A1D3CC1340021543E /* LaunchScreen.storyboard in Resources */,
+				6BB703E21D3CDD4800406E63 /* AchievementTableViewCell.xib in Resources */,
 				27098D871D3CC1340021543E /* Assets.xcassets in Resources */,
 				27098D931D3CC2440021543E /* AchievementStoryboard.storyboard in Resources */,
 				27098D851D3CC1340021543E /* Main.storyboard in Resources */,
@@ -245,10 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB703E51D3CFCE800406E63 /* ArchievementListTableViewCell.swift in Sources */,
 				27098D991D3CC5380021543E /* UserViewController.swift in Sources */,
 				27098D971D3CC48D0021543E /* ScrollableGraphView.swift in Sources */,
 				27098D9B1D3CCECD0021543E /* CurrentUser.swift in Sources */,
+				6BB703E11D3CDD4800406E63 /* AchievementTableViewCell.swift in Sources */,
+				6BB703EA1D3DDFEA00406E63 /* PriceDetailViewController.swift in Sources */,
 				27098D801D3CC1340021543E /* AppDelegate.swift in Sources */,
+				6BB703E81D3DDFBB00406E63 /* GoalDetailViewController.swift in Sources */,
+				6BB703DE1D3CDCFB00406E63 /* AchievementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

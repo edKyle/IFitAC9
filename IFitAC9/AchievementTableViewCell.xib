@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="496" id="KGk-i7-Jjw" customClass="AchievementTableViewCell" customModule="IFitAC9" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="657" height="496"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="657" height="495.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPd-4H-lfQ">
+                        <rect key="frame" x="0.0" y="0.0" width="657" height="493"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whx-PX-0NT" customClass="MBCircularProgressBarView">
+                        <rect key="frame" x="0.0" y="0.0" width="657" height="493"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                <real key="value" value="71"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="progressCapType">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="emptyCapType">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                <color key="value" red="0.3836863237" green="0.46237163129999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iPd-4H-lfQ" secondAttribute="trailing" id="0Ie-b0-Bc9"/>
+                    <constraint firstItem="whx-PX-0NT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6Dz-Et-KpL"/>
+                    <constraint firstItem="whx-PX-0NT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7Kc-mc-9kY"/>
+                    <constraint firstItem="iPd-4H-lfQ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="2:1.5" id="AIc-de-l4h"/>
+                    <constraint firstAttribute="bottom" secondItem="iPd-4H-lfQ" secondAttribute="bottom" id="HQ7-Ah-O31"/>
+                    <constraint firstItem="whx-PX-0NT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="2:1.5" id="KKa-sU-mdc"/>
+                    <constraint firstAttribute="bottom" secondItem="whx-PX-0NT" secondAttribute="bottom" id="XAt-TZ-Em0"/>
+                    <constraint firstItem="iPd-4H-lfQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZS0-7f-jMS"/>
+                    <constraint firstItem="iPd-4H-lfQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dNg-T2-ANa"/>
+                    <constraint firstAttribute="trailing" secondItem="whx-PX-0NT" secondAttribute="trailing" id="mju-XY-5d4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="roundProgress" destination="whx-PX-0NT" id="dgP-Ob-gAO"/>
+            </connections>
+            <point key="canvasLocation" x="133.5" y="359"/>
+        </tableViewCell>
+    </objects>
+</document>
