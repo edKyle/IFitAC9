@@ -13,15 +13,12 @@ class CurrentUser{
     var menberID:String?
     var name:String?
     var age:Int?
-    var height:Float?
-    var weight:Float?
-    var fatPercentage:Float?
-    var waterPercentage:Float?
-    var musclePercent:Float?
-    var BMI:Float?
-    var record = [user]
+    
+    var record:[CurrentUser] = []
     
     func getUserInfo(user:CurrentUser){
         self.record.append(user)
     }
 }
+
+

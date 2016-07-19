@@ -5,7 +5,7 @@ import UIKit
 @objc public class ScrollableGraphView: UIScrollView, UIScrollViewDelegate, ScrollableGraphViewDrawingDelegate{
     
     
-    static var viewArray:[CGPoint] = []
+    static var linePointArray:[CGPoint] = []
     
     // MARK: - Public Properties
     // Use these to customise the graph.
@@ -846,6 +846,7 @@ import UIKit
         
         // add curve from start to end
         currentLinePath.addCurveToPoint(endPoint, controlPoint1: controlPointOne, controlPoint2: controlPointTwo)
+    
     }
     
     // MARK: Events
@@ -1150,9 +1151,7 @@ private class GraphPointAnimation : Equatable {
         self.graphPoint?.currentlyAnimatingToPosition = true
         
         GraphPointAnimation.animationsCreated += 1
-        
-          print("\(toPoint)")
-        ScrollableGraphView.viewArray.append(toPoint)
+        ScrollableGraphView.linePointArray.append(toPoint)
 }
     
 
