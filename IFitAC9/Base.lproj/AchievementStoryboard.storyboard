@@ -67,6 +67,26 @@
                                             <constraint firstAttribute="height" constant="200" id="FFm-sv-a8t"/>
                                             <constraint firstAttribute="height" constant="198" id="R4D-eV-3b2"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                                <real key="value" value="69"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="emptyCapType">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressCapType">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="R4D-eV-3b2"/>
@@ -169,36 +189,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PbN-kx-zhM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9CA-k7-HcZ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gKZ-sX-Aj7">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P8K-J2-FOF">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xBu-mp-n5K" firstAttribute="top" secondItem="PbN-kx-zhM" secondAttribute="bottom" id="3p5-Yf-pVb"/>
-                            <constraint firstAttribute="trailing" secondItem="PbN-kx-zhM" secondAttribute="trailing" id="gc8-5N-zJl"/>
-                            <constraint firstItem="PbN-kx-zhM" firstAttribute="top" secondItem="z0f-3W-QzH" secondAttribute="bottom" id="qAK-Kz-rMD"/>
-                            <constraint firstItem="PbN-kx-zhM" firstAttribute="leading" secondItem="ixu-Bj-Rdm" secondAttribute="leading" id="zhf-hd-8PV"/>
+                            <constraint firstAttribute="trailing" secondItem="9CA-k7-HcZ" secondAttribute="trailing" id="3Rx-ac-oWU"/>
+                            <constraint firstItem="9CA-k7-HcZ" firstAttribute="top" secondItem="z0f-3W-QzH" secondAttribute="bottom" id="5c9-zJ-VVf"/>
+                            <constraint firstItem="9CA-k7-HcZ" firstAttribute="leading" secondItem="ixu-Bj-Rdm" secondAttribute="leading" id="spP-Zk-vwi"/>
+                            <constraint firstItem="xBu-mp-n5K" firstAttribute="top" secondItem="9CA-k7-HcZ" secondAttribute="bottom" id="wnQ-OB-H59"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sYP-VP-UT3"/>
+                    <connections>
+                        <outlet property="tableView" destination="9CA-k7-HcZ" id="lMl-Q3-SNZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cN-Eb-3zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

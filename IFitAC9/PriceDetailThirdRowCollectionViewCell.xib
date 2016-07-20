@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PriceDetailThirdRowCollectionViewCell" customModule="IFitAC9" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="320"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="478" height="320"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKC-Om-KLi">
+                        <rect key="frame" x="0.0" y="0.0" width="478" height="320"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五點即可換" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaB-4g-Ckc">
+                                <rect key="frame" x="197" y="291" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="priceNo2CupCake" translatesAutoresizingMaskIntoConstraints="NO" id="hwX-9c-yhp">
+                                <rect key="frame" x="0.0" y="0.0" width="478" height="283"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hwX-9c-yhp" firstAttribute="leading" secondItem="UKC-Om-KLi" secondAttribute="leading" id="7qa-wo-nBm"/>
+                            <constraint firstAttribute="trailing" secondItem="hwX-9c-yhp" secondAttribute="trailing" id="iE5-5w-uRB"/>
+                            <constraint firstItem="xaB-4g-Ckc" firstAttribute="centerX" secondItem="UKC-Om-KLi" secondAttribute="centerX" id="nsy-Id-FG6"/>
+                            <constraint firstAttribute="bottom" secondItem="xaB-4g-Ckc" secondAttribute="bottom" constant="8" id="s7H-5Q-F30"/>
+                            <constraint firstItem="hwX-9c-yhp" firstAttribute="top" secondItem="UKC-Om-KLi" secondAttribute="top" id="shK-EF-GJC"/>
+                            <constraint firstItem="xaB-4g-Ckc" firstAttribute="top" secondItem="hwX-9c-yhp" secondAttribute="bottom" constant="8" id="z1I-2n-hM9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="UKC-Om-KLi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6w9-qD-mBP"/>
+                <constraint firstAttribute="trailing" secondItem="UKC-Om-KLi" secondAttribute="trailing" id="K6c-2f-V8D"/>
+                <constraint firstItem="UKC-Om-KLi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aYM-Rl-shv"/>
+                <constraint firstAttribute="bottom" secondItem="UKC-Om-KLi" secondAttribute="bottom" id="kRq-EU-0Bu"/>
+            </constraints>
+            <size key="customSize" width="478" height="320"/>
+            <point key="canvasLocation" x="405" y="282"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="priceNo2CupCake" width="695" height="400"/>
+    </resources>
+</document>
