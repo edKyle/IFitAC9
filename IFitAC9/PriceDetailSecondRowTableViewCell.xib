@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="233" id="KGk-i7-Jjw" customClass="PriceDetailSecondRowTableViewCell" customModule="IFitAC9" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="674" height="233"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="674" height="233"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sqk-M3-MjU">
+                        <rect key="frame" x="8" y="8" width="658" height="210"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="210" id="Ym1-bC-T86"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cyb-OI-jWT" customClass="CustomViewFlowLayout" customModule="IFitAC9" customModuleProvider="target">
+                            <size key="itemSize" width="200" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Sqk-M3-MjU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="CDK-Ue-TyZ"/>
+                    <constraint firstItem="Sqk-M3-MjU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MJO-69-Z8T"/>
+                    <constraint firstItem="Sqk-M3-MjU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UO8-HK-v3p"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Sqk-M3-MjU" secondAttribute="trailing" id="iQA-HM-I2B"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Sqk-M3-MjU" secondAttribute="bottom" id="jSc-IQ-C6z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="Sqk-M3-MjU" id="1Hu-Ep-w69"/>
+                <outlet property="collectionViewHeight" destination="Ym1-bC-T86" id="WIT-tO-xaY"/>
+                <outlet property="collectionViewOutlay" destination="cyb-OI-jWT" id="Vum-8B-rHA"/>
+            </connections>
+            <point key="canvasLocation" x="273" y="348.5"/>
+        </tableViewCell>
+    </objects>
+</document>
