@@ -69,7 +69,7 @@ extension PriceDetailViewController:UITableViewDataSource{
         }else if indexPath.row == 1{
             return cellForSecondRow
         }else{
-            return cellForThirdRow
+            return cell
         }
     }
     
