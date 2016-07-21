@@ -14,17 +14,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="193" height="151"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkY-Zf-GeK">
-                        <rect key="frame" x="0.0" y="0.0" width="193" height="151"/>
+                        <rect key="frame" x="8" y="8" width="177" height="135"/>
                         <color key="backgroundColor" red="1" green="0.91288276010000002" blue="0.93112940440000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="HkY-Zf-GeK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DMc-l9-8mV"/>
-                <constraint firstAttribute="trailing" secondItem="HkY-Zf-GeK" secondAttribute="trailing" id="V3v-5n-ZMu"/>
-                <constraint firstAttribute="bottom" secondItem="HkY-Zf-GeK" secondAttribute="bottom" id="h2n-yS-fra"/>
-                <constraint firstItem="HkY-Zf-GeK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pIi-tn-eaA"/>
+                <constraint firstItem="HkY-Zf-GeK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="DMc-l9-8mV"/>
+                <constraint firstAttribute="trailing" secondItem="HkY-Zf-GeK" secondAttribute="trailing" constant="8" id="V3v-5n-ZMu"/>
+                <constraint firstAttribute="bottom" secondItem="HkY-Zf-GeK" secondAttribute="bottom" constant="8" id="h2n-yS-fra"/>
+                <constraint firstItem="HkY-Zf-GeK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="pIi-tn-eaA"/>
             </constraints>
             <size key="customSize" width="193" height="151"/>
             <connections>

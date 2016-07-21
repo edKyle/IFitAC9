@@ -13,7 +13,12 @@ class line2CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lineRecordView2: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        lineRecordView2.layer.shadowColor = UIColor.blackColor().CGColor
+        lineRecordView2.layer.shadowOpacity = 1
+        lineRecordView2.layer.shadowOffset = CGSizeZero
+        lineRecordView2.layer.shadowRadius = 10
+
     }
 
 }
