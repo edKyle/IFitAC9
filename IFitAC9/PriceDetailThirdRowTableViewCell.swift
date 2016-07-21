@@ -1,58 +1,54 @@
 //
-//  PriceDetailSecondRowTableViewCell.swift
+//  PriceDetailThirdRowTableViewCell.swift
 //  IFitAC9
 //
-//  Created by YeouTimothy on 2016/7/19.
+//  Created by YeouTimothy on 2016/7/20.
 //  Copyright © 2016年 Alphacamp. All rights reserved.
 //
 
 import UIKit
 
-class PriceDetailSecondRowTableViewCell: UITableViewCell {
-    
+class PriceDetailThirdRowTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var collectionViewOutlay: UICollectionViewFlowLayout!
-    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+//    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
         
         let screenSize = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
         
-        collectionView.registerNib(UINib(nibName: "PriceDetailSecondRowCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        collectionView.registerNib(UINib(nibName: "PriceDetailThirdRowCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+//        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
         layout.itemSize = CGSize(width: screenWidth/4, height: screenWidth/3)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-
+        
         layout.scrollDirection = .Horizontal
         
+        collectionView.setCollectionViewLayout(layout, animated: true)
         
-        collectionViewOutlay.minimumLineSpacing = 0
-        collectionViewOutlay.minimumInteritemSpacing = 0
-        collectionView.setCollectionViewLayout(collectionViewOutlay, animated: true)
+       
         
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
 
         
-        // Do any additional setup after loading the view, typically from a nib
-        }
-    
+    }
+
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
     }
     
 }
-
-extension PriceDetailSecondRowTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension PriceDetailThirdRowTableViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -84,22 +80,24 @@ extension PriceDetailSecondRowTableViewCell: UICollectionViewDataSource, UIColle
         return 2
     }
     
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PriceDetailSecondRowCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PriceDetailThirdRowCollectionViewCell
+        
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        cell.cellViewHeight.constant = screenHeight/4
         
         
-
-        cell.cellViewHeight.constant = (UIScreen.mainScreen().bounds.height / 4) - 15
-        print("View")
-        print(cell.cellViewHeight.constant)
-        print("compare")
-        print(UIScreen.mainScreen().bounds.height / 4)
         
-//        cell.bounds = CGRectMake(cell.frame.origin.x, 0, screen.width/3, screen.height/4)
-        //        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, screen.width/3, screen.height/4)
+        
         
         return cell
     }
     
 }
+
+extension PriceDetailThirdRowTableViewCell: UITableViewDelegate {
+
+}
+
 

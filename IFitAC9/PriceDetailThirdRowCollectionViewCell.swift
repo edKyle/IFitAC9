@@ -10,6 +10,7 @@ import UIKit
 
 class PriceDetailThirdRowCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var cellViewHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
