@@ -27,10 +27,10 @@ class BubbleNode: SIFloatingNode {
         node.fillColor = SKColor.blueColor()
         node.strokeColor = node.fillColor
         
-        node.labelNode.text = "Price"
+        node.labelNode.text = "Your Price"
         node.labelNode.position = CGPointZero
         node.labelNode.fontColor = SKColor.whiteColor()
-        node.labelNode.fontSize = 13
+        node.labelNode.fontSize = 15
         node.labelNode.userInteractionEnabled = true
         node.labelNode.verticalAlignmentMode = .Center
         node.labelNode.horizontalAlignmentMode = .Center

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="lineCollectionViewCell" customModule="IFitAC9" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="108" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="108" height="86"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5l-vm-BPj">
+                        <rect key="frame" x="0.0" y="0.0" width="108" height="86"/>
+                        <color key="backgroundColor" red="1" green="0.92098883279999999" blue="0.95310831100000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="k5l-vm-BPj" secondAttribute="bottom" id="0Ud-rf-izX"/>
+                <constraint firstItem="k5l-vm-BPj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PWd-K3-ujq"/>
+                <constraint firstAttribute="trailing" secondItem="k5l-vm-BPj" secondAttribute="trailing" id="a9t-6g-Y2e"/>
+                <constraint firstItem="k5l-vm-BPj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zkp-sf-Ocy"/>
+            </constraints>
+            <size key="customSize" width="108" height="86"/>
+            <connections>
+                <outlet property="lineRecordView" destination="k5l-vm-BPj" id="I4J-wi-7N7"/>
+            </connections>
+            <point key="canvasLocation" x="439" y="251"/>
+        </collectionViewCell>
+    </objects>
+</document>

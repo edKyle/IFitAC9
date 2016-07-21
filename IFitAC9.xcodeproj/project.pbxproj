@@ -16,7 +16,19 @@
 		27098D991D3CC5380021543E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D981D3CC5380021543E /* UserViewController.swift */; };
 		27098D9B1D3CCECD0021543E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27098D9A1D3CCECD0021543E /* CurrentUser.swift */; };
 		27A078D21D3DC56A00AD264E /* lineRecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A078D11D3DC56A00AD264E /* lineRecordData.swift */; };
-		27EEFEC61D3D232C00F27F3D /* lineRecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEFEC51D3D232C00F27F3D /* lineRecordCollectionViewCell.swift */; };
+		27CFB1661D3E7F6A001B7A9F /* line2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFB1641D3E7F6A001B7A9F /* line2CollectionViewCell.swift */; };
+		27CFB1671D3E7F6A001B7A9F /* line2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFB1651D3E7F6A001B7A9F /* line2CollectionViewCell.xib */; };
+		27CFB16A1D3E801E001B7A9F /* line3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFB1681D3E801E001B7A9F /* line3CollectionViewCell.swift */; };
+		27CFB16B1D3E801E001B7A9F /* line3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFB1691D3E801E001B7A9F /* line3CollectionViewCell.xib */; };
+		27CFB16E1D3E802F001B7A9F /* line4CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFB16C1D3E802F001B7A9F /* line4CollectionViewCell.swift */; };
+		27CFB16F1D3E802F001B7A9F /* line4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFB16D1D3E802F001B7A9F /* line4CollectionViewCell.xib */; };
+		27DBCD391D3E69DC00720291 /* lineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DBCD371D3E69DC00720291 /* lineCollectionViewCell.swift */; };
+		27DBCD3A1D3E69DC00720291 /* lineCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */; };
+		27EEFEC61D3D232C00F27F3D /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6B38E9D01D40B4500011FB3D /* BubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */; };
+		6B38E9D11D40B4500011FB3D /* BubblesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */; };
+		6B38E9D41D40B4A70011FB3D /* SIFloatingCollectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */; };
+		6B38E9D51D40B4A70011FB3D /* SIFloatingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9D31D40B4A70011FB3D /* SIFloatingNode.swift */; };
 		6BA782D21D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA782D01D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.swift */; };
 		6BA782D31D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA782D11D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.xib */; };
 		6BA782D71D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA782D51D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.swift */; };
@@ -24,10 +36,6 @@
 		6BA782DA1D3F6C4000024D30 /* logIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA782D91D3F6C4000024D30 /* logIn.storyboard */; };
 		6BA782DD1D3F6D7600024D30 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA782DC1D3F6D7600024D30 /* LoginViewController.swift */; };
 		6BA7830E1D40771500024D30 /* ChooseCoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7830D1D40771500024D30 /* ChooseCoinViewController.swift */; };
-		6BA783141D40880E00024D30 /* SIFloatingCollectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA783121D40880E00024D30 /* SIFloatingCollectionScene.swift */; };
-		6BA783151D40880E00024D30 /* SIFloatingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA783131D40880E00024D30 /* SIFloatingNode.swift */; };
-		6BA783181D40884300024D30 /* BubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA783161D40884300024D30 /* BubbleNode.swift */; };
-		6BA783191D40884300024D30 /* BubblesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA783171D40884300024D30 /* BubblesScene.swift */; };
 		6BA7831C1D4088D000024D30 /* BubbleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7831B1D4088D000024D30 /* BubbleViewController.swift */; };
 		6BB703DE1D3CDCFB00406E63 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703DD1D3CDCFB00406E63 /* AchievementViewController.swift */; };
 		6BB703E11D3CDD4800406E63 /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB703DF1D3CDD4800406E63 /* AchievementTableViewCell.swift */; };
@@ -58,8 +66,19 @@
 		27098D981D3CC5380021543E /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		27098D9A1D3CCECD0021543E /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		27A078D11D3DC56A00AD264E /* lineRecordData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineRecordData.swift; sourceTree = "<group>"; };
-		27EEFEC51D3D232C00F27F3D /* lineRecordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineRecordCollectionViewCell.swift; sourceTree = "<group>"; };
+		27CFB1641D3E7F6A001B7A9F /* line2CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = line2CollectionViewCell.swift; sourceTree = "<group>"; };
+		27CFB1651D3E7F6A001B7A9F /* line2CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = line2CollectionViewCell.xib; sourceTree = "<group>"; };
+		27CFB1681D3E801E001B7A9F /* line3CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = line3CollectionViewCell.swift; sourceTree = "<group>"; };
+		27CFB1691D3E801E001B7A9F /* line3CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = line3CollectionViewCell.xib; sourceTree = "<group>"; };
+		27CFB16C1D3E802F001B7A9F /* line4CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = line4CollectionViewCell.swift; sourceTree = "<group>"; };
+		27CFB16D1D3E802F001B7A9F /* line4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = line4CollectionViewCell.xib; sourceTree = "<group>"; };
+		27DBCD371D3E69DC00720291 /* lineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineCollectionViewCell.swift; sourceTree = "<group>"; };
+		27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lineCollectionViewCell.xib; sourceTree = "<group>"; };
 		684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IFitAC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleNode.swift; sourceTree = "<group>"; };
+		6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubblesScene.swift; sourceTree = "<group>"; };
+		6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIFloatingCollectionScene.swift; sourceTree = "<group>"; };
+		6B38E9D31D40B4A70011FB3D /* SIFloatingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIFloatingNode.swift; sourceTree = "<group>"; };
 		6BA782D01D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetailThirdRowCollectionViewCell.swift; sourceTree = "<group>"; };
 		6BA782D11D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceDetailThirdRowCollectionViewCell.xib; sourceTree = "<group>"; };
 		6BA782D51D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetailThirdRowTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,10 +86,6 @@
 		6BA782D91D3F6C4000024D30 /* logIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = logIn.storyboard; sourceTree = "<group>"; };
 		6BA782DC1D3F6D7600024D30 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6BA7830D1D40771500024D30 /* ChooseCoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCoinViewController.swift; sourceTree = "<group>"; };
-		6BA783121D40880E00024D30 /* SIFloatingCollectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SIFloatingCollectionScene.swift; path = Sources/SIFloatingCollectionScene.swift; sourceTree = "<group>"; };
-		6BA783131D40880E00024D30 /* SIFloatingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SIFloatingNode.swift; path = Sources/SIFloatingNode.swift; sourceTree = "<group>"; };
-		6BA783161D40884300024D30 /* BubbleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleNode.swift; sourceTree = "<group>"; };
-		6BA783171D40884300024D30 /* BubblesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubblesScene.swift; sourceTree = "<group>"; };
 		6BA7831B1D4088D000024D30 /* BubbleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleViewController.swift; sourceTree = "<group>"; };
 		6BB703DD1D3CDCFB00406E63 /* AchievementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		6BB703DF1D3CDD4800406E63 /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
@@ -156,8 +171,8 @@
 			children = (
 				27098D831D3CC1340021543E /* Main.storyboard */,
 				27098D981D3CC5380021543E /* UserViewController.swift */,
-				27EEFEC51D3D232C00F27F3D /* lineRecordCollectionViewCell.swift */,
 				27098D961D3CC48D0021543E /* ScrollableGraphView.swift */,
+				27DBCD361D3E61B800720291 /* Cell */,
 			);
 			name = UserStoryboard;
 			sourceTree = "<group>";
@@ -170,6 +185,21 @@
 			);
 			name = model;
 			path = IFitAC9;
+			sourceTree = "<group>";
+		};
+		27DBCD361D3E61B800720291 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				27DBCD371D3E69DC00720291 /* lineCollectionViewCell.swift */,
+				27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */,
+				27CFB1641D3E7F6A001B7A9F /* line2CollectionViewCell.swift */,
+				27CFB1651D3E7F6A001B7A9F /* line2CollectionViewCell.xib */,
+				27CFB1681D3E801E001B7A9F /* line3CollectionViewCell.swift */,
+				27CFB1691D3E801E001B7A9F /* line3CollectionViewCell.xib */,
+				27CFB16C1D3E802F001B7A9F /* line4CollectionViewCell.swift */,
+				27CFB16D1D3E802F001B7A9F /* line4CollectionViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		49A3DC4F7B148BBF0D0AC8AF /* Pods */ = {
@@ -213,11 +243,11 @@
 		6BA7831A1D40884900024D30 /* BubbleFactory */ = {
 			isa = PBXGroup;
 			children = (
+				6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */,
+				6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */,
+				6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */,
+				6B38E9D31D40B4A70011FB3D /* SIFloatingNode.swift */,
 				6BA7831B1D4088D000024D30 /* BubbleViewController.swift */,
-				6BA783161D40884300024D30 /* BubbleNode.swift */,
-				6BA783171D40884300024D30 /* BubblesScene.swift */,
-				6BA783121D40880E00024D30 /* SIFloatingCollectionScene.swift */,
-				6BA783131D40880E00024D30 /* SIFloatingNode.swift */,
 			);
 			name = BubbleFactory;
 			sourceTree = "<group>";
@@ -322,7 +352,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB703E61D3CFCE800406E63 /* ArchievementListTableViewCell.xib in Resources */,
+				27CFB16B1D3E801E001B7A9F /* line3CollectionViewCell.xib in Resources */,
 				27098D8A1D3CC1340021543E /* LaunchScreen.storyboard in Resources */,
+				27DBCD3A1D3E69DC00720291 /* lineCollectionViewCell.xib in Resources */,
+				6BB703E21D3CDD4800406E63 /* AchievementTableViewCell.xib in Resources */,
+				27CFB16F1D3E802F001B7A9F /* line4CollectionViewCell.xib in Resources */,
 				6BB703F81D3E133200406E63 /* PriceDetailSecondRowCollectionViewCell.xib in Resources */,
 				6BB703E21D3CDD4800406E63 /* AchievementTableViewCell.xib in Resources */,
 				6BA782D31D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.xib in Resources */,
@@ -330,6 +364,7 @@
 				6BB703EF1D3E0BED00406E63 /* PriceDetailFirstRowTableViewCell.xib in Resources */,
 				27098D871D3CC1340021543E /* Assets.xcassets in Resources */,
 				6BA782DA1D3F6C4000024D30 /* logIn.storyboard in Resources */,
+				27CFB1671D3E7F6A001B7A9F /* line2CollectionViewCell.xib in Resources */,
 				27098D931D3CC2440021543E /* AchievementStoryboard.storyboard in Resources */,
 				27098D851D3CC1340021543E /* Main.storyboard in Resources */,
 				6BA782D81D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.xib in Resources */,
@@ -391,27 +426,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B38E9D41D40B4A70011FB3D /* SIFloatingCollectionScene.swift in Sources */,
 				6BB703E51D3CFCE800406E63 /* ArchievementListTableViewCell.swift in Sources */,
-				6BA783151D40880E00024D30 /* SIFloatingNode.swift in Sources */,
+				27CFB16E1D3E802F001B7A9F /* line4CollectionViewCell.swift in Sources */,
 				27098D991D3CC5380021543E /* UserViewController.swift in Sources */,
 				6BB703EE1D3E0BED00406E63 /* PriceDetailFirstRowTableViewCell.swift in Sources */,
-				27EEFEC61D3D232C00F27F3D /* lineRecordCollectionViewCell.swift in Sources */,
-				6BA783141D40880E00024D30 /* SIFloatingCollectionScene.swift in Sources */,
+				27EEFEC61D3D232C00F27F3D /* (null) in Sources */,
 				6BB703F71D3E133200406E63 /* PriceDetailSecondRowCollectionViewCell.swift in Sources */,
 				6BA7831C1D4088D000024D30 /* BubbleViewController.swift in Sources */,
 				27A078D21D3DC56A00AD264E /* lineRecordData.swift in Sources */,
 				27098D971D3CC48D0021543E /* ScrollableGraphView.swift in Sources */,
-				6BA783181D40884300024D30 /* BubbleNode.swift in Sources */,
+				27DBCD391D3E69DC00720291 /* lineCollectionViewCell.swift in Sources */,
+				6B38E9D51D40B4A70011FB3D /* SIFloatingNode.swift in Sources */,
 				27098D9B1D3CCECD0021543E /* CurrentUser.swift in Sources */,
 				6BB703E11D3CDD4800406E63 /* AchievementTableViewCell.swift in Sources */,
 				6BB703EA1D3DDFEA00406E63 /* PriceDetailViewController.swift in Sources */,
 				27098D801D3CC1340021543E /* AppDelegate.swift in Sources */,
+				27CFB16A1D3E801E001B7A9F /* line3CollectionViewCell.swift in Sources */,
+				27CFB1661D3E7F6A001B7A9F /* line2CollectionViewCell.swift in Sources */,
 				6BB703E81D3DDFBB00406E63 /* GoalDetailViewController.swift in Sources */,
 				6BA782D21D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.swift in Sources */,
 				6BA782DD1D3F6D7600024D30 /* LoginViewController.swift in Sources */,
+				6B38E9D11D40B4500011FB3D /* BubblesScene.swift in Sources */,
 				6BA782D71D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.swift in Sources */,
-				6BA783191D40884300024D30 /* BubblesScene.swift in Sources */,
 				6BB703DE1D3CDCFB00406E63 /* AchievementViewController.swift in Sources */,
+				6B38E9D01D40B4500011FB3D /* BubbleNode.swift in Sources */,
 				6BA7830E1D40771500024D30 /* ChooseCoinViewController.swift in Sources */,
 				6BB703F31D3E10FF00406E63 /* PriceDetailSecondRowTableViewCell.swift in Sources */,
 			);
