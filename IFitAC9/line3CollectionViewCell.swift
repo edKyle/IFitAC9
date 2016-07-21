@@ -14,6 +14,11 @@ class line3CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        lineRecordView3.layer.shadowColor = UIColor.blackColor().CGColor
+        lineRecordView3.layer.shadowOpacity = 1
+        lineRecordView3.layer.shadowOffset = CGSizeZero
+        lineRecordView3.layer.shadowRadius = 10
+
     }
 
 }

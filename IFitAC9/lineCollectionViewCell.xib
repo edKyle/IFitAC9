@@ -14,17 +14,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="108" height="86"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5l-vm-BPj">
-                        <rect key="frame" x="0.0" y="0.0" width="108" height="86"/>
+                        <rect key="frame" x="8" y="8" width="92" height="70"/>
                         <color key="backgroundColor" red="1" green="0.92098883279999999" blue="0.95310831100000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="k5l-vm-BPj" secondAttribute="bottom" id="0Ud-rf-izX"/>
-                <constraint firstItem="k5l-vm-BPj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PWd-K3-ujq"/>
-                <constraint firstAttribute="trailing" secondItem="k5l-vm-BPj" secondAttribute="trailing" id="a9t-6g-Y2e"/>
-                <constraint firstItem="k5l-vm-BPj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zkp-sf-Ocy"/>
+                <constraint firstAttribute="bottom" secondItem="k5l-vm-BPj" secondAttribute="bottom" constant="8" id="0Ud-rf-izX"/>
+                <constraint firstItem="k5l-vm-BPj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="PWd-K3-ujq"/>
+                <constraint firstAttribute="trailing" secondItem="k5l-vm-BPj" secondAttribute="trailing" constant="8" id="a9t-6g-Y2e"/>
+                <constraint firstItem="k5l-vm-BPj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="zkp-sf-Ocy"/>
             </constraints>
             <size key="customSize" width="108" height="86"/>
             <connections>

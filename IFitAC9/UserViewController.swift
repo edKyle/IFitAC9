@@ -10,6 +10,11 @@ import UIKit
 import AVFoundation
 
 class UserViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource{
+    // 手的指標、標準值title、%Label
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var standerSegControll: UISegmentedControl!
+    let pointImageView = UIImageView(frame: CGRect(x: 0, y: 130, width: 80, height: 80))
     
     //dropImage
     @IBOutlet weak var theViewUnderDropView: UIView!
@@ -31,21 +36,32 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
     var muscleLocalArray:[Double] = []
     var fatPercentLocalArray:[Double] = []
     var waterPercentLocalArray:[Double] = []
+    var BMIStander:String = ""
+    var muscleStander:String = ""
+    var fatPercentStander:String = ""
+    var waterPercentStander:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UITabBar.appearance().barTintColor = UIColor.init(red: 255/255, green: 230/255, blue: 207/255, alpha: 1)
+        
+        UITabBar.appearance().selectionIndicatorImage = UIImage(named: "dot")
+        
+        //指標
+        pointImageView.image = UIImage(named: "指標")
+        self.topView.addSubview(pointImageView)
         //dropImage
         dropImage.image = UIImage(named: "降落傘")
         dropImage.contentMode = .ScaleAspectFit
         self.dropImage.userInteractionEnabled = true
         self.view.addSubview(dropImage)
-
         
         lineRecordCollectionView.delegate = self
         lineRecordCollectionView.dataSource = self
         
         let layout = self.lineRecordCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - UIScreen.mainScreen().bounds.width/1.5)
+        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - UIScreen.mainScreen().bounds.width+10)
         
         
         let nibName = UINib(nibName: "lineCollectionViewCell", bundle:nil)
@@ -62,15 +78,20 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
         
         
         takeEveryDataToLocalArray()
+        toKnowUserStander()
         
     }
     override func viewDidAppear(animated: Bool) {
-        UIView.animateWithDuration(1.5, animations: {
-                self.dropImage.image = UIImage(named: "降落傘")
-                self.dropImage.frame.origin.x = -30
-                self.dropImage.frame.origin.y = UIScreen.mainScreen().bounds.height-115
-            }) { (nil) in
-                self.dropImage.image = UIImage(named: "睡覺貓")
+        self.dropImage.frame.origin.x = 150
+        self.dropImage.frame.origin.y = 0
+        UIView.animateWithDuration(1.8, animations: {
+            self.dropImage.frame.size = CGSize(width: 150, height: 150)
+            self.dropImage.image = UIImage(named: "降落傘")
+            self.dropImage.frame.origin.x = -30
+            self.dropImage.frame.origin.y = UIScreen.mainScreen().bounds.height-115
+        }) { (nil) in
+            self.dropImage.frame.size = CGSize(width: 100, height: 100)
+            self.dropImage.image = UIImage(named: "睡覺貓")
         }
     }
     override func didReceiveMemoryWarning() {
@@ -78,46 +99,48 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
         // Dispose of any resources that can be recreated.
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-            self.beginTouch = touches.first!
+        self.beginTouch = touches.first!
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if beginTouch.view == self.dropImage{
-            self.dropImage.image = UIImage(named: "睡覺貓")
+            self.dropImage.image = UIImage(named: "抓起")
+            self.dropImage.frame.size = CGSize(width: 150, height: 150)
             let point = self.beginTouch.locationInView(self.dropImage.superview)
             self.dropImage.center = point
         }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        UIView.animateWithDuration(1.5, animations: {
+        self.dropImage.frame.size = CGSize(width: 100, height: 100)
+        UIView.animateWithDuration(1.8, animations: {
             if self.beginTouch.view == self.dropImage{
+                self.dropImage.frame.size = CGSize(width: 150, height: 150)
                 self.dropImage.image = UIImage(named: "降落傘")
                 self.dropImage.frame.origin.x = -30
                 self.dropImage.frame.origin.y = UIScreen.mainScreen().bounds.height-115
-//                self.dropImage.transform = CGAffineTransformRotate(self.dropImage.transform, CGFloat(M_PI_2))
+                
             }}) { (nil) in
+                self.dropImage.frame.size = CGSize(width: 100, height: 100)
                 self.dropImage.image = UIImage(named: "睡覺貓")
         }
     }
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        while motion == .MotionShake{
+        if motion == .MotionShake{
             self.dropImage.image = UIImage(named: "shock")
             self.dropImage.frame.origin.x = 100
             self.dropImage.frame.origin.y = 30
         }
     }
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-            self.dropImage.image = UIImage(named: "睡覺貓")
-            UIView.animateWithDuration(1.5, animations: {
-            self.dropImage.image = UIImage(named: "降落傘")
-            self.dropImage.frame.origin.x = -30
+        UIView.animateWithDuration(1.5, animations: {
             self.dropImage.frame.origin.y = UIScreen.mainScreen().bounds.height-115
         }) { (nil) in
+            self.dropImage.frame.size = CGSize(width: 100, height: 100)
             self.dropImage.image = UIImage(named: "睡覺貓")
         }
-
+        
     }
-
-
+    
+    
     //collectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -131,9 +154,14 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
         
         switch indexPath.item{
         case 0:
-            lineGraphView?.removeFromSuperview()
+            percentLabel.text = "\(BMIlocalArray[BMIlocalArray.count-1])%"
             
-            let cell = lineRecordCollectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! lineCollectionViewCell
+            getHandPointX(BMIStander)
+            
+            let cell1 = lineRecordCollectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! lineCollectionViewCell
+            
+            print(cell1)
+            lineGraphView?.removeFromSuperview()
             
             //把 ImageViewArray 跟 PointArray 清空
             self.ImgageViewArray = []
@@ -142,7 +170,7 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
             //輸入新的Data產生新圖
             
             makeLineView()
-            cell.lineRecordView.addSubview(lineGraphView!)
+            cell1.lineRecordView.addSubview(lineGraphView!)
             
             //delay一下後加imageView上去
             let triggerTime = (Int64(NSEC_PER_SEC) * 1/100)
@@ -152,18 +180,23 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
                     self.lineGraphView?.addSubview(image)
                 }
             })
-            return cell
+            return cell1
             
         case 1:
-            lineGraphView2?.removeFromSuperview()
+            percentLabel.text = "\(muscleLocalArray[muscleLocalArray.count-1])%"
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell2", forIndexPath: indexPath) as! line2CollectionViewCell
+            getHandPointX(muscleStander)
+            
+            let cell2 = collectionView.dequeueReusableCellWithReuseIdentifier("Cell2", forIndexPath: indexPath) as! line2CollectionViewCell
+            
+            
+            lineGraphView2?.removeFromSuperview()
             
             self.ImgageViewArray = []
             ScrollableGraphView.linePointArray = []
             
             makeLineView2()
-            cell.lineRecordView2.addSubview(self.lineGraphView2!)
+            cell2.lineRecordView2.addSubview(self.lineGraphView2!)
             
             let triggerTime = (Int64(NSEC_PER_SEC) * 1/100)
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
@@ -172,19 +205,23 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
                     self.lineGraphView2?.addSubview(image)
                 }
             })
-            return cell
+            return cell2
             
             
         case 2:
-            lineGraphView3?.removeFromSuperview()
+            percentLabel.text = "\(fatPercentLocalArray[fatPercentLocalArray.count-1])%"
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell3", forIndexPath: indexPath) as! line3CollectionViewCell
+            getHandPointX(fatPercentStander)
+            
+            let cell3 = collectionView.dequeueReusableCellWithReuseIdentifier("Cell3", forIndexPath: indexPath) as! line3CollectionViewCell
+            
+            lineGraphView3?.removeFromSuperview()
             
             self.ImgageViewArray = []
             ScrollableGraphView.linePointArray = []
             
             makeLineView3()
-            cell.lineRecordView3.addSubview(lineGraphView3!)
+            cell3.lineRecordView3.addSubview(lineGraphView3!)
             
             let triggerTime = (Int64(NSEC_PER_SEC) * 1/100)
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
@@ -193,18 +230,22 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
                     self.lineGraphView3?.addSubview(image)
                 }
             })
-            return cell
+            return cell3
             
         default:
-            lineGraphView4?.removeFromSuperview()
+            percentLabel.text = "\(waterPercentLocalArray[waterPercentLocalArray.count-1])%"
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell4", forIndexPath: indexPath) as! line4CollectionViewCell
+            getHandPointX(waterPercentStander)
+            
+            let cell4 = collectionView.dequeueReusableCellWithReuseIdentifier("Cell4", forIndexPath: indexPath) as! line4CollectionViewCell
+            
+            lineGraphView4?.removeFromSuperview()
             
             self.ImgageViewArray = []
             ScrollableGraphView.linePointArray = []
             
             makeLineView4()
-            cell.lineRecordView4.addSubview(lineGraphView4!)
+            cell4.lineRecordView4.addSubview(lineGraphView4!)
             
             let triggerTime = (Int64(NSEC_PER_SEC) * 1/100)
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
@@ -213,10 +254,14 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
                     self.lineGraphView4?.addSubview(image)
                 }
             })
-            return cell
+            return cell4
         }
     }
-    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let pageNum = CGFloat(scrollView.contentOffset.x / scrollView.frame.size.width)
+        self.standerSegControll.selectedSegmentIndex = Int(pageNum)
+    }
+
     
     
     
@@ -224,7 +269,7 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
     // func 生成要劃的線
     func makeLineView(){
         lineGraphView = nil
-        lineGraphView = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width/5, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/2.3))
+        lineGraphView = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/18, UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/3+10))
         
         lineGraphView!.dataPointType = .Circle
         
@@ -240,7 +285,7 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
     }
     func makeLineView2(){
         lineGraphView2 = nil
-        lineGraphView2 = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width/5, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/2.3))
+        lineGraphView2 = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/18, UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/3+10))
         
         lineGraphView2!.dataPointType = .Circle
         
@@ -257,7 +302,7 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
     }
     func makeLineView3(){
         lineGraphView3 = nil
-        lineGraphView3 = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width/5, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/2.3))
+        lineGraphView3 = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/18, UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/3+10))
         
         lineGraphView3!.dataPointType = .Circle
         
@@ -273,7 +318,7 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
     }
     func makeLineView4(){
         lineGraphView4 = nil
-        lineGraphView4 = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width/5, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/2.3))
+        lineGraphView4 = ScrollableGraphView(frame: CGRectMake ( UIScreen.mainScreen().bounds.width/18, UIScreen.mainScreen().bounds.width/15, UIScreen.mainScreen().bounds.width , UIScreen.mainScreen().bounds.height/3+10))
         
         lineGraphView4!.dataPointType = .Circle
         
@@ -309,6 +354,21 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
             
         }
         
+    }
+    //func 指標x軸計算
+    func getHandPointX(standerValue:String){
+        if standerValue != ""{
+            UIView.animateWithDuration(2, animations: {
+                switch standerValue{
+                case "過低":
+                    self.pointImageView.frame.origin.x = 0
+                case "標準":
+                    self.pointImageView.frame.origin.x = UIScreen.mainScreen().bounds.width/2.7
+                default:
+                    self.pointImageView.frame.origin.x = UIScreen.mainScreen().bounds.width/3*2.2
+                }
+            })
+        }
     }
     
     //func 從model挖資料倒local controller
@@ -350,7 +410,44 @@ class UserViewController: UIViewController, UICollectionViewDelegate,UICollectio
             }
         }
     }
-    
+    //判斷user各個標準值結果
+    func toKnowUserStander(){
+        if lineRecordData.recordData.BMI != []{
+            self.BMIStander = makeData(BMIlocalArray[BMIlocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectBMIMin)!, MaxData: Double(lineRecordData.recordData.userPerfectBMIMax)!)
+        }
+        if lineRecordData.recordData.musclePercent != []{
+            self.muscleStander = makeData(muscleLocalArray[muscleLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectMuscleMin)!, MaxData: Double(lineRecordData.recordData.userPerfectMuscleMax)!)
+        }
+        if lineRecordData.recordData.fatPercentage != []{
+            self.fatPercentStander = makeData(fatPercentLocalArray[fatPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectFatMin)!, MaxData: Double(lineRecordData.recordData.userPerfectFatMax)!)
+        }
+        if lineRecordData.recordData.waterPercentage != []{
+            self.waterPercentStander = makeData(waterPercentLocalArray[waterPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectWaterMin)!, MaxData: Double(lineRecordData.recordData.userPerfectWaterMax)!)
+        }
+    }
+    //判斷user各個標準值結果(標準值輔助計算公式)
+    func makeData(data:Double,MinData:Double,MaxData:Double)->String{
+        if data > MinData && data < MaxData{
+            return "標準"
+        }else if data < MinData{
+            return "過低"
+        }else if data > MaxData{
+            return "過高"
+        }
+        return ""
+    }
+    @IBAction func standerSegControllAction(sender: AnyObject) {
+        let x = UIScreen.mainScreen().bounds.width
+        switch self.standerSegControll.selectedSegmentIndex{
+        case 0:
+            lineRecordCollectionView.setContentOffset(CGPointMake(0, 0), animated: true)
+        case 1:
+            lineRecordCollectionView.setContentOffset(CGPointMake(x, 0), animated: true)
+        case 2:
+            lineRecordCollectionView.setContentOffset(CGPointMake(x*2, 0), animated: true)
+        default:
+            lineRecordCollectionView.setContentOffset(CGPointMake(x*3, 0), animated: true)
+        }
 }
-
+}
 
