@@ -121,6 +121,7 @@
         <!--iFitStore-->
         <scene sceneID="fAz-R9-J3m">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqn-Gp-Ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="iV0-EZ-BJa" customClass="iFitStoreListTableViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NoH-FK-chW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -143,7 +144,6 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="iFitStore" id="TwM-0J-4xY"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eqn-Gp-Ltc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="78" y="-84"/>
         </scene>
