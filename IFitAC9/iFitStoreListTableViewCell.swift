@@ -10,6 +10,7 @@ import UIKit
 
 class iFitStoreListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var storeImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,5 +11,6 @@ target 'IFitAC9' do
 pod "MBCircularProgressBar"
 pod 'Alamofire', '~> 3.4'
 pod 'BetterSegmentedControl', '~> 0.4'
+pod 'GestureRecognizerClosures', '~> 2.3'
 
 end

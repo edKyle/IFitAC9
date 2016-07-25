@@ -4,9 +4,6 @@ import UIKit
 // MARK: - ScrollableGraphView
 @objc public class ScrollableGraphView: UIScrollView, UIScrollViewDelegate, ScrollableGraphViewDrawingDelegate{
     
-    
-    static var linePointArray:[CGPoint] = []
-    
     // MARK: - Public Properties
     // Use these to customise the graph.
     // #################################
@@ -1151,7 +1148,7 @@ private class GraphPointAnimation : Equatable {
         self.graphPoint?.currentlyAnimatingToPosition = true
         
         GraphPointAnimation.animationsCreated += 1
-        ScrollableGraphView.linePointArray.append(toPoint)
+    
 }
     
 
