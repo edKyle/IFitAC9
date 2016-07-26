@@ -1,6 +1,6 @@
 //
 //  UserDataViewController.swift
-//  
+//
 //
 //  Created by Kyle on 7/25/16.
 //
@@ -12,7 +12,7 @@ import BetterSegmentedControl
 class UserDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var lineGraphView:ScrollableGraphView?
-     //data
+    //data
     var howManyTimes:[String] = ["1","2","3","4","5","6"]
     var BMIlocalArray:[Double] = []
     var muscleLocalArray:[Double] = []
@@ -32,7 +32,8 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    //segamentControl
+        
+        //segamentControl
         let navHeight = navigationController?.navigationBar.frame.height
         let viewHeight = ButtonView.frame.height
         
@@ -62,14 +63,14 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         
         UserDataTableView.estimatedRowHeight = 80
         UserDataTableView.rowHeight = UITableViewAutomaticDimension
-
+        
         //data
         takeEveryDataToLocalArray()
         toKnowUserStander()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,63 +83,223 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        cell.layer.masksToBounds = false
+        
+        cell.layer.backgroundColor = UIColor.clearColor().CGColor
+        cell.layer.shadowColor = UIColor.init(red: 99/255, green: 63/255, blue: 30/255, alpha: 1).CGColor
+
+        cell.layer.shadowOffset = CGSizeMake(1, 1)
+        cell.layer.shadowRadius = 1
+        cell.layer.shadowOpacity = 1
+       
+        
+        
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch indexPath.row{
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("topCell", forIndexPath: indexPath) as! UserDataTableViewCell
+            
+//            cell.layer.shadowOffset = CGSizeMake(1, 1)
+//            cell.layer.shadowColor = UIColor.init(red: 99/255, green: 63/255, blue: 30/255, alpha: 1).CGColor
+//            cell.layer.shadowRadius = 1
+//            cell.layer.shadowOpacity = 1
+            
             toKnowUserStander()
+            
             switch control.index{
             case 0:
+                if BMIlocalArray.count == 0{
+                    cell.topValueLabel.text = "\(0)Kg"
+                }else{
+                    cell.topValueLabel.text = "\(BMIlocalArray[BMIlocalArray.count-1])Kg"
+                }
                 cell.topCellLabel.text = "體重"
                 cell.getHandPointX(self.BMIStander)
+                
             case 1:
+                if fatPercentLocalArray.count == 0{
+                    cell.topValueLabel.text = "\(0) %"
+                }else{
+                    cell.topValueLabel.text = "\(fatPercentLocalArray[fatPercentLocalArray.count-1]) %"
+                }
                 cell.topCellLabel.text = "體脂肪"
                 cell.getHandPointX(self.fatPercentStander)
+                
             case 2:
+                if muscleLocalArray.count == 0{
+                    cell.topValueLabel.text = "\(0) %"
+                }else{
+                    cell.topValueLabel.text = "\(muscleLocalArray[muscleLocalArray.count-1]) %"
+                }
                 cell.topCellLabel.text = "肌肉量"
                 cell.getHandPointX(self.muscleStander)
+                
             default:
+                if waterPercentLocalArray.count == 0{
+                    cell.topValueLabel.text = "\(0) %"
+                }else{
+                     cell.topValueLabel.text = "\(waterPercentLocalArray[waterPercentLocalArray.count-1]) %"
+                }
                 cell.topCellLabel.text = "含水量"
                 cell.getHandPointX(self.waterPercentStander)
             }
-                return cell
-
+            return cell
             
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("downCell", forIndexPath: indexPath) as! UserDataTableViewCell2
+            
+            var currentBMI:Double
+            var currentFat:Double
+            var currentMuscle:Double
+            let currentWater:Double
+            
+            var lastBMI:Double
+            var lastFat:Double
+            var lastMuscle:Double
+            let lastWater:Double
+            
+            if BMIlocalArray.count == 0 {
+                currentBMI = 0
+                lastBMI = 0
+            }else if BMIlocalArray.count == 1{
+                currentBMI = BMIlocalArray[BMIlocalArray.count-1]
+                lastBMI = 0
+            }else{
+                currentBMI = BMIlocalArray[BMIlocalArray.count-1]
+                lastBMI = BMIlocalArray[BMIlocalArray.count-2]
+            }
+            if fatPercentLocalArray.count == 0 {
+                currentFat = 0
+                lastFat = 0
+            }else if fatPercentLocalArray.count == 1{
+                currentFat = fatPercentLocalArray[fatPercentLocalArray.count-1]
+                lastFat = 0
+            }else{
+                currentFat = fatPercentLocalArray[fatPercentLocalArray.count-1]
+                lastFat = fatPercentLocalArray[fatPercentLocalArray.count-2]
+            }
+            
+            if muscleLocalArray.count == 0 {
+                currentMuscle = 0
+                lastMuscle = 0
+            }else if muscleLocalArray.count == 1{
+                currentMuscle = muscleLocalArray[muscleLocalArray.count-1]
+                lastMuscle = 0
+            }else{
+                currentMuscle = muscleLocalArray[muscleLocalArray.count-1]
+                lastMuscle = muscleLocalArray[muscleLocalArray.count-2]
+            }
+            
+            if waterPercentLocalArray.count == 0 {
+                currentWater = 0
+                lastWater = 0
+            }else if waterPercentLocalArray.count == 1{
+                currentWater = waterPercentLocalArray[waterPercentLocalArray.count-1]
+                lastWater = 0
+            }else{
+                currentWater = waterPercentLocalArray[waterPercentLocalArray.count-1]
+                lastWater = waterPercentLocalArray[waterPercentLocalArray.count-2]
+            }
+            
             switch control.index{
             case 0:
+                cell.lasttimeValue.text = "\(lastBMI)"
+                cell.nowValue.text = "\(currentBMI)"
+                
+                if lastBMI == 0{
+                    cell.changValue.text = "0"
+                }else{
+                    cell.changValue.text = "\(lastBMI-currentBMI)"
+                }
+                
+                cell.typeLabel.text = "kg"
+                cell.typeLabel2.text = "kg"
+                cell.typeLabel3.text = "kg"
+                
                 lineGraphView?.removeFromSuperview()
                 makeLineView(self.BMIlocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
+                
+                
             case 1:
+                cell.lasttimeValue.text = "\(lastFat)"
+                cell.nowValue.text = "\(currentFat)"
+                
+                if lastFat == 0{
+                    cell.changValue.text = "0"
+                }else{
+                    cell.changValue.text = "\(lastFat-currentFat)"
+                }
+                
+                cell.typeLabel.text = "%"
+                cell.typeLabel2.text = "%"
+                cell.typeLabel3.text = "%"
+                
                 lineGraphView?.removeFromSuperview()
                 makeLineView(self.fatPercentLocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
+                
+                
             case 2:
+                cell.lasttimeValue.text = "\(lastMuscle)"
+                cell.nowValue.text = "\(currentMuscle)"
+               
+                if lastMuscle == 0{
+                    cell.changValue.text = "0"
+                }else{
+                    cell.changValue.text = "\(lastMuscle-currentMuscle)"
+                }
+
+                cell.typeLabel.text = "%"
+                cell.typeLabel2.text = "%"
+                cell.typeLabel3.text = "%"
+                
                 lineGraphView?.removeFromSuperview()
                 makeLineView(self.muscleLocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
+                
+                
             default:
+                cell.lasttimeValue.text = "\(lastWater)"
+                cell.nowValue.text = "\(currentWater)"
+                
+                if lastWater == 0{
+                    cell.changValue.text = "0"
+                }else{
+                    cell.changValue.text = "\(lastWater-currentWater)"
+                }
+
+                cell.typeLabel.text = "%"
+                cell.typeLabel2.text = "%"
+                cell.typeLabel3.text = "%"
+                
                 lineGraphView?.removeFromSuperview()
                 makeLineView(self.waterPercentLocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
             }
-            
             return cell
         }
+        
+        
     }
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     //segamentControl
     @IBAction func waterAction(sender: AnyObject) {
         do{
@@ -217,10 +378,10 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         
         lineGraphView!.backgroundFillColor = UIColor.clearColor()
         lineGraphView!.lineColor = UIColor.init(red: 255/255, green: 153/255, blue: 153/255, alpha: 1)
-
+        
         lineGraphView!.dataPointLabelColor = UIColor.brownColor()
         lineGraphView!.dataPointFillColor = UIColor.init(red: 255/255, green: 153/255, blue: 153/255, alpha: 1)
-
+        
         lineGraphView?.setData(data, withLabels: times)
     }
     
@@ -292,7 +453,5 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-
-
-
+    
 }

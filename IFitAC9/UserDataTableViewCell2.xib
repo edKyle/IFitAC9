@@ -170,6 +170,9 @@
                 <outlet property="lasttimeValue" destination="DR0-OJ-eUj" id="Uz3-lA-VJ6"/>
                 <outlet property="lineImageView" destination="O7i-Jk-7It" id="54V-wH-b85"/>
                 <outlet property="nowValue" destination="ZbM-Cu-Esy" id="7YD-fb-gJu"/>
+                <outlet property="typeLabel" destination="orK-d0-fj5" id="wjO-e9-Lm3"/>
+                <outlet property="typeLabel2" destination="5kI-NM-rQy" id="x99-gz-wj1"/>
+                <outlet property="typeLabel3" destination="6Fe-IM-HE7" id="f3d-r9-sW5"/>
             </connections>
             <point key="canvasLocation" x="323" y="254"/>
         </tableViewCell>

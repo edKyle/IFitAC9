@@ -15,6 +15,8 @@ class UserDataTableViewCell: UITableViewCell {
     @IBOutlet weak var topCellLabel: UILabel!
     @IBOutlet weak var tailImageView: UIImageView!
     
+    let x = UIScreen.mainScreen().bounds.width/6
+    
     @IBOutlet weak var nearCenterConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +24,7 @@ class UserDataTableViewCell: UITableViewCell {
         self.tailImageView.transform = CGAffineTransformIdentity
         
         self.selectionStyle = .None
+    
         // Initialization code
     }
     
@@ -39,11 +42,11 @@ class UserDataTableViewCell: UITableViewCell {
                 
                 switch standerValue{
                 case "過低":
-                    self.tailImageView.transform = CGAffineTransformMakeTranslation(-80, 0)
+                    self.tailImageView.transform = CGAffineTransformMakeTranslation(-self.x, 0)
                 case "標準":
                     self.tailImageView.transform = CGAffineTransformMakeTranslation(0, 0)
                 default:
-                    self.tailImageView.transform = CGAffineTransformMakeTranslation(80, 0)
+                    self.tailImageView.transform = CGAffineTransformMakeTranslation(self.x, 0)
                 }
             })
         }

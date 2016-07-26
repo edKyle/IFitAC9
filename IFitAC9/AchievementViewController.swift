@@ -20,6 +20,8 @@ class AchievementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.title = "我的成就"
+        
         priceListTableView.registerNib(UINib(nibName: "ArchievementListTableViewCell", bundle: nil), forCellReuseIdentifier: "CellForPrice")
 //        tableView.registerNib(UINib(nibName: "AchievementTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         archievementListTableView.registerNib(UINib(nibName: "ArchievementListTableViewCell", bundle: nil), forCellReuseIdentifier: "CellForList")

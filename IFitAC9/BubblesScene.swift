@@ -21,7 +21,7 @@ extension CGFloat {
 
 class BubblesScene: SIFloatingCollectionScene {
     var bottomOffset: CGFloat = 0
-    var topOffset: CGFloat = 100
+    var topOffset: CGFloat = 0
     
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
@@ -33,17 +33,22 @@ class BubblesScene: SIFloatingCollectionScene {
         scaleMode = .AspectFill
         allowMultipleSelection = false
         var bodyFrame = frame
-        bodyFrame.size.width = CGFloat(magneticField.minimumRadius)
-        bodyFrame.origin.x -= bodyFrame.size.width / 2
-        bodyFrame.size.height = frame.size.height - bottomOffset
+        print(bodyFrame)
+        print(CGFloat(magneticField.minimumRadius))
+        magneticField.direction.y = 0
+        bodyFrame.size.width = UIScreen.mainScreen().bounds.width
+        bodyFrame.origin.x -= 0
+        bodyFrame.size.height = frame.size.height - bottomOffset - 40
         bodyFrame.origin.y = frame.size.height - bodyFrame.size.height - topOffset
+        print(bodyFrame)
         physicsBody = SKPhysicsBody(edgeLoopFromRect: bodyFrame)
-        magneticField.position = CGPointMake(frame.size.width / 2, frame.size.height / 2 + bottomOffset / 2 - topOffset)
+        physicsBody?.affectedByGravity = true
+//        magneticField.position = CGPointMake(frame.size.width / 2, frame.size.height / 2 + bottomOffset / 2 - topOffset)
     }
     
     override func addChild(node: SKNode) {
         if node is BubbleNode {
-            var x = CGFloat.random(min: -bottomOffset, max: -node.frame.size.width)
+            var x = CGFloat.random(min: -bottomOffset, max: UIScreen.mainScreen().bounds.width)
             let y = CGFloat.random(
                 min: frame.size.height - bottomOffset - node.frame.size.height,
                 max: frame.size.height - topOffset - node.frame.size.height

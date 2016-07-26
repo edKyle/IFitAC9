@@ -7,48 +7,122 @@
 //
 
 import UIKit
-import SpriteKit
+import Foundation
+
+
 
 class BubbleViewController: UIViewController {
     
-    private var skView: SKView!
-    private var floatingCollectionScene: BubblesScene!
-    
+    let screenWidth = UIScreen.mainScreen().bounds.width
+    var screenHeight = UIScreen.mainScreen().bounds.height
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
+    var square: UIView!
+    var snap: UISnapBehavior!
+    var handllerImage:UIImageView?
+    var handllerView:UIView?
+    var circleArr = [UIView]()
+
     @IBOutlet weak var viewForBubble: UIView!
-    @IBOutlet weak var viewForBubbletwisterPart: UIView!
+    
+    @IBAction func twistAction(sender: AnyObject) {
+        UIView.animateWithDuration(0.5, delay: 0.3, options: .CurveEaseOut, animations: {self.handllerView!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI)
+            )}, completion: {
+                bool in
+                UIView.animateWithDuration(0.5, delay: 0.3, options: .CurveEaseOut, animations: {self.handllerView!.transform = CGAffineTransformMakeRotation(CGFloat(M_PI*2))}, completion: nil
+                )
+        })
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        skView = SKView(frame: viewForBubble.bounds)
         
-        skView.backgroundColor = SKColor.blackColor()
-        viewForBubble.addSubview(skView)
+    
+        handllerView = UIView(frame: CGRect(x: (screenWidth/6) * 4 , y: (screenHeight/2), width: 70, height: 50))
+        handllerImage = UIImageView(frame: CGRectMake(0 , 0, 70, 50))
         
-        floatingCollectionScene = BubblesScene(size: skView.bounds.size)
+        handllerImage!.image = UIImage(named: "bubbleTwisterHandleller")
+        handllerView!.addSubview(handllerImage!)
+        view.addSubview(handllerView!)
+        
+        let navigationBarHeight = self.navigationController?.navigationBar.bounds.height
+        screenHeight += navigationBarHeight!
+//        self.navigationController?.navigationBar.hidden = true
+//        self.tabBarController?.tabBar.hidden = true
         
         
-//        let navBarHeight = CGRectGetHeight(navigationController!.navigationBar.frame)
-//        let statusBarHeight = CGRectGetHeight(UIApplication.sharedApplication().statusBarFrame)
-        floatingCollectionScene.topOffset = 0
-        floatingCollectionScene.bottomOffset = 0
         
-        skView.presentScene(floatingCollectionScene)
+        // Create Path
+        let bezierPath = UIBezierPath()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .Done,
-            target: self,
-            action: #selector(BubbleViewController.commitSelection)
-        )
+        // Draw Points
+        bezierPath.moveToPoint(CGPointMake(0, screenHeight/3))
+        bezierPath.addLineToPoint(CGPointMake(screenWidth/2, screenHeight/2))
+        bezierPath.addLineToPoint(CGPointMake(0, screenHeight/2))
+        bezierPath.addLineToPoint(CGPointMake(0, screenHeight/3))
+        bezierPath.closePath()
+        UIColor.greenColor().setFill()
+        bezierPath.fill()
         
-        for _ in 0..<40 {
-            let node = BubbleNode.instantiate()
-            floatingCollectionScene.addChild(node)
+        
+        let bezierPath2 = UIBezierPath()
+        
+        bezierPath2.moveToPoint(CGPointMake(screenWidth, screenHeight/3))
+        bezierPath2.addLineToPoint(CGPointMake(screenWidth/2, screenHeight/2))
+        bezierPath2.addLineToPoint(CGPointMake(screenWidth, screenHeight/2))
+        bezierPath2.addLineToPoint(CGPointMake(screenWidth, screenHeight/3))
+        bezierPath2.closePath()
+        
+        
+        // Apply Color
+        
+        
+        for i in 0...30{
+            square = UIView(frame: CGRect(x: screenWidth/2 , y: 0, width: 45, height: 45))
+            if i%3 == 1{
+                square.backgroundColor = UIColor.redColor()
+            }else if i%3 == 2{
+                square.backgroundColor = UIColor.blueColor()
+            }else{
+                square.backgroundColor = UIColor.yellowColor()
+            }
+            
+            square.layer.cornerRadius = square.frame.size.width/2
+            square.clipsToBounds = true
+            circleArr.append(square)
         }
+        
+        for i in circleArr{
+            view.addSubview(i)
+        }
+        
+        
+        
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: circleArr)
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: circleArr)
+        collision.collisionDelegate = self
+        collision.action = {
+            //            print("\(NSStringFromCGAffineTransform(square.transform)) \(NSStringFromCGPoint(square.center))")
+        }
+        collision.addBoundaryWithIdentifier("barrier", forPath: bezierPath2)
+        
+        collision.addBoundaryWithIdentifier("triangle", forPath: bezierPath)
+        
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
+        
+        let itemBehaviour = UIDynamicItemBehavior(items: circleArr)
+        itemBehaviour.elasticity = 0.6
+        animator.addBehavior(itemBehaviour)
+
+    
     }
     
-    dynamic private func commitSelection() {
-        floatingCollectionScene.performCommitSelectionAnimation()
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,4 +140,19 @@ class BubbleViewController: UIViewController {
     }
     */
 
+}
+
+extension BubbleViewController: UICollisionBehaviorDelegate{
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (snap != nil) {
+            animator.removeBehavior(snap)
+        }
+        
+        if let touch = touches.first{
+            snap = UISnapBehavior(item: circleArr[Int(arc4random()%10)], snapToPoint: touch.locationInView(view))
+            animator.addBehavior(snap)
+        }
+        
+    }
+    
 }

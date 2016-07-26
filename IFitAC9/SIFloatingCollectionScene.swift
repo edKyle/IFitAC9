@@ -63,8 +63,13 @@ public class SIFloatingCollectionScene: SKScene {
     //@todo refactoring
     override public func update(currentTime: NSTimeInterval) {
         let _ = floatingNodes.map { (node: SKNode) -> Void in
-            let distanceFromCenter = distanceBetweenPoints(self.magneticField.position, secondPoint: node.position)
-            node.physicsBody?.linearDamping = distanceFromCenter > 100 ? 2 : 2 + ((100 - distanceFromCenter) / 10)
+            print("test")
+            print(self.magneticField.position)
+            print(UIScreen.mainScreen().nativeBounds)
+            print(UIScreen.mainScreen().bounds.midX)
+            _ = distanceBetweenPoints(CGPoint(x: 150, y: 150), secondPoint: node.position)
+            node.physicsBody?.affectedByGravity = true
+//            node.physicsBody?.linearDamping = distanceFromCenter > 100 ? 2 : 2 + ((100 - distanceFromCenter) / 10)
         }
         
         if mode == .Moving || !allowEditing {
@@ -265,7 +270,7 @@ public class SIFloatingCollectionScene: SKScene {
         magneticField.region = SKRegion(radius: 10000)
         magneticField.minimumRadius = 10000
         magneticField.strength = 8000
-        magneticField.position = CGPointMake(size.width / 2, size.height / 2)
+        magneticField.position = CGPointMake(size.width , size.height )
         addChild(magneticField)
     }
     
