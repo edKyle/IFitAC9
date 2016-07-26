@@ -12,9 +12,9 @@ import MBCircularProgressBar
 class PriceViewController: UIViewController {
 
     @IBOutlet weak var priceUpperHalfCollectionView: UICollectionView!
-    @IBOutlet weak var circleProgressBar: MBCircularProgressBarView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var progressView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,11 @@ class PriceViewController: UIViewController {
         
         priceUpperHalfCollectionView.registerNib(UINib(nibName: "NewPriceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Item2")
         
-        progressView.layer.shadowColor = UIColor.lightGrayColor().CGColor
-        progressView.layer.shadowOpacity = 1
-        progressView.layer.shadowOffset = CGSizeZero
-        progressView.layer.shadowRadius = 5
-        progressView.layer.shouldRasterize = true
+//        progressView.layer.shadowColor = UIColor.lightGrayColor().CGColor
+//        progressView.layer.shadowOpacity = 1
+//        progressView.layer.shadowOffset = CGSizeZero
+//        progressView.layer.shadowRadius = 5
+//        progressView.layer.shouldRasterize = true
 
         
         
@@ -82,8 +82,7 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
         switch indexPath.item {
         case 0:
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item1", forIndexPath: indexPath) as! PriceViewCurrentPointCollectionViewCell
-            
-            item.itemWidthConstraint.constant = UIScreen.mainScreen().bounds.width
+//            let progress = MBCircularProgressBarView()
             
             return item
 
