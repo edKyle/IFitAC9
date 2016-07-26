@@ -10,6 +10,7 @@ import UIKit
 
 class TestTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var checkMarkImage: UIImageView!
     @IBOutlet weak var answerLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

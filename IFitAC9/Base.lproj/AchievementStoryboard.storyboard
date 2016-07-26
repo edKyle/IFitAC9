@@ -35,7 +35,7 @@
                                                             <constraint firstAttribute="height" constant="111" id="a9u-Pc-VUf"/>
                                                         </constraints>
                                                         <connections>
-                                                            <segue destination="212-F8-igR" kind="show" id="bcG-Aj-Qzo"/>
+                                                            <action selector="eatButton:" destination="cRC-a1-mj4" eventType="touchUpInside" id="3C1-XO-mm4"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-IY-4Yg">
@@ -45,16 +45,16 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
-                                                            <segue destination="212-F8-igR" kind="show" id="1BA-4J-8d4"/>
+                                                            <action selector="exerciseButton:" destination="cRC-a1-mj4" eventType="touchUpInside" id="mwr-qh-yGC"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FI-N5-T2i">
                                                         <rect key="frame" x="0.0" y="289" width="584" height="116"/>
                                                         <connections>
-                                                            <segue destination="212-F8-igR" kind="show" id="EJS-mv-ZsT"/>
+                                                            <action selector="personalGuideButton:" destination="cRC-a1-mj4" eventType="touchUpInside" id="Tpg-1x-LgL"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="你的個人指南圖卡" translatesAutoresizingMaskIntoConstraints="NO" id="GZV-GX-N9j">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 3" translatesAutoresizingMaskIntoConstraints="NO" id="GZV-GX-N9j">
                                                         <rect key="frame" x="0.0" y="8" width="584" height="405"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="405" id="11b-UA-04W"/>
@@ -124,27 +124,55 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAJ-YA-oBi">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="122"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserDetailGroupRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="7Oh-w0-oXd">
-                                                <rect key="frame" x="122" y="69" width="93" height="23"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="93" id="JrI-sn-Lug"/>
-                                                    <constraint firstAttribute="height" constant="23" id="YqS-zO-rV4"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDetailHeader" translatesAutoresizingMaskIntoConstraints="NO" id="PbF-BU-mwb">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVO-e7-8NH">
                                                 <rect key="frame" x="25" y="18" width="205" height="86"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-zg-hRh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="86" height="86"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="86" id="81g-fe-hGX"/>
+                                                            <constraint firstAttribute="height" constant="86" id="VJV-Cz-FAH"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wai-qU-4cs">
+                                                        <rect key="frame" x="94" y="63" width="103" height="23"/>
+                                                        <state key="normal" title="運動型女孩" backgroundImage="UserDetailGroupRectangle"/>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="彭艾莉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L50-Y7-jCr">
+                                                        <rect key="frame" x="94" y="29" width="84" height="29"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="sRV-aR-LHP">
+                                                        <rect key="frame" x="180" y="27" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="5QZ-Vw-xdu"/>
+                                                            <constraint firstAttribute="width" constant="25" id="gzx-sh-69E"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="86" id="FIq-Y0-763"/>
-                                                    <constraint firstAttribute="width" constant="205" id="ej5-0k-1CJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="u2Y-zg-hRh" secondAttribute="bottom" id="M0t-5y-z9d"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sRV-aR-LHP" secondAttribute="trailing" id="QKb-W7-aLb"/>
+                                                    <constraint firstItem="u2Y-zg-hRh" firstAttribute="leading" secondItem="HVO-e7-8NH" secondAttribute="leading" id="QgJ-jI-AHu"/>
+                                                    <constraint firstItem="L50-Y7-jCr" firstAttribute="leading" secondItem="u2Y-zg-hRh" secondAttribute="trailing" constant="8" id="Vki-t0-yGh"/>
+                                                    <constraint firstAttribute="width" constant="205" id="WPP-ss-7UI"/>
+                                                    <constraint firstItem="sRV-aR-LHP" firstAttribute="leading" secondItem="L50-Y7-jCr" secondAttribute="trailing" constant="2" id="Xsb-ZE-37c"/>
+                                                    <constraint firstItem="Wai-qU-4cs" firstAttribute="leading" secondItem="u2Y-zg-hRh" secondAttribute="trailing" constant="8" id="bMf-rj-qYH"/>
+                                                    <constraint firstItem="sRV-aR-LHP" firstAttribute="baseline" secondItem="L50-Y7-jCr" secondAttribute="baseline" id="d8p-TY-8fh"/>
+                                                    <constraint firstItem="L50-Y7-jCr" firstAttribute="centerY" secondItem="HVO-e7-8NH" secondAttribute="centerY" id="jjR-1N-Xnh"/>
+                                                    <constraint firstItem="Wai-qU-4cs" firstAttribute="bottom" secondItem="u2Y-zg-hRh" secondAttribute="bottom" id="kIm-De-drt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Wai-qU-4cs" secondAttribute="trailing" constant="8" id="sDW-Nx-B97"/>
+                                                    <constraint firstItem="u2Y-zg-hRh" firstAttribute="top" secondItem="HVO-e7-8NH" secondAttribute="top" id="ssO-W7-lFh"/>
+                                                    <constraint firstAttribute="height" constant="86" id="ugI-Ha-HJT"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="PbF-BU-mwb" firstAttribute="leading" secondItem="XAJ-YA-oBi" secondAttribute="leading" constant="25" id="1kM-aE-Skg"/>
-                                            <constraint firstItem="PbF-BU-mwb" firstAttribute="centerY" secondItem="XAJ-YA-oBi" secondAttribute="centerY" id="D6T-8N-YBJ"/>
-                                            <constraint firstItem="7Oh-w0-oXd" firstAttribute="top" secondItem="XAJ-YA-oBi" secondAttribute="top" constant="69" id="MkS-32-vWm"/>
-                                            <constraint firstItem="7Oh-w0-oXd" firstAttribute="leading" secondItem="XAJ-YA-oBi" secondAttribute="leading" constant="122" id="VP6-ZK-C8P"/>
+                                            <constraint firstItem="HVO-e7-8NH" firstAttribute="leading" secondItem="XAJ-YA-oBi" secondAttribute="leading" constant="25" id="AFa-VH-uT1"/>
+                                            <constraint firstItem="HVO-e7-8NH" firstAttribute="centerY" secondItem="XAJ-YA-oBi" secondAttribute="centerY" id="NiJ-qC-O6O"/>
                                             <constraint firstAttribute="height" constant="122" id="bo4-9o-7iL"/>
                                         </constraints>
                                     </view>
@@ -178,11 +206,12 @@
                     <navigationItem key="navigationItem" title="個人指南" id="QrG-gX-DqF"/>
                     <connections>
                         <outlet property="userDetailHeaderView" destination="XAJ-YA-oBi" id="FBg-MR-m9m"/>
+                        <segue destination="212-F8-igR" kind="show" identifier="showArticleSegue" id="8xt-nR-bhl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ehh-9l-Fr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2322" y="-600"/>
+            <point key="canvasLocation" x="2282" y="-551"/>
         </scene>
         <!--User Article List View Controller-->
         <scene sceneID="gp7-Ps-4cT">
@@ -362,7 +391,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-bY-cfB">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.76862745099999996" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="fqr-c6-hV1"/>
                                 </constraints>
@@ -390,6 +419,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="answerTableView" destination="Tx2-HJ-O47" id="knK-pO-ZMK"/>
+                        <outlet property="nextButtonOutlet" destination="IXd-bY-cfB" id="YVj-Ic-6ib"/>
                         <outlet property="questionLable" destination="2xJ-CK-rGD" id="tnU-nK-OV9"/>
                     </connections>
                 </viewController>
@@ -859,17 +889,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Group 3" width="343" height="409"/>
         <image name="UserDetailGroupRectangle" width="93" height="23"/>
         <image name="bubbleTwister" width="203" height="205"/>
         <image name="bubbleTwisterMiddlePart" width="420" height="245"/>
         <image name="cancel" width="52" height="52"/>
         <image name="coin" width="262" height="229"/>
+        <image name="setting" width="48" height="48"/>
         <image name="test_background" width="750" height="368"/>
-        <image name="userDetailHeader" width="206" height="88"/>
-        <image name="你的個人指南圖卡" width="343" height="409"/>
+        <image name="user_profile" width="176" height="176"/>
         <image name="關於你" width="343" height="590"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="bcG-Aj-Qzo"/>
-    </inferredMetricsTieBreakers>
 </document>

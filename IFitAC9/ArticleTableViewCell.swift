@@ -18,10 +18,11 @@ class ArticleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        articleView.layer.shadowColor = UIColor.blackColor().CGColor
-        articleView.layer.shadowOpacity = 1
+        articleView.layer.shadowColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1).CGColor
+        articleView.layer.shadowOpacity = 3
         articleView.layer.shadowOffset = CGSizeZero
         articleView.layer.shadowRadius = 3
+        articleView.layer.shouldRasterize = true
 
     }
 

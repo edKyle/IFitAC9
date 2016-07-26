@@ -16,10 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="567" height="639"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaQ-NR-Dw5">
+                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaQ-NR-Dw5">
                         <rect key="frame" x="26" y="26" width="515" height="605"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="articleImage1" translatesAutoresizingMaskIntoConstraints="NO" id="coA-3r-xyh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="articleImage1" translatesAutoresizingMaskIntoConstraints="NO" id="coA-3r-xyh">
                                 <rect key="frame" x="0.0" y="0.0" width="515" height="515"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="coA-3r-xyh" secondAttribute="height" id="dkz-JH-beu"/>
@@ -52,6 +52,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="BaQ-NR-Dw5" secondAttribute="bottom" id="9PX-m2-vfm"/>
                     <constraint firstItem="BaQ-NR-Dw5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="18" id="9op-3G-2s5"/>

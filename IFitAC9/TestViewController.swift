@@ -9,7 +9,10 @@
 import UIKit
 
 class TestViewController: UIViewController {
+    
+    var selectedRow: NSIndexPath?
 
+    @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var questionLable: UILabel!
     @IBOutlet weak var answerTableView: UITableView!
     
@@ -64,6 +67,27 @@ class TestViewController: UIViewController {
 
 extension TestViewController: UITableViewDataSource, UITableViewDelegate{
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = tableView.cellForRowAtIndexPath(indexPath) as! TestTableViewCell
+//        cell.accessoryView = UIImageView(image: UIImage(named: "check"))
+        let paths:[NSIndexPath]
+        self.nextButtonOutlet.backgroundColor = UIColor(red: 255/255, green: 204/255, blue: 102/255, alpha: 1)
+        self.nextButtonOutlet.layer.shadowColor = UIColor(red: 99/255, green: 63/255, blue: 30/255, alpha: 1).CGColor
+        self.nextButtonOutlet.layer.shadowOpacity = 5
+        self.nextButtonOutlet.layer.shadowRadius = 3
+        self.nextButtonOutlet.layer.shouldRasterize = true
+        
+        if let previous = selectedRow {
+            paths = [indexPath, previous]
+        } else {
+            paths = [indexPath]
+        }
+        selectedRow = indexPath
+        answerTableView.reloadRowsAtIndexPaths(paths, withRowAnimation: .Automatic)
+
+        
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -71,7 +95,15 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = answerTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TestTableViewCell
         
+        
+        if indexPath == selectedRow {
+            cell.accessoryView = UIImageView(image: UIImage(named: "check"))
+        } else {
+            cell.accessoryView = .None
+        }
+
         cell.answerLable.text = answerArr[indexPath.row]
+
         
         return cell
     }

@@ -10,8 +10,26 @@ import UIKit
 
 class UserDetailViewController: UIViewController {
     
+    var indexForArticle:UInt = 0
+    
     @IBOutlet weak var userDetailHeaderView: UIView!
 
+    @IBAction func eatButton(sender: AnyObject) {
+        indexForArticle = 0
+        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+    }
+    
+    @IBAction func exerciseButton(sender: AnyObject) {
+        indexForArticle = 1
+        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+    }
+    
+    @IBAction func personalGuideButton(sender: AnyObject) {
+        indexForArticle = 2
+        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,15 +49,14 @@ class UserDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showArticleSegue"{
+            let desVc = segue.destinationViewController as! UserArticleListViewController
+            desVc.currentIndex = indexForArticle
+        
+        }
+    
     }
-    */
+    
 
 }

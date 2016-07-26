@@ -12,6 +12,7 @@ import BetterSegmentedControl
 class UserArticleListViewController: UIViewController {
 
     var control = BetterSegmentedControl()
+    var currentIndex:UInt = 0
     
     @IBOutlet weak var articleTableView: UITableView!
     @IBOutlet weak var buttonView: UIView!
@@ -91,6 +92,12 @@ class UserArticleListViewController: UIViewController {
         control.selectedTitleFont = UIFont(name: "HelveticaNeue-Medium", size: 14.0)!
         control.indicatorViewInset = -5
         control.addTarget(self, action: #selector(UserArticleListViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
+        
+        do{
+            try control.setIndex(currentIndex, animated: true)
+        }catch{
+            
+        }
         
         view.addSubview(control)
         
