@@ -91,10 +91,6 @@ class LoginViewController: UIViewController {
                             lineRecordData.recordData.fatPercentage.append(Double(fat as! NSString as String)!)
                         }
                     }
-
-
-                    
-                    
                     
                     self.performSegueWithIdentifier("logInSegue", sender: self)
                     

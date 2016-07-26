@@ -11,6 +11,7 @@ import BetterSegmentedControl
 
 class UserDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+ 
     var lineGraphView:ScrollableGraphView?
     //data
     var howManyTimes:[String] = ["1","2","3","4","5","6"]
@@ -40,12 +41,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let catView = UIImageView(frame:CGRect(x: -2, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80))
-        catView.contentMode = .ScaleAspectFit
-        catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
-        self.tabBarController?.view.addSubview(catView)
-        
+          
         //segamentControl
         let navHeight = navigationController?.navigationBar.frame.height
         let viewHeight = ButtonView.frame.height
@@ -83,7 +79,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Do any additional setup after loading the view.
     }
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -96,8 +92,6 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
-    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

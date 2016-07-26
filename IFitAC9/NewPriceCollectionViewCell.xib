@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewPriceCollectionViewCell" customModule="IFitAC9" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="248"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="248"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjA-BK-ShY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="priceNo2CupCake" translatesAutoresizingMaskIntoConstraints="NO" id="dpS-3Y-UEW">
+                                <rect key="frame" x="224" y="12" width="152" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="4W7-Ef-UjD"/>
+                                    <constraint firstAttribute="height" constant="110" id="cmC-cf-BYN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新可兌換獎品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sA-dc-yXm">
+                                <rect key="frame" x="230" y="132" width="140" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-fL-XYe">
+                                <rect key="frame" x="229" y="164" width="142" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.76862745099999996" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="5oK-Vz-RXu"/>
+                                    <constraint firstAttribute="width" constant="142" id="U1B-GK-LkH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                <state key="normal" title="查看更多">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.63137254901960782" green="0.38039215686274508" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goDetailPageButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="0Xz-JG-vbh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iZO-fL-XYe" firstAttribute="top" secondItem="4sA-dc-yXm" secondAttribute="bottom" constant="8" id="03o-ex-Dxr"/>
+                            <constraint firstItem="4sA-dc-yXm" firstAttribute="top" secondItem="dpS-3Y-UEW" secondAttribute="bottom" constant="10" id="6xv-mX-kNp"/>
+                            <constraint firstItem="4sA-dc-yXm" firstAttribute="centerX" secondItem="jjA-BK-ShY" secondAttribute="centerX" id="HW2-DZ-zyf"/>
+                            <constraint firstItem="iZO-fL-XYe" firstAttribute="centerX" secondItem="jjA-BK-ShY" secondAttribute="centerX" id="Szz-BZ-iQM"/>
+                            <constraint firstItem="dpS-3Y-UEW" firstAttribute="top" secondItem="jjA-BK-ShY" secondAttribute="top" constant="12" id="ZeT-f1-MGq"/>
+                            <constraint firstItem="dpS-3Y-UEW" firstAttribute="centerX" secondItem="jjA-BK-ShY" secondAttribute="centerX" id="ogn-VE-PHi"/>
+                            <constraint firstAttribute="height" constant="242" id="qLk-mh-kKr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="jjA-BK-ShY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1IW-3t-jNJ"/>
+                <constraint firstAttribute="bottom" secondItem="jjA-BK-ShY" secondAttribute="bottom" id="2aX-xs-qLo"/>
+                <constraint firstItem="jjA-BK-ShY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JLP-Rw-Rce"/>
+                <constraint firstAttribute="trailing" secondItem="jjA-BK-ShY" secondAttribute="trailing" id="i4M-fj-vdh"/>
+            </constraints>
+            <size key="customSize" width="600" height="248"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="2aX-xs-qLo"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="priceDetailLable" destination="4sA-dc-yXm" id="Rpb-Kl-iV4"/>
+                <outlet property="priceImageView" destination="dpS-3Y-UEW" id="yM1-im-vjV"/>
+            </connections>
+            <point key="canvasLocation" x="352" y="303"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="priceNo2CupCake" width="695" height="400"/>
+    </resources>
+</document>
