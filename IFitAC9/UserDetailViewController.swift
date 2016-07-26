@@ -15,18 +15,24 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var userDetailHeaderView: UIView!
 
     @IBAction func eatButton(sender: AnyObject) {
-        indexForArticle = 0
-        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+//        indexForArticle = 0
+////        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+//        let storyboard = UIStoryboard.init(name: "AchievementStoryboard", bundle: nil)
+//        let controller = storyboard.instantiateViewControllerWithIdentifier("UserArticleListViewController")
+//        self.navigationController?.pushViewController(controller, animated: true)
+        go(0)   
     }
     
     @IBAction func exerciseButton(sender: AnyObject) {
-        indexForArticle = 1
-        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+//        indexForArticle = 1
+//        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+        go(1)
     }
     
     @IBAction func personalGuideButton(sender: AnyObject) {
-        indexForArticle = 2
-        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+//        indexForArticle = 2
+//        self.performSegueWithIdentifier("showArticleSegue", sender: nil)
+        go(2)
     }
     
     
@@ -49,13 +55,20 @@ class UserDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showArticleSegue"{
-            let desVc = segue.destinationViewController as! UserArticleListViewController
-            desVc.currentIndex = indexForArticle
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "showArticleSegue"{
+//            let desVc = segue.destinationViewController as! UserArticleListViewController
+//            desVc.currentIndex = indexForArticle
+//        
+//        }
+//    
+//    }
+    func go(indexForArticle: UInt) {
+        let storyboard = UIStoryboard.init(name: "AchievementStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("UserArticleListViewController") as! UserArticleListViewController
+        controller.currentIndex = indexForArticle
+        self.navigationController?.pushViewController(controller, animated: true)
         
-        }
-    
     }
     
 

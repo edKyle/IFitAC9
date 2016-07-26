@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p91-lk-n5G">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -9,7 +10,7 @@
         <!--個人指南-->
         <scene sceneID="jxO-rm-oqK">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cRC-a1-mj4" customClass="UserDetailViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tim" automaticallyAdjustsScrollViewInsets="NO" id="cRC-a1-mj4" customClass="UserDetailViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8jQ-D6-Ycr"/>
                         <viewControllerLayoutGuide type="bottom" id="0KX-Qf-6tG"/>
@@ -214,7 +215,7 @@
         <!--User Article List View Controller-->
         <scene sceneID="gp7-Ps-4cT">
             <objects>
-                <viewController id="212-F8-igR" customClass="UserArticleListViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserArticleListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="212-F8-igR" customClass="UserArticleListViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qN0-Q0-Xqn"/>
                         <viewControllerLayoutGuide type="bottom" id="yPb-RY-Dmn"/>
@@ -761,9 +762,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="eff-T4-0MV"/>
                                         <exclude reference="I4e-Ra-PkT"/>
                                         <exclude reference="ecq-62-SDd"/>
+                                        <exclude reference="eff-T4-0MV"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1254,6 +1255,10 @@
         <scene sceneID="4SZ-AS-lUP">
             <objects>
                 <viewController id="ia0-MA-tP7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XsQ-eg-rTw"/>
+                        <viewControllerLayoutGuide type="bottom" id="gCD-Lo-x59"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zZt-fb-IPP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1266,11 +1271,9 @@
     </scenes>
     <resources>
         <image name="Group 3" width="343" height="409"/>
+        <image name="Icon_-_個人指南" width="12" height="14"/>
         <image name="Mask" width="343" height="306"/>
         <image name="Rectangle 17" width="339" height="41"/>
-
-        <image name="Icon_-_個人指南" width="12" height="14"/>
-
         <image name="UserDetailGroupRectangle" width="93" height="23"/>
         <image name="bubbleTwister" width="203" height="205"/>
         <image name="bubbleTwisterMiddlePart" width="420" height="245"/>

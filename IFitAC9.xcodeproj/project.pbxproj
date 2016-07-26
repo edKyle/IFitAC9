@@ -23,6 +23,7 @@
 		27426E4B1D41C79200FBA161 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27426E4A1D41C79200FBA161 /* CoreLocation.framework */; };
 		27426E4D1D41C79E00FBA161 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27426E4C1D41C79E00FBA161 /* MapKit.framework */; };
 		278F453B1D475AF2007D47D6 /* CatTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */; };
+		278F453E1D47A0C6007D47D6 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F453C1D47A0C6007D47D6 /* UserDetail.storyboard */; };
 		27A078D21D3DC56A00AD264E /* lineRecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A078D11D3DC56A00AD264E /* lineRecordData.swift */; };
 		27A7BD221D3F7BB1005E0C3A /* iFitStoreListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A7BD211D3F7BB1005E0C3A /* iFitStoreListTableViewController.swift */; };
 		27A7BD251D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A7BD231D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift */; };
@@ -101,6 +102,7 @@
 		27426E4A1D41C79200FBA161 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		27426E4C1D41C79E00FBA161 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTabbarViewController.swift; sourceTree = "<group>"; };
+		278F453D1D47A0C6007D47D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserDetail.storyboard; sourceTree = "<group>"; };
 		27A078D11D3DC56A00AD264E /* lineRecordData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineRecordData.swift; sourceTree = "<group>"; };
 		27A7BD211D3F7BB1005E0C3A /* iFitStoreListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFitStoreListTableViewController.swift; sourceTree = "<group>"; };
 		27A7BD231D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFitStoreListTableViewCell.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		6BA69AB71D45B7E500268341 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				278F453C1D47A0C6007D47D6 /* UserDetail.storyboard */,
 				6BA69AB51D45B7D500268341 /* UserDetailViewController.swift */,
 				6BA69AB81D45C04600268341 /* UserArticleListViewController.swift */,
 				6BA69ABA1D45E3FD00268341 /* ArticleTableViewCell.swift */,
@@ -522,6 +525,7 @@
 				6BCDEBA81D473EDC0016089E /* PriceViewCurrentPointCollectionViewCell.xib in Resources */,
 				6BA69ABD1D45E3FD00268341 /* ArticleTableViewCell.xib in Resources */,
 				6BB703EF1D3E0BED00406E63 /* PriceDetailFirstRowTableViewCell.xib in Resources */,
+				278F453E1D47A0C6007D47D6 /* UserDetail.storyboard in Resources */,
 				27098D871D3CC1340021543E /* Assets.xcassets in Resources */,
 				6BCDEBB51D4760280016089E /* PriceMapCollectionViewCell.xib in Resources */,
 				6BA69AC11D45FCE900268341 /* TestTableViewCell.xib in Resources */,
@@ -660,6 +664,14 @@
 				27098D921D3CC2440021543E /* Base */,
 			);
 			name = AchievementStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		278F453C1D47A0C6007D47D6 /* UserDetail.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				278F453D1D47A0C6007D47D6 /* Base */,
+			);
+			name = UserDetail.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

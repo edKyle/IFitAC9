@@ -127,6 +127,7 @@
                         <segue destination="dMq-g0-cbL" kind="relationship" relationship="viewControllers" id="xY3-Lj-rr2"/>
                         <segue destination="LrO-8o-Oav" kind="relationship" relationship="viewControllers" id="lP2-21-t9b"/>
                         <segue destination="VJd-NR-5Za" kind="relationship" relationship="viewControllers" id="Ilr-tf-ec5"/>
+                        <segue destination="rUh-3W-75q" kind="relationship" relationship="viewControllers" id="Ndc-hk-dbA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxD-tT-iHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,7 +142,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQg-V1-r8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-723.5" y="760"/>
+            <point key="canvasLocation" x="-852.5" y="704"/>
         </scene>
         <!--iFitStore-->
         <scene sceneID="e52-Bl-dAZ">
@@ -278,7 +279,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="805" y="596"/>
+            <point key="canvasLocation" x="1617" y="596"/>
         </scene>
         <!--我的數據-->
         <scene sceneID="rWO-gP-QK0">
@@ -297,7 +298,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g17-ot-BYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5" y="627"/>
+            <point key="canvasLocation" x="817" y="627"/>
+        </scene>
+        <!--UINavigationController-uEP-0B-lXb-->
+        <scene sceneID="VJy-1l-eOD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserDetail" referencedIdentifier="UINavigationController-uEP-0B-lXb" id="rUh-3W-75q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2Kq-0d-q0N"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gsc-Uc-1mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-666" y="980"/>
+        </scene>
+        <!--tim-->
+        <scene sceneID="a1e-R8-X4l">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="tim" storyboardName="UserDetail" referencedIdentifier="tim" id="KRA-oV-nSV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCk-Sq-h6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="1171"/>
         </scene>
     </scenes>
     <resources>
