@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gC2-Na-mTW">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gC2-Na-mTW">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v18-hi-VLb">
@@ -869,16 +869,22 @@
             </objects>
             <point key="canvasLocation" x="3065" y="1157"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--個人指南-->
         <scene sceneID="U2b-pV-yJz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p91-lk-n5G" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="p91-lk-n5G" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="個人指南" image="Icon_-_個人指南" id="8pa-3c-TBf"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZmP-QJ-CLg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zcq-p9-ZbB">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="cRC-a1-mj4" kind="relationship" relationship="rootViewController" id="gED-uQ-1RG"/>
                     </connections>
@@ -890,6 +896,7 @@
     </scenes>
     <resources>
         <image name="Group 3" width="343" height="409"/>
+        <image name="Icon_-_個人指南" width="12" height="14"/>
         <image name="UserDetailGroupRectangle" width="93" height="23"/>
         <image name="bubbleTwister" width="203" height="205"/>
         <image name="bubbleTwisterMiddlePart" width="420" height="245"/>

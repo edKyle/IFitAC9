@@ -14,15 +14,23 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     var lineGraphView:ScrollableGraphView?
     //data
     var howManyTimes:[String] = ["1","2","3","4","5","6"]
-    var BMIlocalArray:[Double] = []
+    var weightLocalArray:[Double] = []
     var muscleLocalArray:[Double] = []
     var fatPercentLocalArray:[Double] = []
     var waterPercentLocalArray:[Double] = []
-    var BMIStander:String = ""
-    var muscleStander:String = ""
-    var fatPercentStander:String = ""
-    var waterPercentStander:String = ""
+    var weightStander:String = ""
+    var muscleStandar:String = ""
+    var fatPercentStandar:String = ""
+    var waterPercentStandar:String = ""
     
+    var currentWeight:Double = 0
+    var currentFat:Double = 0
+    var currentMuscle:Double = 0
+    var currentWater:Double = 0
+    var lastWeight:Double = 0
+    var lastFat:Double = 0
+    var lastMuscle:Double = 0
+    var lastWater:Double = 0
     
     //tableView
     @IBOutlet weak var ButtonView: UIView!
@@ -32,6 +40,11 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let catView = UIImageView(frame:CGRect(x: -2, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80))
+        catView.contentMode = .ScaleAspectFit
+        catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+        self.tabBarController?.view.addSubview(catView)
         
         //segamentControl
         let navHeight = navigationController?.navigationBar.frame.height
@@ -84,20 +97,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         return 2
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        cell.layer.masksToBounds = false
-        
-        cell.layer.backgroundColor = UIColor.clearColor().CGColor
-        cell.layer.shadowColor = UIColor.init(red: 99/255, green: 63/255, blue: 30/255, alpha: 1).CGColor
-
-        cell.layer.shadowOffset = CGSizeMake(1, 1)
-        cell.layer.shadowRadius = 1
-        cell.layer.shadowOpacity = 1
-       
-        
-        
-    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -105,22 +105,17 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("topCell", forIndexPath: indexPath) as! UserDataTableViewCell
             
-//            cell.layer.shadowOffset = CGSizeMake(1, 1)
-//            cell.layer.shadowColor = UIColor.init(red: 99/255, green: 63/255, blue: 30/255, alpha: 1).CGColor
-//            cell.layer.shadowRadius = 1
-//            cell.layer.shadowOpacity = 1
-            
             toKnowUserStander()
             
             switch control.index{
             case 0:
-                if BMIlocalArray.count == 0{
+                if weightLocalArray.count == 0{
                     cell.topValueLabel.text = "\(0)Kg"
                 }else{
-                    cell.topValueLabel.text = "\(BMIlocalArray[BMIlocalArray.count-1])Kg"
+                    cell.topValueLabel.text = "\(weightLocalArray[weightLocalArray.count-1])Kg"
                 }
                 cell.topCellLabel.text = "體重"
-                cell.getHandPointX(self.BMIStander)
+                cell.getHandPointX(self.weightStander)
                 
             case 1:
                 if fatPercentLocalArray.count == 0{
@@ -129,7 +124,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.topValueLabel.text = "\(fatPercentLocalArray[fatPercentLocalArray.count-1]) %"
                 }
                 cell.topCellLabel.text = "體脂肪"
-                cell.getHandPointX(self.fatPercentStander)
+                cell.getHandPointX(self.fatPercentStandar)
                 
             case 2:
                 if muscleLocalArray.count == 0{
@@ -138,84 +133,34 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.topValueLabel.text = "\(muscleLocalArray[muscleLocalArray.count-1]) %"
                 }
                 cell.topCellLabel.text = "肌肉量"
-                cell.getHandPointX(self.muscleStander)
+                cell.getHandPointX(self.muscleStandar)
                 
             default:
                 if waterPercentLocalArray.count == 0{
                     cell.topValueLabel.text = "\(0) %"
                 }else{
-                     cell.topValueLabel.text = "\(waterPercentLocalArray[waterPercentLocalArray.count-1]) %"
+                    cell.topValueLabel.text = "\(waterPercentLocalArray[waterPercentLocalArray.count-1]) %"
                 }
                 cell.topCellLabel.text = "含水量"
-                cell.getHandPointX(self.waterPercentStander)
+                cell.getHandPointX(self.waterPercentStandar)
             }
             return cell
             
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("downCell", forIndexPath: indexPath) as! UserDataTableViewCell2
             
-            var currentBMI:Double
-            var currentFat:Double
-            var currentMuscle:Double
-            let currentWater:Double
-            
-            var lastBMI:Double
-            var lastFat:Double
-            var lastMuscle:Double
-            let lastWater:Double
-            
-            if BMIlocalArray.count == 0 {
-                currentBMI = 0
-                lastBMI = 0
-            }else if BMIlocalArray.count == 1{
-                currentBMI = BMIlocalArray[BMIlocalArray.count-1]
-                lastBMI = 0
-            }else{
-                currentBMI = BMIlocalArray[BMIlocalArray.count-1]
-                lastBMI = BMIlocalArray[BMIlocalArray.count-2]
-            }
-            if fatPercentLocalArray.count == 0 {
-                currentFat = 0
-                lastFat = 0
-            }else if fatPercentLocalArray.count == 1{
-                currentFat = fatPercentLocalArray[fatPercentLocalArray.count-1]
-                lastFat = 0
-            }else{
-                currentFat = fatPercentLocalArray[fatPercentLocalArray.count-1]
-                lastFat = fatPercentLocalArray[fatPercentLocalArray.count-2]
-            }
-            
-            if muscleLocalArray.count == 0 {
-                currentMuscle = 0
-                lastMuscle = 0
-            }else if muscleLocalArray.count == 1{
-                currentMuscle = muscleLocalArray[muscleLocalArray.count-1]
-                lastMuscle = 0
-            }else{
-                currentMuscle = muscleLocalArray[muscleLocalArray.count-1]
-                lastMuscle = muscleLocalArray[muscleLocalArray.count-2]
-            }
-            
-            if waterPercentLocalArray.count == 0 {
-                currentWater = 0
-                lastWater = 0
-            }else if waterPercentLocalArray.count == 1{
-                currentWater = waterPercentLocalArray[waterPercentLocalArray.count-1]
-                lastWater = 0
-            }else{
-                currentWater = waterPercentLocalArray[waterPercentLocalArray.count-1]
-                lastWater = waterPercentLocalArray[waterPercentLocalArray.count-2]
-            }
+            lastNowChangValue()
             
             switch control.index{
             case 0:
-                cell.lasttimeValue.text = "\(lastBMI)"
-                cell.nowValue.text = "\(currentBMI)"
                 
-                if lastBMI == 0{
+                cell.lasttimeValue.text = "\(lastWeight)"
+                cell.nowValue.text = "\(currentWeight)"
+                
+                if lastWeight == 0{
                     cell.changValue.text = "0"
                 }else{
-                    cell.changValue.text = "\(lastBMI-currentBMI)"
+                    cell.changValue.text = "\(lastWeight-currentWeight)"
                 }
                 
                 cell.typeLabel.text = "kg"
@@ -223,7 +168,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.typeLabel3.text = "kg"
                 
                 lineGraphView?.removeFromSuperview()
-                makeLineView(self.BMIlocalArray, times: howManyTimes)
+                makeLineView(self.weightLocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
                 
                 
@@ -249,13 +194,13 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             case 2:
                 cell.lasttimeValue.text = "\(lastMuscle)"
                 cell.nowValue.text = "\(currentMuscle)"
-               
+                
                 if lastMuscle == 0{
                     cell.changValue.text = "0"
                 }else{
                     cell.changValue.text = "\(lastMuscle-currentMuscle)"
                 }
-
+                
                 cell.typeLabel.text = "%"
                 cell.typeLabel2.text = "%"
                 cell.typeLabel3.text = "%"
@@ -274,7 +219,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 }else{
                     cell.changValue.text = "\(lastWater-currentWater)"
                 }
-
+                
                 cell.typeLabel.text = "%"
                 cell.typeLabel2.text = "%"
                 cell.typeLabel3.text = "%"
@@ -388,12 +333,12 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     //func 從model挖資料倒local controller
     func takeEveryDataToLocalArray(){
         //存BMI
-        for n in lineRecordData.recordData.BMI{
-            BMIlocalArray.append(n)
+        for n in lineRecordData.recordData.weight{
+           weightLocalArray.append(n)
         }
-        if BMIlocalArray.count > 6{
-            for _ in 1...BMIlocalArray.count - 6 {
-                BMIlocalArray.removeAtIndex(0)
+        if weightLocalArray.count > 6{
+            for _ in 1...weightLocalArray.count - 6 {
+                weightLocalArray.removeAtIndex(0)
             }
         }
         //存muscle
@@ -427,17 +372,17 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     
     //判斷user各個標準值結果
     func toKnowUserStander(){
-        if lineRecordData.recordData.BMI != []{
-            self.BMIStander = makeData(BMIlocalArray[BMIlocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectBMIMin)!, MaxData: Double(lineRecordData.recordData.userPerfectBMIMax)!)
+        if lineRecordData.recordData.weight != []{
+            self.weightStander = makeData(weightLocalArray[weightLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectWeightMin)!, MaxData: Double(lineRecordData.recordData.userPerfectWeightMax)!)
         }
         if lineRecordData.recordData.musclePercent != []{
-            self.muscleStander = makeData(muscleLocalArray[muscleLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectMuscleMin)!, MaxData: Double(lineRecordData.recordData.userPerfectMuscleMax)!)
+            self.muscleStandar = makeData(muscleLocalArray[muscleLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectMuscleMin)!, MaxData: Double(lineRecordData.recordData.userPerfectMuscleMax)!)
         }
         if lineRecordData.recordData.fatPercentage != []{
-            self.fatPercentStander = makeData(fatPercentLocalArray[fatPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectFatMin)!, MaxData: Double(lineRecordData.recordData.userPerfectFatMax)!)
+            self.fatPercentStandar = makeData(fatPercentLocalArray[fatPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectFatMin)!, MaxData: Double(lineRecordData.recordData.userPerfectFatMax)!)
         }
         if lineRecordData.recordData.waterPercentage != []{
-            self.waterPercentStander = makeData(waterPercentLocalArray[waterPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectWaterMin)!, MaxData: Double(lineRecordData.recordData.userPerfectWaterMax)!)
+            self.waterPercentStandar = makeData(waterPercentLocalArray[waterPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectWaterMin)!, MaxData: Double(lineRecordData.recordData.userPerfectWaterMax)!)
         }
     }
     //判斷user各個標準值結果(標準值輔助計算公式)
@@ -452,6 +397,36 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         return ""
     }
     
-    
+    //算上次目前跟變化值
+    func lastNowChangValue(){
+        
+        if weightLocalArray.count == 1 {
+            currentWeight = weightLocalArray.last!
+        }else if weightLocalArray.count > 1 {
+            currentWeight = weightLocalArray.last!
+            lastWeight = weightLocalArray[weightLocalArray.count-2]
+        }
+        
+        if fatPercentLocalArray.count == 1 {
+            currentFat = fatPercentLocalArray.last!
+        }else if fatPercentLocalArray.count > 1 {
+            currentFat = fatPercentLocalArray.last!
+            lastFat = fatPercentLocalArray[fatPercentLocalArray.count-2]
+        }
+
+        if muscleLocalArray.count == 1 {
+            currentMuscle = muscleLocalArray.last!
+        }else if muscleLocalArray.count > 1 {
+            currentMuscle = muscleLocalArray.last!
+            lastMuscle = muscleLocalArray[muscleLocalArray.count-2]
+        }
+
+        if waterPercentLocalArray.count == 1 {
+            currentWater = waterPercentLocalArray.last!
+        }else if waterPercentLocalArray.count > 1 {
+            currentWater = waterPercentLocalArray.last!
+            lastWater = waterPercentLocalArray[waterPercentLocalArray.count-2]
+        }
+    }
     
 }

@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().barTintColor = UIColor.init(red: 255/255, green: 153/255, blue: 153/255, alpha: 1)
         UINavigationBar.appearance().barStyle = .Black
+        
+        UITabBar.appearance().tintColor = UIColor.init(red: 255/255, green: 153/255, blue: 153/255, alpha: 1)
 
 
         // Override point for customization after application launch.

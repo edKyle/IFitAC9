@@ -69,7 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay)-> MKOverlayRenderer{
         if overlay is MKPolyline{
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor(red:0.251,  green:0.471,  blue:0.753, alpha:1)
+            polylineRenderer.strokeColor = UIColor.init(red: 255/255, green: 153/255, blue: 153/255, alpha: 1)
             polylineRenderer.lineWidth = 5
             
             activityRun.stopAnimating()
