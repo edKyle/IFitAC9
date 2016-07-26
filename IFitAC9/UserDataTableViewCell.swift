@@ -21,6 +21,13 @@ class UserDataTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.layer.shadowOffset = CGSizeMake(1, 1)
+        self.layer.shadowColor = UIColor.init(red: 99/255, green: 63/255, blue: 30/255, alpha: 1).CGColor
+        self.layer.shadowRadius = 1
+        self.layer.shadowOpacity = 1
+        self.layer.zPosition = 10
+
+        
         self.tailImageView.transform = CGAffineTransformIdentity
         
         self.selectionStyle = .None

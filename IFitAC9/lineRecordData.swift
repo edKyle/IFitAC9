@@ -13,21 +13,22 @@ class lineRecordData{
     static let recordData = lineRecordData()
     
     var heigh:[Double] = []
+    
     var weight:[Double] = []
-    var fatPercentage:[Double] = [70,50,22,49,50,10,39,20,90]
-    var waterPercentage:[Double] = [45,67,43,23,44,69,89,33,34]
-    var musclePercent:[Double] = [55,68,89,49,78,39,48,57,76]
-    var BMI:[Double] = [80]
+    var fatPercentage:[Double] = []
+    var waterPercentage:[Double] = []
+    var musclePercent:[Double] = []
+   
     
-    var userPerfectBMIMin = "30"
-    var userPerfectBMIMax = "70"
+    var userPerfectWeightMin = "0"
+    var userPerfectWeightMax = "0"
     
-    var userPerfectMuscleMin = "50"
-    var userPerfectMuscleMax = "80"
+    var userPerfectMuscleMin = "0"
+    var userPerfectMuscleMax = "0"
     
-    var userPerfectFatMin = "30"
-    var userPerfectFatMax = "50"
+    var userPerfectFatMin = "0"
+    var userPerfectFatMax = "0"
     
-    var userPerfectWaterMin = "50"
-    var userPerfectWaterMax = "90"
+    var userPerfectWaterMin = "0"
+    var userPerfectWaterMax = "0"
 }

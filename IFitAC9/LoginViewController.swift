@@ -51,16 +51,53 @@ class LoginViewController: UIViewController {
                 print(response.response) // 响应对象
                 print(response.data)     // 服务端返回的数据
                 
-                
                 if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                    let status = JSON["data"]
-                    print("To other View hewe")
+                    let json = JSON["datas"] as! NSArray
+                    
+                    let lastJsonData = json[json.count-1]
+                    
+                    lineRecordData.recordData.userPerfectWeightMax = "\(lastJsonData["standard"]!!["weight_upper"]!!)"
+                    lineRecordData.recordData.userPerfectWeightMin = "\(lastJsonData["standard"]!!["weight_lower"]!!)"
+                    
+                    lineRecordData.recordData.userPerfectFatMax = "\(lastJsonData["standard"]!!["fat_rate_upper"]!!)"
+                    lineRecordData.recordData.userPerfectFatMin = "\(lastJsonData["standard"]!!["fat_rate_lower"]!!)"
+
+                    lineRecordData.recordData.userPerfectMuscleMax = "\(lastJsonData["standard"]!!["muscle_weight_upper"]!!)"
+                    lineRecordData.recordData.userPerfectMuscleMin = "\(lastJsonData["standard"]!!["muscle_weight_lower"]!!)"
+                    
+                    lineRecordData.recordData.userPerfectWaterMax = "\(lastJsonData["standard"]!!["water_rate_upper"]!!)"
+                    lineRecordData.recordData.userPerfectWaterMin = "\(lastJsonData["standard"]!!["water_rate_lower"]!!)"
+
+                    
+                    for n in json{
+                        if let wei = n["composition"]!!["weight"]! {
+                            lineRecordData.recordData.weight.append(Double(wei as! NSString as String)!)
+                            }
+                    }
+                
+                    for n in json{
+                        if let mus = n["composition"]!!["total_muscle"]! {
+                            lineRecordData.recordData.musclePercent.append(Double(mus as! NSString as String)!)
+                        }
+                    }
+
+                    for n in json{
+                        if let wat = n["composition"]!!["water_rate"]! {
+                            lineRecordData.recordData.waterPercentage.append(wat as! NSNumber as Double)
+                        }
+                    }
+                    for n in json{
+                        if let fat = n["composition"]!!["total_fat"]! {
+                            lineRecordData.recordData.fatPercentage.append(Double(fat as! NSString as String)!)
+                        }
+                    }
+                    
+                    self.performSegueWithIdentifier("logInSegue", sender: self)
                     
                 }
                 
         }
-
+        
     }
     
 }

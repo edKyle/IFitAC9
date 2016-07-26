@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E1P-sE-J8K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGl-Vg-zbG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AW1-BZ-XI0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nouse" id="AW1-BZ-XI0">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AW1-BZ-XI0" id="Vh5-my-dLA">
@@ -106,24 +106,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="E1P-sE-J8K" kind="presentation" identifier="logInSegue" id="XIs-kf-bk8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Da-8i-1vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1371" y="197"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Cat Tabbar View Controller-->
         <scene sceneID="d7W-kV-XZr">
             <objects>
-                <tabBarController id="E1P-sE-J8K" sceneMemberID="viewController">
+                <tabBarController id="E1P-sE-J8K" customClass="CatTabbarViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Npd-Xs-voW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="LrO-8o-Oav" kind="relationship" relationship="viewControllers" id="IYA-SC-KAG"/>
-                        <segue destination="VJd-NR-5Za" kind="relationship" relationship="viewControllers" id="DFc-u9-A7K"/>
-                        <segue destination="dMq-g0-cbL" kind="relationship" relationship="viewControllers" id="l72-Ws-f66"/>
+                        <segue destination="dMq-g0-cbL" kind="relationship" relationship="viewControllers" id="xY3-Lj-rr2"/>
+                        <segue destination="LrO-8o-Oav" kind="relationship" relationship="viewControllers" id="lP2-21-t9b"/>
+                        <segue destination="VJd-NR-5Za" kind="relationship" relationship="viewControllers" id="Ilr-tf-ec5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxD-tT-iHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,7 +147,7 @@
         <scene sceneID="e52-Bl-dAZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VJd-NR-5Za" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="iFitStore" id="TwM-0J-4xY"/>
+                    <tabBarItem key="tabBarItem" title="iFitStore" image="Icon_-_搜尋門市" id="TwM-0J-4xY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="al4-fh-eYg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -277,11 +280,11 @@
             </objects>
             <point key="canvasLocation" x="805" y="596"/>
         </scene>
-        <!--Item-->
+        <!--我的數據-->
         <scene sceneID="rWO-gP-QK0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dMq-g0-cbL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="QQ5-Ny-yVV"/>
+                    <tabBarItem key="tabBarItem" title="我的數據" image="Icon_-_我的數據" id="QQ5-Ny-yVV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g4T-Hk-Gok">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -297,4 +300,8 @@
             <point key="canvasLocation" x="5" y="627"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon_-_我的數據" width="16" height="16"/>
+        <image name="Icon_-_搜尋門市" width="13" height="15"/>
+    </resources>
 </document>

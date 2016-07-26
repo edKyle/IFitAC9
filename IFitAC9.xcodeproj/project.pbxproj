@@ -22,6 +22,7 @@
 		27426E491D41C38100FBA161 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27426E481D41C38100FBA161 /* MapViewController.swift */; };
 		27426E4B1D41C79200FBA161 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27426E4A1D41C79200FBA161 /* CoreLocation.framework */; };
 		27426E4D1D41C79E00FBA161 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27426E4C1D41C79E00FBA161 /* MapKit.framework */; };
+		278F453B1D475AF2007D47D6 /* CatTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */; };
 		27A078D21D3DC56A00AD264E /* lineRecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A078D11D3DC56A00AD264E /* lineRecordData.swift */; };
 		27A7BD221D3F7BB1005E0C3A /* iFitStoreListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A7BD211D3F7BB1005E0C3A /* iFitStoreListTableViewController.swift */; };
 		27A7BD251D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A7BD231D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift */; };
@@ -99,6 +100,7 @@
 		27426E481D41C38100FBA161 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		27426E4A1D41C79200FBA161 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		27426E4C1D41C79E00FBA161 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTabbarViewController.swift; sourceTree = "<group>"; };
 		27A078D11D3DC56A00AD264E /* lineRecordData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineRecordData.swift; sourceTree = "<group>"; };
 		27A7BD211D3F7BB1005E0C3A /* iFitStoreListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFitStoreListTableViewController.swift; sourceTree = "<group>"; };
 		27A7BD231D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFitStoreListTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				27098D831D3CC1340021543E /* Main.storyboard */,
+				278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */,
 				27A7BD201D3F7AE8005E0C3A /* IFitStoreController */,
 				27A7BD1F1D3F798A005E0C3A /* UserDataViewController */,
 			);
@@ -609,6 +612,7 @@
 				6BB703EA1D3DDFEA00406E63 /* PriceDetailViewController.swift in Sources */,
 				6BCDEBA71D473EDC0016089E /* PriceViewCurrentPointCollectionViewCell.swift in Sources */,
 				27098D801D3CC1340021543E /* AppDelegate.swift in Sources */,
+				278F453B1D475AF2007D47D6 /* CatTabbarViewController.swift in Sources */,
 				27CFB16A1D3E801E001B7A9F /* line3CollectionViewCell.swift in Sources */,
 				27CFB1661D3E7F6A001B7A9F /* line2CollectionViewCell.swift in Sources */,
 				6BB703E81D3DDFBB00406E63 /* GoalDetailViewController.swift in Sources */,
