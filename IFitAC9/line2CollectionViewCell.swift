@@ -10,6 +10,7 @@ import UIKit
 
 class line2CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var reportButton2: UIButton!
     @IBOutlet weak var lineRecordView2: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,5 +21,4 @@ class line2CollectionViewCell: UICollectionViewCell {
         lineRecordView2.layer.shadowRadius = 10
 
     }
-
-}
+ }

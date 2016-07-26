@@ -10,6 +10,7 @@ import UIKit
 
 class line4CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var reportButton4: UIButton!
     @IBOutlet weak var lineRecordView4: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +19,5 @@ class line4CollectionViewCell: UICollectionViewCell {
         lineRecordView4.layer.shadowOpacity = 1
         lineRecordView4.layer.shadowOffset = CGSizeZero
         lineRecordView4.layer.shadowRadius = 10
-
     }
-
 }

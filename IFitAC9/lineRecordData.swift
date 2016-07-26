@@ -15,9 +15,9 @@ class lineRecordData{
     var heigh:[Double] = []
     var weight:[Double] = []
     var fatPercentage:[Double] = [70,50,22,49,50,10,39,20,90]
-    var waterPercentage:[Double] = [45,67,43,23,44,69,89,33]
+    var waterPercentage:[Double] = [45,67,43,23,44,69,89,33,34]
     var musclePercent:[Double] = [55,68,89,49,78,39,48,57,76]
-    var BMI:[Double] = [39,59,98,84,88,88,34,34,78]
+    var BMI:[Double] = [80]
     
     var userPerfectBMIMin = "30"
     var userPerfectBMIMax = "70"
