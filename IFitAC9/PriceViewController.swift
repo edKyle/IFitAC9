@@ -26,16 +26,10 @@ class PriceViewController: UIViewController {
         
         priceUpperHalfCollectionView.registerNib(UINib(nibName: "NewPriceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Item2")
         
-//        progressView.layer.shadowColor = UIColor.lightGrayColor().CGColor
-//        progressView.layer.shadowOpacity = 1
-//        progressView.layer.shadowOffset = CGSizeZero
-//        progressView.layer.shadowRadius = 5
-//        progressView.layer.shouldRasterize = true
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
 
-        
-        
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,13 +76,14 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
         switch indexPath.item {
         case 0:
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item1", forIndexPath: indexPath) as! PriceViewCurrentPointCollectionViewCell
-//            let progress = MBCircularProgressBarView()
             
             return item
 
         case 1:
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item2", forIndexPath: indexPath) as!
             NewPriceCollectionViewCell
+            
+            item.goDelegate = self
             
             
             return item
@@ -106,3 +101,12 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
 }
+
+extension PriceViewController: GoPageDelegate{
+    func goPage() {
+        
+        self.performSegueWithIdentifier("showDetailsegue", sender: nil)
+    }
+    
+}
+
