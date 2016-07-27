@@ -11,13 +11,13 @@ import MBCircularProgressBar
 
 class PriceViewCurrentPointCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var progressBar: MBCircularProgressBarView!
     @IBOutlet weak var itemWidthConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        
+
     }
 
 }

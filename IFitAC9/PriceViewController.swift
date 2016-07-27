@@ -31,6 +31,13 @@ class PriceViewController: UIViewController {
         navigationItem.backBarButtonItem = backItem
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        priceUpperHalfCollectionView.reloadData()
+    }
+    override func viewDidAppear(animated: Bool) {
+        priceUpperHalfCollectionView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,6 +83,14 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
         switch indexPath.item {
         case 0:
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item1", forIndexPath: indexPath) as! PriceViewCurrentPointCollectionViewCell
+            item.progressBar.value = 1
+            UIView.animateWithDuration(1, animations: {
+                }, completion: {
+                    succees in
+                    if succees{
+                        item.progressBar.setValue(50, animateWithDuration: 2)
+                    }
+            })
             
             return item
 
