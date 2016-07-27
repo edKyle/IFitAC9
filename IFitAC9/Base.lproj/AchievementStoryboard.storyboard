@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p91-lk-n5G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Price View Controller-->
         <scene sceneID="YTf-7L-2oc">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ffh-KQ-gw1" customClass="PriceViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="jEs-kg-Rhq"/>
                     <navigationItem key="navigationItem" id="G5L-po-AHP"/>
                     <connections>
                         <outlet property="pageControl" destination="YAI-4K-zRi" id="4P2-ff-Ag2"/>
@@ -154,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="3214" y="396"/>
         </scene>
-        <!--Item-->
+        <!--Price List View Controller-->
         <scene sceneID="UdR-mp-Gee">
             <objects>
                 <viewController storyboardIdentifier="PriceListViewController" id="2Jv-YY-ENU" customClass="PriceListViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
@@ -179,7 +178,6 @@
                             <constraint firstAttribute="trailing" secondItem="9ZQ-Az-1Kt" secondAttribute="trailing" id="p6t-AP-rjK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="936-QH-zcc"/>
                     <connections>
                         <outlet property="priceListTableView" destination="9ZQ-Az-1Kt" id="GPX-Ab-HGr"/>
                     </connections>
@@ -310,7 +308,7 @@
         <!--我的獎勵-->
         <scene sceneID="U2b-pV-yJz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="p91-lk-n5G" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="achei" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="p91-lk-n5G" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的獎勵" image="Icon_-_我的獎勵" id="8pa-3c-TBf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class CatTabbarViewController: UITabBarController {
     
-    var count = 0
+    static var count = 0
     static var notification = false
     var point = CGPoint()
     var beginTouch = UITouch()
@@ -18,6 +18,9 @@ class CatTabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(animated: Bool) {
         
         catView = UIImageView(frame:CGRect(x: 200, y: 0, width: 50, height: 50))
         self.catView.transform = CGAffineTransformIdentity
@@ -26,10 +29,7 @@ class CatTabbarViewController: UITabBarController {
         catView.contentMode = .ScaleAspectFit
         catView.image = UIImage(named: "降落傘")
         self.view.addSubview(catView)
-        
-        // Do any additional setup after loading the view.
-    }
-    override func viewDidAppear(animated: Bool) {
+
         
         UIView.animateWithDuration(1.6, animations: {
             
@@ -65,7 +65,7 @@ class CatTabbarViewController: UITabBarController {
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        count = 1
+        CatTabbarViewController.count = 1
         
         if beginTouch.view == self.catView{
             self.catView.transform = CGAffineTransformMakeTranslation(0, 0)
@@ -76,7 +76,7 @@ class CatTabbarViewController: UITabBarController {
         }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if count == 0{
+        if CatTabbarViewController.count == 0{
             return
         }
         self.catView.frame.size = CGSize(width: 50, height: 50)
