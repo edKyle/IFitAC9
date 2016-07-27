@@ -61,26 +61,26 @@ class LoginViewController: UIViewController {
                     
                     lineRecordData.recordData.userPerfectFatMax = "\(lastJsonData["standard"]!!["fat_rate_upper"]!!)"
                     lineRecordData.recordData.userPerfectFatMin = "\(lastJsonData["standard"]!!["fat_rate_lower"]!!)"
-
+                    
                     lineRecordData.recordData.userPerfectMuscleMax = "\(lastJsonData["standard"]!!["muscle_weight_upper"]!!)"
                     lineRecordData.recordData.userPerfectMuscleMin = "\(lastJsonData["standard"]!!["muscle_weight_lower"]!!)"
                     
                     lineRecordData.recordData.userPerfectWaterMax = "\(lastJsonData["standard"]!!["water_rate_upper"]!!)"
                     lineRecordData.recordData.userPerfectWaterMin = "\(lastJsonData["standard"]!!["water_rate_lower"]!!)"
-
+                    
                     
                     for n in json{
                         if let wei = n["composition"]!!["weight"]! {
                             lineRecordData.recordData.weight.append(Double(wei as! NSString as String)!)
-                            }
+                        }
                     }
-                
+                    
                     for n in json{
                         if let mus = n["composition"]!!["total_muscle"]! {
                             lineRecordData.recordData.musclePercent.append(Double(mus as! NSString as String)!)
                         }
                     }
-
+                    
                     for n in json{
                         if let wat = n["composition"]!!["water_rate"]! {
                             lineRecordData.recordData.waterPercentage.append(wat as! NSNumber as Double)
@@ -97,7 +97,19 @@ class LoginViewController: UIViewController {
                 }
                 
         }
-        
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
+            .responseJSON { response in
+                
+                if let advice = response.result.value{
+                    let adviceArray = advice["datas"] as! NSArray
+                    
+                    for n in adviceArray{
+                        let advice = n["message"]!! as! String
+                        lineRecordData.recordData.userAdvice.append(advice)
+                    }
+                    
+                }
+        }
     }
     
 }

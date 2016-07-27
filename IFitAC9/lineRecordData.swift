@@ -12,6 +12,8 @@ class lineRecordData{
     
     static let recordData = lineRecordData()
     
+    var userAdvice:[String] = []
+    
     var heigh:[Double] = []
     
     var weight:[Double] = []

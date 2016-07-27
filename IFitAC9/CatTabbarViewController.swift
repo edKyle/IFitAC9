@@ -43,6 +43,7 @@ class CatTabbarViewController: UITabBarController {
             
             if CatTabbarViewController.notification == true{
                 self.catView.image = UIImage(named: "有對話框的貓貓")
+                self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
             }
             
         }
@@ -56,12 +57,13 @@ class CatTabbarViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.beginTouch = touches.first!
         self.count = 0
         if CatTabbarViewController.notification == true{
             catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+            CatTabbarViewController.notification = false
+                           self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
         }
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -77,6 +79,7 @@ class CatTabbarViewController: UITabBarController {
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.count == 0{
+            print(lineRecordData.recordData.userAdvice)
             return
         }
         self.catView.frame.size = CGSize(width: 50, height: 50)
