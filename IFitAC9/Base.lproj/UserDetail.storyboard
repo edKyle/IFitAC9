@@ -207,11 +207,11 @@
             </objects>
             <point key="canvasLocation" x="111" y="1171"/>
         </scene>
-        <!--Item-->
+        <!--個人指南-->
         <scene sceneID="kaV-ia-Wg6">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-uEP-0B-lXb" automaticallyAdjustsScrollViewInsets="NO" id="uEP-0B-lXb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="p9E-Ka-jRj"/>
+                    <tabBarItem key="tabBarItem" title="個人指南" image="Icon_-_個人指南" id="p9E-Ka-jRj"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nYN-iS-xqu">
@@ -230,6 +230,7 @@
     </scenes>
     <resources>
         <image name="Group 3" width="343" height="409"/>
+        <image name="Icon_-_個人指南" width="12" height="14"/>
         <image name="UserDetailGroupRectangle" width="93" height="23"/>
         <image name="setting" width="48" height="48"/>
         <image name="user_profile" width="176" height="176"/>

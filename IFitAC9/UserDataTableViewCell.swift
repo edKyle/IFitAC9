@@ -26,12 +26,13 @@ class UserDataTableViewCell: UITableViewCell {
         self.layer.shadowRadius = 1
         self.layer.shadowOpacity = 1
         self.layer.zPosition = 10
-
         
+        self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*6)
         self.tailImageView.transform = CGAffineTransformIdentity
+      
         
         self.selectionStyle = .None
-    
+        
         // Initialization code
     }
     
@@ -44,16 +45,19 @@ class UserDataTableViewCell: UITableViewCell {
     //func 指標x軸計算
     func getHandPointX(standerValue:String){
         if standerValue != ""{
-           
+            
             UIView.animateWithDuration(2, animations: {
                 
                 switch standerValue{
                 case "過低":
-                    self.tailImageView.transform = CGAffineTransformMakeTranslation(-self.x, 0)
+                    self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*5)
+                    self.topStanderImageView.image = UIImage(named: "要加油啊")
                 case "標準":
-                    self.tailImageView.transform = CGAffineTransformMakeTranslation(0, 0)
+                    self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*6)
+                    self.topStanderImageView.image = UIImage(named: "標準")
                 default:
-                    self.tailImageView.transform = CGAffineTransformMakeTranslation(self.x, 0)
+                    self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*7)
+                    self.topStanderImageView.image = UIImage(named: "要小心喔")
                 }
             })
         }

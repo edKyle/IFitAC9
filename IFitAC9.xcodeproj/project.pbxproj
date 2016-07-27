@@ -41,6 +41,7 @@
 		27CFB16F1D3E802F001B7A9F /* line4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27CFB16D1D3E802F001B7A9F /* line4CollectionViewCell.xib */; };
 		27DBCD391D3E69DC00720291 /* lineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DBCD371D3E69DC00720291 /* lineCollectionViewCell.swift */; };
 		27DBCD3A1D3E69DC00720291 /* lineCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */; };
+		27E78C671D488E8A0058E775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27E78C661D488E8A0058E775 /* GoogleService-Info.plist */; };
 		27EEFEC61D3D232C00F27F3D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		6B38E9D01D40B4500011FB3D /* BubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */; };
 		6B38E9D11D40B4500011FB3D /* BubblesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */; };
@@ -120,6 +121,7 @@
 		27CFB16D1D3E802F001B7A9F /* line4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = line4CollectionViewCell.xib; sourceTree = "<group>"; };
 		27DBCD371D3E69DC00720291 /* lineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineCollectionViewCell.swift; sourceTree = "<group>"; };
 		27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lineCollectionViewCell.xib; sourceTree = "<group>"; };
+		27E78C661D488E8A0058E775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IFitAC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleNode.swift; sourceTree = "<group>"; };
 		6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubblesScene.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				27098D7F1D3CC1340021543E /* AppDelegate.swift */,
 				27098D861D3CC1340021543E /* Assets.xcassets */,
 				27098D8B1D3CC1340021543E /* Info.plist */,
+				27E78C661D488E8A0058E775 /* GoogleService-Info.plist */,
 				27098D881D3CC1340021543E /* LaunchScreen.storyboard */,
 				6BA782DB1D3F6C4B00024D30 /* Login */,
 				27098D951D3CC3040021543E /* MainStoryboard */,
@@ -481,6 +484,11 @@
 					27098D7B1D3CC1340021543E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 8H7X36TF25;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -518,6 +526,7 @@
 				6BB703F81D3E133200406E63 /* PriceDetailSecondRowCollectionViewCell.xib in Resources */,
 				270ECAAD1D40D8FB001F74DE /* AllDataTableViewCell.xib in Resources */,
 				27AF996C1D44AE8A00EB5237 /* UserDataTableViewCell2.xib in Resources */,
+				27E78C671D488E8A0058E775 /* GoogleService-Info.plist in Resources */,
 				6BCDEBAC1D4747B30016089E /* NewPriceCollectionViewCell.xib in Resources */,
 				27A7BD261D3F7C12005E0C3A /* iFitStoreListTableViewCell.xib in Resources */,
 				6BA782D31D3F388C00024D30 /* PriceDetailThirdRowCollectionViewCell.xib in Resources */,

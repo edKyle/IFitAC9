@@ -7,7 +7,8 @@ target 'IFitAC9' do
 
   # Pods for IFitAC9
 
-
+pod 'FirebaseMessaging'
+pod 'Firebase/Core'
 pod 'MBCircularProgressBar'
 pod 'Alamofire', '~> 3.4'
 pod 'BetterSegmentedControl', '~> 0.4'

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p91-lk-n5G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p91-lk-n5G">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -720,11 +720,11 @@
             </objects>
             <point key="canvasLocation" x="3935" y="425"/>
         </scene>
-        <!--個人指南-->
+        <!--我的獎勵-->
         <scene sceneID="U2b-pV-yJz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="p91-lk-n5G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="個人指南" image="Icon_-_個人指南" id="8pa-3c-TBf"/>
+                    <tabBarItem key="tabBarItem" title="我的獎勵" image="Icon_-_我的獎勵" id="8pa-3c-TBf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZmP-QJ-CLg">
@@ -765,7 +765,7 @@
     </scenes>
     <resources>
         <image name="Group 3" width="343" height="409"/>
-        <image name="Icon_-_個人指南" width="12" height="14"/>
+        <image name="Icon_-_我的獎勵" width="12" height="14"/>
         <image name="Mask" width="343" height="306"/>
         <image name="Rectangle 17" width="339" height="41"/>
         <image name="UserDetailGroupRectangle" width="93" height="23"/>

@@ -10,7 +10,8 @@ import UIKit
 
 class CatTabbarViewController: UITabBarController {
     
-    var notification = false
+    var count = 0
+    static var notification = false
     var point = CGPoint()
     var beginTouch = UITouch()
     var catView = UIImageView()
@@ -40,10 +41,10 @@ class CatTabbarViewController: UITabBarController {
         }) { (nil) in
             self.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
             
-            if self.notification == true{
+            if CatTabbarViewController.notification == true{
                 self.catView.image = UIImage(named: "有對話框的貓貓")
             }
-
+            
         }
         
         
@@ -58,11 +59,14 @@ class CatTabbarViewController: UITabBarController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.beginTouch = touches.first!
-        if notification == true{
+        if CatTabbarViewController.notification == true{
             catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
         }
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        count = 1
+        
         if beginTouch.view == self.catView{
             self.catView.transform = CGAffineTransformMakeTranslation(0, 0)
             self.catView.image = UIImage(named: "抓起")
@@ -72,15 +76,18 @@ class CatTabbarViewController: UITabBarController {
         }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if count == 0{
+            return
+        }
         self.catView.frame.size = CGSize(width: 50, height: 50)
         
         UIView.animateWithDuration(1.6, animations: {
             if self.beginTouch.view == self.catView{
-
+                
                 self.catView.frame.size = CGSize(width: 80, height: 80)
                 self.catView.image = UIImage(named: "降落傘")
                 self.catView.frame.origin.y = UIScreen.mainScreen().bounds.height-113
-            
+                
                 let random = CGFloat(arc4random_uniform(200))
                 self.catView.frame.origin.x = random
                 
@@ -88,8 +95,8 @@ class CatTabbarViewController: UITabBarController {
                 self.swing()
                 
             }}) { (nil) in
-                 self.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
-                if self.notification == true{
+                self.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+                if CatTabbarViewController.notification == true{
                     self.catView.image = UIImage(named: "有對話框的貓貓")
                 }
         }
@@ -102,7 +109,7 @@ class CatTabbarViewController: UITabBarController {
             self.catView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/8))
             }, completion:{
                 succeed in
-                UIView.animateWithDuration(0.8, delay: 0, options: .BeginFromCurrentState, animations: {
+                UIView.animateWithDuration(0.8, delay: 0, options: .AllowUserInteraction, animations: {
                     Void in
                     self.catView.transform = CGAffineTransformMakeRotation(CGFloat(0))
                     }, completion:{
