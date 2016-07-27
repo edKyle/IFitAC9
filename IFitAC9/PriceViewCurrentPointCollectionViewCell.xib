@@ -84,9 +84,6 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
                                 <real key="value" value="11"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                <real key="value" value="33"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
                                 <color key="value" red="0.94509803920000002" green="0.25098039220000001" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
@@ -195,6 +192,7 @@
             </variation>
             <connections>
                 <outlet property="itemWidthConstraint" destination="ICS-nr-5JG" id="mgR-lW-CEC"/>
+                <outlet property="progressBar" destination="9mf-Yi-Rxf" id="eUp-wj-wzg"/>
             </connections>
             <point key="canvasLocation" x="291.5" y="338.5"/>
         </collectionViewCell>

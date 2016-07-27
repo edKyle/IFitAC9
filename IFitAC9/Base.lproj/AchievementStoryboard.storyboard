@@ -171,7 +171,6 @@
             </objects>
             <point key="canvasLocation" x="3128" y="396"/>
         </scene>
-
         <!--Price List View Controller-->
         <scene sceneID="UdR-mp-Gee">
             <objects>
@@ -323,7 +322,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSl-lu-u8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4745" y="175"/>
-
         </scene>
     </scenes>
     <resources>
