@@ -463,36 +463,8 @@
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="600" height="242"/>
                                                             <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dok-lb-ABL" customClass="MBCircularProgressBarView">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="208"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="208" id="tOo-9J-J2k"/>
-                                                                    </constraints>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
-                                                                            <real key="value" value="15"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                                            <real key="value" value="20"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="progressCapType">
-                                                                            <integer key="value" value="1"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyCapType">
-                                                                            <integer key="value" value="1"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
-                                                        <constraints>
-                                                            <constraint firstItem="Dok-lb-ABL" firstAttribute="leading" secondItem="ZpJ-wz-Mxb" secondAttribute="leading" id="bDr-fv-Vyd"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Dok-lb-ABL" secondAttribute="trailing" id="bdJ-9e-Oay"/>
-                                                            <constraint firstItem="Dok-lb-ABL" firstAttribute="top" secondItem="ZpJ-wz-Mxb" secondAttribute="top" id="jQ9-eU-SGy"/>
-                                                        </constraints>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
