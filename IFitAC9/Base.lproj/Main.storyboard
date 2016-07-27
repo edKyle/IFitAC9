@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="-701" y="175"/>
         </scene>
-        <!--achei-->
+        <!--Price-->
         <scene sceneID="WJh-Eb-3Vc">
             <objects>
-                <viewControllerPlaceholder storyboardName="AchievementStoryboard" referencedIdentifier="achei" id="LrO-8o-Oav" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AchievementStoryboard" referencedIdentifier="Price" id="LrO-8o-Oav" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="W5r-SR-H0G"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQg-V1-r8f" userLabel="First Responder" sceneMemberID="firstResponder"/>

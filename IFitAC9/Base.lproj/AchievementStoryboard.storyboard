@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -146,13 +146,32 @@
                         <outlet property="pageControl" destination="YAI-4K-zRi" id="4P2-ff-Ag2"/>
                         <outlet property="priceUpperHalfCollectionView" destination="OWh-aE-iF3" id="mS3-JA-Dfl"/>
                         <outlet property="progressView" destination="Iug-0H-IZA" id="Ukm-Tb-Sab"/>
-                        <segue destination="2Jv-YY-ENU" kind="show" identifier="showDetailsegue" id="8du-xy-af7"/>
+                        <segue destination="2Jv-YY-ENU" kind="show" identifier="showDetailsegue" id="9SV-R5-Tsz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIw-J7-QZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3214" y="396"/>
+            <point key="canvasLocation" x="4012" y="396"/>
         </scene>
+        <!--我的獎勵-->
+        <scene sceneID="eDL-fX-gTV">
+            <objects>
+                <navigationController storyboardIdentifier="Price" id="1wn-fd-KnQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的獎勵" image="Icon_-_我的獎勵" id="ovX-Vw-FEv"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EhM-fE-9KZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ffh-KQ-gw1" kind="relationship" relationship="rootViewController" id="L83-9a-JTH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wv3-EI-Lg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3128" y="396"/>
+        </scene>
+
         <!--Price List View Controller-->
         <scene sceneID="UdR-mp-Gee">
             <objects>
@@ -184,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YG-UR-Ixk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="724"/>
+            <point key="canvasLocation" x="4763" y="724"/>
         </scene>
         <!--Price Map View Controller-->
         <scene sceneID="uUj-yg-MMI">
@@ -303,27 +322,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSl-lu-u8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3933" y="175"/>
-        </scene>
-        <!--我的獎勵-->
-        <scene sceneID="U2b-pV-yJz">
-            <objects>
-                <navigationController storyboardIdentifier="achei" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="p91-lk-n5G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的獎勵" image="Icon_-_我的獎勵" id="8pa-3c-TBf"/>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZmP-QJ-CLg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ffh-KQ-gw1" kind="relationship" relationship="rootViewController" id="nLl-bP-eRp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohe-o3-eEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2473" y="396"/>
+            <point key="canvasLocation" x="4745" y="175"/>
+
         </scene>
     </scenes>
     <resources>

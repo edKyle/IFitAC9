@@ -10,7 +10,7 @@ import UIKit
 
 class CatTabbarViewController: UITabBarController {
     
-    static var count = 0
+    var count = 0
     static var notification = false
     var point = CGPoint()
     var beginTouch = UITouch()
@@ -59,15 +59,15 @@ class CatTabbarViewController: UITabBarController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.beginTouch = touches.first!
+        self.count = 0
         if CatTabbarViewController.notification == true{
             catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
         }
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        CatTabbarViewController.count = 1
-        
         if beginTouch.view == self.catView{
+            self.count = 1
             self.catView.transform = CGAffineTransformMakeTranslation(0, 0)
             self.catView.image = UIImage(named: "抓起")
             self.catView.frame.size = CGSize(width: 100, height: 100)
@@ -76,7 +76,7 @@ class CatTabbarViewController: UITabBarController {
         }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if CatTabbarViewController.count == 0{
+        if self.count == 0{
             return
         }
         self.catView.frame.size = CGSize(width: 50, height: 50)

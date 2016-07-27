@@ -16,7 +16,7 @@ class PriceListViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "獎勵列表"
-                
+        
         priceListTableView.dataSource = self
         priceListTableView.delegate = self
         
