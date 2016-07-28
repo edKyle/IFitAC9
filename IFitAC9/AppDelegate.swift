@@ -42,15 +42,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
+        
         CatTabbarViewController.notification = true
-        // Print message ID.
+        NSNotificationCenter.defaultCenter().postNotificationName("Notifi", object: nil)
         
-        //MARK: 閃退的地方
-        print("Message ID: \(userInfo["gcm.message_id"]!)")
+        if let url = userInfo["url"]{
+            
+            let urlString = url as! NSString as String
+            NSNotificationCenter.defaultCenter().postNotificationName("notiWeb", object: urlString)
+            
+        }
         
-        // Print full message.
-        print("%@", userInfo)
-    }
+//        print("%@", userInfo)
+        
+        
+        }
     // [END receive_message]
     
     // [START refresh_token]
