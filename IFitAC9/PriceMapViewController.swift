@@ -76,10 +76,11 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
+        let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as! PriceMapCollectionViewCell
+        item.goPageDelegate = self
         switch indexPath.item {
         case 0:
-            let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as! PriceMapCollectionViewCell
+            
             
             item.pointLable.text = "30點獎勵"
             item.imageTraillingContrant.constant = 20
@@ -88,8 +89,7 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
             return item
             
         case 1:
-            let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as!
-            PriceMapCollectionViewCell
+            
             item.imageTraillingContrant.constant = 15
             item.pointLable.text = "45點獎勵"
             item.priceImageView.image = UIImage(named: "priceNo2CupCake")
@@ -97,8 +97,7 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
             return item
             
         default:
-            let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as!
-            PriceMapCollectionViewCell
+            
             item.priceImageView.image = UIImage(named: "priceNo1")
             item.imageTraillingContrant.constant = 20
             item.pointLable.text = "60點獎勵"
@@ -109,4 +108,14 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
  
+}
+
+extension PriceMapViewController: GoPageDelegate{
+    
+    func goPage(index: Int) {
+        let storyboard = UIStoryboard.init(name: "AchievementStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("PriceListViewController") as! PriceListViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }

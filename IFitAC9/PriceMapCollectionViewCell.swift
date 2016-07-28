@@ -9,10 +9,14 @@
 import UIKit
 
 class PriceMapCollectionViewCell: UICollectionViewCell {
-
+    
+    weak var goPageDelegate:GoPageDelegate?
     @IBOutlet weak var priceImageView: UIImageView!
     @IBOutlet weak var pointLable: UILabel!
     @IBOutlet weak var imageTraillingContrant: NSLayoutConstraint!
+    @IBAction func goPriceAction(sender: AnyObject) {
+        goPageDelegate?.goPage(1)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
