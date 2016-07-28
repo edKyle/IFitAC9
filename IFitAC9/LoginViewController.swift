@@ -23,8 +23,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingView.hidden = true
-        loadingProgress.activityIndicatorViewStyle = .WhiteLarge
         webView.navigationDelegate = self
+        loadingProgress.startAnimating()
         let request = NSURLRequest(URL: url!)
         self.view.addSubview(webView)
         

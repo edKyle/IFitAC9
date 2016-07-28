@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 
-class CatTabbarViewController: UITabBarController {
+class CatTabbarViewController: UITabBarController{
     
+    var notificationUrl:NSURL?
     var count = 0
     static var notification = false
     var point = CGPoint()
@@ -21,6 +22,13 @@ class CatTabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeCat), name: "Notifi", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.notificationWebView), name: "notiWeb", object: nil)
+        
+        
+        
+        
         let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Lion sound effects", ofType: "mp3")!)
         do{
             try audioPlayer = AVAudioPlayer(contentsOfURL: catSound)
@@ -28,8 +36,8 @@ class CatTabbarViewController: UITabBarController {
             print(error)
         }
         
-            audioPlayer.prepareToPlay()
-    
+        audioPlayer.prepareToPlay()
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(animated: Bool) {
@@ -41,7 +49,7 @@ class CatTabbarViewController: UITabBarController {
         catView.contentMode = .ScaleAspectFit
         catView.image = UIImage(named: "降落傘")
         self.view.addSubview(catView)
-
+        
         
         UIView.animateWithDuration(1.6, animations: {
             
@@ -75,7 +83,7 @@ class CatTabbarViewController: UITabBarController {
         if CatTabbarViewController.notification == true{
             catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
             CatTabbarViewController.notification = false
-                           self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
+            self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
         }
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -94,6 +102,9 @@ class CatTabbarViewController: UITabBarController {
             audioPlayer.play()
             print(lineRecordData.recordData.userAdvice)
             
+            if self.notificationUrl != nil{
+                UIApplication.sharedApplication().openURL(self.notificationUrl!)
+            }
             return
         }
         self.catView.frame.size = CGSize(width: 50, height: 50)
@@ -134,6 +145,18 @@ class CatTabbarViewController: UITabBarController {
                 })
         })
         
+    }
+    
+    
+    func changeCat(){
+        self.catView.image = UIImage(named: "有對話框的貓貓")
+        self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
+    }
+    
+    func notificationWebView(notification: NSNotification){
+        
+        let url = NSURL(string: notification.object as! String)
+        self.notificationUrl = url
     }
     /*
      // MARK: - Navigation

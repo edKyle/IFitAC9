@@ -41,7 +41,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
+        
         //segamentControl
         let navHeight = navigationController?.navigationBar.frame.height
         let viewHeight = ButtonView.frame.height
