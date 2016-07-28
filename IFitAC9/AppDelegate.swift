@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: Handle data of notification
         CatTabbarViewController.notification = true
         // Print message ID.
+        
+        //MARK: 閃退的地方
         print("Message ID: \(userInfo["gcm.message_id"]!)")
         
         // Print full message.

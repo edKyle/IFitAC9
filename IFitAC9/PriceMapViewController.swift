@@ -81,24 +81,27 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
         case 0:
             let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as! PriceMapCollectionViewCell
             
-            item.imageTraillingContrant.constant = 10
+            item.pointLable.text = "30點獎勵"
+            item.imageTraillingContrant.constant = 20
+            item.priceImageView.image = UIImage(named: "priceNo1")
             
             return item
             
         case 1:
             let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as!
             PriceMapCollectionViewCell
-            
-            item.pointLable.text = "15點獎勵"
+            item.imageTraillingContrant.constant = 15
+            item.pointLable.text = "45點獎勵"
+            item.priceImageView.image = UIImage(named: "priceNo2CupCake")
             
             return item
             
         default:
             let item = priceMapCollectionView.dequeueReusableCellWithReuseIdentifier("Item", forIndexPath: indexPath) as!
             PriceMapCollectionViewCell
-            
-            item.imageTraillingContrant.constant = 5
-            item.pointLable.text = "30點獎勵"
+            item.priceImageView.image = UIImage(named: "priceNo1")
+            item.imageTraillingContrant.constant = 20
+            item.pointLable.text = "60點獎勵"
             
             return item
             

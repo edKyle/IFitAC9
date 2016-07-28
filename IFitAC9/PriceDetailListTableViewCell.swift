@@ -8,14 +8,22 @@
 
 import UIKit
 
+protocol GoPriceDelegate:class {
+    func canGo()
+}
+
 class PriceDetailListTableViewCell: UITableViewCell {
 
+    weak var goPriceDelegate: GoPriceDelegate?
+    var priceStatus = false
     
     @IBOutlet weak var priceImageView: UIImageView!
     @IBOutlet weak var getPriceButtonOutlet: UIButton!
     @IBOutlet weak var priceNameLable: UILabel!
     
-    @IBOutlet weak var getPriceAction: UIButton!
+    @IBAction func getPriceAction(sender: AnyObject) {
+        goPriceDelegate?.canGo()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

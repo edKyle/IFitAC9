@@ -9,18 +9,19 @@
 import UIKit
 
 protocol GoPageDelegate:class {
-    func goPage()
+    func goPage(index:Int)
 }
 
 class NewPriceCollectionViewCell: UICollectionViewCell {
-
+    
+    var index = 1
     weak var goDelegate:GoPageDelegate?
     
     @IBOutlet weak var priceDetailLable: UILabel!
     @IBOutlet weak var priceImageView: UIImageView!
     
     @IBAction func goDetailPageButton(sender: AnyObject) {
-        goDelegate?.goPage()
+        goDelegate?.goPage(index)
     }
     
     override func awakeFromNib() {

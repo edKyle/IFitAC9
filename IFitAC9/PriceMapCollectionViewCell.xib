@@ -22,29 +22,46 @@
                                     <constraint firstAttribute="height" constant="54" id="xrL-lF-bbe"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PriceForMap" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-dN-Q32">
-                                <rect key="frame" x="294" y="90" width="110" height="122"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="2K1-sn-RbX"/>
-                                    <constraint firstAttribute="height" constant="122" id="s6b-5t-vH6"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5點獎勵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agc-Oy-Zk0">
-                                <rect key="frame" x="318" y="51" width="62" height="21"/>
+                                <rect key="frame" x="383" y="51" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBs-pn-SKS">
+                                <rect key="frame" x="359" y="96" width="110" height="122"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="priceBubble" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-dN-Q32">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="122"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="2K1-sn-RbX"/>
+                                            <constraint firstAttribute="height" constant="122" id="s6b-5t-vH6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="priceNo1" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-Fq-hvz">
+                                        <rect key="frame" x="19" y="20" width="72" height="72"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rgX-dN-Q32" secondAttribute="bottom" id="8qZ-qn-OK7"/>
+                                    <constraint firstItem="rgX-dN-Q32" firstAttribute="top" secondItem="JBs-pn-SKS" secondAttribute="top" id="9hj-8l-dv5"/>
+                                    <constraint firstAttribute="trailing" secondItem="rgX-dN-Q32" secondAttribute="trailing" id="AOy-Ee-hUz"/>
+                                    <constraint firstAttribute="width" constant="110" id="Hns-zO-XJG"/>
+                                    <constraint firstItem="rgX-dN-Q32" firstAttribute="leading" secondItem="JBs-pn-SKS" secondAttribute="leading" id="Uys-KJ-dkS"/>
+                                    <constraint firstAttribute="height" constant="122" id="XqU-uq-sAx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rgX-dN-Q32" firstAttribute="top" secondItem="agc-Oy-Zk0" secondAttribute="bottom" constant="24" id="1m7-zc-hWT"/>
                             <constraint firstAttribute="bottom" secondItem="EQN-HD-iPM" secondAttribute="bottom" constant="-3" id="FW5-fj-Zzc"/>
-                            <constraint firstItem="EQN-HD-iPM" firstAttribute="top" secondItem="rgX-dN-Q32" secondAttribute="bottom" constant="32" id="Ign-qG-KoO"/>
-                            <constraint firstItem="rgX-dN-Q32" firstAttribute="top" secondItem="agc-Oy-Zk0" secondAttribute="bottom" constant="18" id="Q9h-MN-Xez"/>
-                            <constraint firstAttribute="trailing" secondItem="rgX-dN-Q32" secondAttribute="trailing" constant="80" id="VAE-pl-XFg"/>
-                            <constraint firstItem="agc-Oy-Zk0" firstAttribute="centerX" secondItem="rgX-dN-Q32" secondAttribute="centerX" id="fvl-c3-neb"/>
+                            <constraint firstAttribute="trailing" secondItem="JBs-pn-SKS" secondAttribute="trailing" constant="15" id="RJQ-Ty-5gI"/>
+                            <constraint firstItem="EQN-HD-iPM" firstAttribute="top" secondItem="JBs-pn-SKS" secondAttribute="bottom" constant="26" id="ZMW-Kw-oZF"/>
                             <constraint firstAttribute="trailing" secondItem="EQN-HD-iPM" secondAttribute="trailing" id="mxS-cM-fYp"/>
                             <constraint firstItem="EQN-HD-iPM" firstAttribute="leading" secondItem="aj7-ax-iwI" secondAttribute="leading" id="oSJ-uC-9gh"/>
+                            <constraint firstItem="agc-Oy-Zk0" firstAttribute="centerX" secondItem="rgX-dN-Q32" secondAttribute="centerX" id="uid-V4-Feg"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -58,14 +75,16 @@
             </constraints>
             <size key="customSize" width="484" height="295"/>
             <connections>
-                <outlet property="imageTraillingContrant" destination="VAE-pl-XFg" id="eEe-2r-RVh"/>
+                <outlet property="imageTraillingContrant" destination="RJQ-Ty-5gI" id="SPz-7b-jkQ"/>
                 <outlet property="pointLable" destination="agc-Oy-Zk0" id="KPS-79-L2T"/>
+                <outlet property="priceImageView" destination="ooh-Fq-hvz" id="Pz2-XZ-YWP"/>
             </connections>
             <point key="canvasLocation" x="573" y="404.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="PriceForMap" width="112" height="125"/>
         <image name="grass" width="339" height="51"/>
+        <image name="priceBubble" width="336" height="375"/>
+        <image name="priceNo1" width="695" height="442"/>
     </resources>
 </document>
