@@ -108,7 +108,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfE-SZ-SOX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A7EEE0CE-742F-4FDD-B42B-CB79BF7AACC5" translatesAutoresizingMaskIntoConstraints="NO" id="4dX-zx-cwI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30462994-2709-4CCB-A7DF-90391317B990" translatesAutoresizingMaskIntoConstraints="NO" id="4dX-zx-cwI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MCu-l7-FLn">
@@ -356,7 +356,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A7EEE0CE-742F-4FDD-B42B-CB79BF7AACC5" width="552" height="326">
+        <image name="30462994-2709-4CCB-A7DF-90391317B990" width="552" height="326">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -9363,7 +9363,7 @@ zn7S0H7S0H7S1H3S1HrT1XnU1XrT1X3S1IDR1IDR0n7S0nvT1HvT1IDR1YHQ1X3T0n3T0n3T0n3T0n3T
 AQYAAwAAAAEAAgAAAREABAAAAAUACD2UARIAAwAAAAEAAQAAARUAAwAAAAEAAwAAARYAAwAAAAEATwAA
 ARcABAAAAAUACD2AARwAAwAAAAEAAQAAAVMAAwAAAAMACD2oh3MABwAADEgACD2uAAAAAAAIAAgACAAB
 /wgAAf8IAAH/CAAB/wgAAECwAAAACAAB/xAAA/4YAAX9IAAH/CgAAQABAAEAAAxITGlubwIQAABtbnRy
-UkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAAAAAAAAAAAAAAAAAA9tYAAQAA
+UkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAAAAAAAAAAAAAAAQAA9tYAAQAA
 AADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFjcHJ0
 AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAAABRyWFlaAAACGAAAABRnWFla
 AAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAACxAAAAIh2dWVkAAADTAAAAIZ2aWV3
