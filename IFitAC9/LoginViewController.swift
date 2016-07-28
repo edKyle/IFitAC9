@@ -19,6 +19,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingProgress: UIActivityIndicatorView!
     
+    var code:String?
+    var token:String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +54,8 @@ class LoginViewController: UIViewController {
     
     func getuserdata(){
         
-    Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": 1])
+        
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": 1])
             .responseJSON { response in
                 
                 print(response.request)  // 请求对象
@@ -114,7 +118,10 @@ class LoginViewController: UIViewController {
                             lineRecordData.recordData.measuringDate.append("\(components.month)/\(components.day)")
                         }
                     }
+                    if CurrentUser.user.name == "尤彥傑"{
+                    self.performSegueWithIdentifier("showOnboardView", sender: self)
                     
+                    }
                     self.performSegueWithIdentifier("logInSegue", sender: self)
                     
                 }
@@ -150,17 +157,17 @@ extension LoginViewController:WKNavigationDelegate{
         if codeArr[0] == "http://alpha.i-fit.com.tw/ifit_user?code"{
             webView.hidden = true
             loadingView.hidden = false
-            let code = codeArr[1]
+            code = codeArr[1]
             print(codeArr)
-            print("Hello code      " + code)
+            print("Hello code      " + code!)
             let tokenFirst = codeToWebArr![3] as String
             let tokenArr = tokenFirst.componentsSeparatedByString("=")
-            let token = tokenArr[1]
-            print("Hello token    " + token)
+            token = tokenArr[1]
+            print("Hello token    " + token!)
             CurrentUser.user.token = token
             print(codeToWebArr)
             if code != "" && token != ""{
-                Alamofire.request(.POST, "http://alpha.i-fit.com.tw/api/v1/login", parameters: ["code":code, "token": token, "callback": "", "state": ""])
+                Alamofire.request(.POST, "http://alpha.i-fit.com.tw/api/v1/login", parameters: ["code":code!, "token": token!, "callback": "", "state": ""])
                     .responseJSON { response in
                         
                         //                print(response.request)  // 请求对象
@@ -179,12 +186,13 @@ extension LoginViewController:WKNavigationDelegate{
                             CurrentUser.user.menberID = user["user_id"]! as? String
                             CurrentUser.user.mPhoneNumber = user["mphone"]! as? String
                             CurrentUser.user.email = user["email"]! as? String
-                            
                             self.getuserdata()
                         }
-                        
                 }
             }
+            
         }
     }
 }
+
+

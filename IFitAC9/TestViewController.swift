@@ -17,7 +17,13 @@ class TestViewController: UIViewController {
     @IBOutlet weak var answerTableView: UITableView!
     
     @IBAction func cancelButton(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        if self.navigationController != nil{
+            self.navigationController?.popViewControllerAnimated(true)
+        }else{
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewControllerWithIdentifier("CatTabbarViewController") as! CatTabbarViewController
+            self.showViewController(controller, sender: nil)
+        }
     }
     
  

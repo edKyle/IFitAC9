@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -136,16 +137,17 @@
                         <outlet property="loadingProgress" destination="MCu-l7-FLn" id="EtJ-79-ZIe"/>
                         <outlet property="loadingView" destination="lfE-SZ-SOX" id="cWN-Uc-OwW"/>
                         <segue destination="E1P-sE-J8K" kind="presentation" identifier="logInSegue" id="XIs-kf-bk8"/>
+                        <segue destination="9uF-Wy-9IG" kind="show" identifier="showOnboardView" id="qxZ-Ic-YME"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Da-8i-1vZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1371" y="197"/>
+            <point key="canvasLocation" x="-1411" y="175"/>
         </scene>
         <!--Cat Tabbar View Controller-->
         <scene sceneID="d7W-kV-XZr">
             <objects>
-                <tabBarController id="E1P-sE-J8K" customClass="CatTabbarViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CatTabbarViewController" id="E1P-sE-J8K" customClass="CatTabbarViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Npd-Xs-voW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -161,6 +163,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxD-tT-iHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-701" y="175"/>
+        </scene>
+        <!--On Board View Controller-->
+        <scene sceneID="Wsk-PE-RMT">
+            <objects>
+                <viewController id="9uF-Wy-9IG" customClass="OnBoardViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JIT-B3-DMW"/>
+                        <viewControllerLayoutGuide type="bottom" id="axw-8X-L1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dqN-He-Fmu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onBoardImageTop" translatesAutoresizingMaskIntoConstraints="NO" id="aGd-k0-yJ4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="mEi-Dj-rBh"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-ix-Eqt">
+                                <rect key="frame" x="83" y="400" width="434" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <state key="normal" title="立即開始" backgroundImage="buttonForPrice"/>
+                                <connections>
+                                    <action selector="goTestAction:" destination="9uF-Wy-9IG" eventType="touchUpInside" id="MWM-oc-obT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9LS-ix-Eqt" secondAttribute="trailing" constant="63" id="0eo-cu-xPR"/>
+                            <constraint firstAttribute="trailing" secondItem="aGd-k0-yJ4" secondAttribute="trailing" id="5sR-dP-kxW"/>
+                            <constraint firstItem="axw-8X-L1M" firstAttribute="top" secondItem="9LS-ix-Eqt" secondAttribute="bottom" constant="80" id="9Qi-F8-N5T"/>
+                            <constraint firstItem="aGd-k0-yJ4" firstAttribute="leading" secondItem="dqN-He-Fmu" secondAttribute="leading" id="Z1R-7Y-Gtm"/>
+                            <constraint firstItem="9LS-ix-Eqt" firstAttribute="leading" secondItem="dqN-He-Fmu" secondAttribute="leadingMargin" constant="63" id="eWl-49-wFq"/>
+                            <constraint firstItem="aGd-k0-yJ4" firstAttribute="top" secondItem="dqN-He-Fmu" secondAttribute="top" id="qaX-Z2-YIW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MXR-uD-OGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1411" y="915"/>
         </scene>
         <!--Price-->
         <scene sceneID="WJh-Eb-3Vc">
@@ -350,5 +394,7 @@
     <resources>
         <image name="Icon_-_我的數據" width="16" height="16"/>
         <image name="Icon_-_搜尋門市" width="13" height="15"/>
+        <image name="buttonForPrice" width="426" height="120"/>
+        <image name="onBoardImageTop" width="1119" height="267"/>
     </resources>
 </document>
