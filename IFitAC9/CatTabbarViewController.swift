@@ -11,7 +11,7 @@ import AVFoundation
 
 class CatTabbarViewController: UITabBarController{
     
-    var notificationUrl:NSURL?
+    static var notificationUrl:String?
     var count = 0
     static var notification = false
     var point = CGPoint()
@@ -23,10 +23,6 @@ class CatTabbarViewController: UITabBarController{
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeCat), name: "Notifi", object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.notificationWebView), name: "notiWeb", object: nil)
-        
-        
         
         
         let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Lion sound effects", ofType: "mp3")!)
@@ -102,8 +98,10 @@ class CatTabbarViewController: UITabBarController{
             audioPlayer.play()
             print(lineRecordData.recordData.userAdvice)
             
-            if self.notificationUrl != nil{
-                UIApplication.sharedApplication().openURL(self.notificationUrl!)
+            if CatTabbarViewController.notificationUrl != nil{
+            let url = NSURL(string: CatTabbarViewController.notificationUrl!)
+                print(url)
+            UIApplication.sharedApplication().openURL(url!)
             }
             return
         }
@@ -153,12 +151,7 @@ class CatTabbarViewController: UITabBarController{
         self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
     }
     
-    func notificationWebView(notification: NSNotification){
-        
-        let url = NSURL(string: notification.object as! String)
-        self.notificationUrl = url
-    }
-    /*
+     /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation

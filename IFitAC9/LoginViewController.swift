@@ -16,13 +16,26 @@ class LoginViewController: UIViewController {
     let webView = WKWebView(frame:UIScreen.mainScreen().bounds)
     let url = NSURL(string: "http://auth.i-fit.com.tw/login?redirect_uri=http://alpha.i-fit.com.tw/ifit_user&client_id=alphacamp_web&scope=&state=&callback=")
     
+    
+    var startGym = true
+    var gymArray = [UIImage]()
+ 
+    @IBOutlet weak var gymImageView: UIImageView!
     @IBOutlet weak var loadingView: UIView!
+   
     @IBOutlet weak var loadingProgress: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingView.hidden = true
+        
+          for i in 1...2{
+            let fileName1 = String(format:"gym%i.png",i)
+            let img1 = UIImage(named: fileName1)
+            self.gymArray.append(img1!)
+        }
+        
         webView.navigationDelegate = self
         loadingProgress.startAnimating()
         let request = NSURLRequest(URL: url!)
@@ -150,6 +163,18 @@ extension LoginViewController:WKNavigationDelegate{
         if codeArr[0] == "http://alpha.i-fit.com.tw/ifit_user?code"{
             webView.hidden = true
             loadingView.hidden = false
+            loadingView.hidden = false
+            
+            if startGym{
+                
+                self.gymImageView.animationImages = gymArray
+                self.gymImageView.animationDuration = 1
+                self.gymImageView.animationRepeatCount = 0
+                self.gymImageView.startAnimating()
+                
+            }
+            
+            
             let code = codeArr[1]
             print(codeArr)
             print("Hello code      " + code)

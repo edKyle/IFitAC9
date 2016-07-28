@@ -43,14 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         
+        
         CatTabbarViewController.notification = true
         NSNotificationCenter.defaultCenter().postNotificationName("Notifi", object: nil)
-        
 
         if let url = userInfo["url"]{
             
             let urlString = url as! NSString as String
-            NSNotificationCenter.defaultCenter().postNotificationName("notiWeb", object: urlString)
+            CatTabbarViewController.notificationUrl = urlString
             
         }
 
