@@ -44,6 +44,9 @@
 		27DBCD3A1D3E69DC00720291 /* lineCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */; };
 		27E78C671D488E8A0058E775 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27E78C661D488E8A0058E775 /* GoogleService-Info.plist */; };
 		27EEFEC61D3D232C00F27F3D /* (null) in Sources */ = {isa = PBXBuildFile; };
+		6B15FBD61D49D8070046E87D /* ImagePriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B15FBD51D49D8070046E87D /* ImagePriceViewController.swift */; };
+		6B15FBD91D49D8F90046E87D /* ImagePriceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B15FBD71D49D8F90046E87D /* ImagePriceCollectionViewCell.swift */; };
+		6B15FBDA1D49D8F90046E87D /* ImagePriceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B15FBD81D49D8F90046E87D /* ImagePriceCollectionViewCell.xib */; };
 		6B38E9D01D40B4500011FB3D /* BubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */; };
 		6B38E9D11D40B4500011FB3D /* BubblesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */; };
 		6B38E9D41D40B4A70011FB3D /* SIFloatingCollectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */; };
@@ -128,6 +131,9 @@
 		27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lineCollectionViewCell.xib; sourceTree = "<group>"; };
 		27E78C661D488E8A0058E775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IFitAC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B15FBD51D49D8070046E87D /* ImagePriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePriceViewController.swift; sourceTree = "<group>"; };
+		6B15FBD71D49D8F90046E87D /* ImagePriceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePriceCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B15FBD81D49D8F90046E87D /* ImagePriceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePriceCollectionViewCell.xib; sourceTree = "<group>"; };
 		6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleNode.swift; sourceTree = "<group>"; };
 		6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubblesScene.swift; sourceTree = "<group>"; };
 		6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIFloatingCollectionScene.swift; sourceTree = "<group>"; };
@@ -229,8 +235,9 @@
 				6BA69AB71D45B7E500268341 /* UserDetail */,
 				6BA69AC41D46000A00268341 /* TestForPesonal */,
 				27098D941D3CC2E40021543E /* AchievementStoryboard */,
-				6BCDEBE71D488B660016089E /* Price */,
 				6BB703EB1D3DDFFF00406E63 /* ArchievementController */,
+				6BCDEBE71D488B660016089E /* Price */,
+				6B15FBD41D49D7E20046E87D /* ImagePrice */,
 			);
 			path = IFitAC9;
 			sourceTree = "<group>";
@@ -342,6 +349,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6B15FBD41D49D7E20046E87D /* ImagePrice */ = {
+			isa = PBXGroup;
+			children = (
+				6B15FBD51D49D8070046E87D /* ImagePriceViewController.swift */,
+				6B15FBD71D49D8F90046E87D /* ImagePriceCollectionViewCell.swift */,
+				6B15FBD81D49D8F90046E87D /* ImagePriceCollectionViewCell.xib */,
+			);
+			name = ImagePrice;
+			sourceTree = "<group>";
+		};
 		6BA69AB71D45B7E500268341 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,8 +433,6 @@
 				6BCDEBB21D4760280016089E /* PriceMapCollectionViewCell.swift */,
 				6BCDEBB31D4760280016089E /* PriceMapCollectionViewCell.xib */,
 				6BCDEBB11D475FFF0016089E /* oldArchievement */,
-				6BA7831A1D40884900024D30 /* BubbleFactory */,
-				6BA7830F1D40772500024D30 /* Coin */,
 			);
 			name = ArchievementController;
 			sourceTree = "<group>";
@@ -448,6 +463,8 @@
 		6BCDEBB11D475FFF0016089E /* oldArchievement */ = {
 			isa = PBXGroup;
 			children = (
+				6BA7830F1D40772500024D30 /* Coin */,
+				6BA7831A1D40884900024D30 /* BubbleFactory */,
 				6BB703DD1D3CDCFB00406E63 /* AchievementViewController.swift */,
 				6BB703E71D3DDFBB00406E63 /* GoalDetailViewController.swift */,
 				6BB703DF1D3CDD4800406E63 /* AchievementTableViewCell.swift */,
@@ -557,6 +574,7 @@
 				6BB703EF1D3E0BED00406E63 /* PriceDetailFirstRowTableViewCell.xib in Resources */,
 				278F453E1D47A0C6007D47D6 /* UserDetail.storyboard in Resources */,
 				27098D871D3CC1340021543E /* Assets.xcassets in Resources */,
+				6B15FBDA1D49D8F90046E87D /* ImagePriceCollectionViewCell.xib in Resources */,
 				6BCDEBB51D4760280016089E /* PriceMapCollectionViewCell.xib in Resources */,
 				6BA69AC11D45FCE900268341 /* TestTableViewCell.xib in Resources */,
 				27CFB1671D3E7F6A001B7A9F /* line2CollectionViewCell.xib in Resources */,
@@ -658,6 +676,7 @@
 				6BA782DD1D3F6D7600024D30 /* LoginViewController.swift in Sources */,
 				6B38E9D11D40B4500011FB3D /* BubblesScene.swift in Sources */,
 				6BA782D71D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.swift in Sources */,
+				6B15FBD91D49D8F90046E87D /* ImagePriceCollectionViewCell.swift in Sources */,
 				27A7BD251D3F7C12005E0C3A /* iFitStoreListTableViewCell.swift in Sources */,
 				6BB703DE1D3CDCFB00406E63 /* AchievementViewController.swift in Sources */,
 				6BA69AB61D45B7D500268341 /* UserDetailViewController.swift in Sources */,
@@ -668,6 +687,7 @@
 				6BB703F31D3E10FF00406E63 /* PriceDetailSecondRowTableViewCell.swift in Sources */,
 				27AF996B1D44AE8A00EB5237 /* UserDataTableViewCell2.swift in Sources */,
 				6BA69AC01D45FCE900268341 /* TestTableViewCell.swift in Sources */,
+				6B15FBD61D49D8070046E87D /* ImagePriceViewController.swift in Sources */,
 				6BCDEBB41D4760280016089E /* PriceMapCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

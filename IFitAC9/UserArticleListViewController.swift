@@ -8,6 +8,9 @@
 
 import UIKit
 import BetterSegmentedControl
+import Alamofire
+import SwiftyJSON
+import WebKit
 
 class UserArticleListViewController: UIViewController {
 
@@ -78,6 +81,8 @@ class UserArticleListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getArticle()
+        
         let navHeight = navigationController?.navigationBar.frame.height
         let viewHeight = buttonView.frame.height
         
@@ -111,11 +116,19 @@ class UserArticleListViewController: UIViewController {
         articleTableView.rowHeight = UITableViewAutomaticDimension
         articleTableView.estimatedRowHeight = 1000
         
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getArticle(){
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/posts/index", parameters: nil)
+            .responseJSON { response in
+                print(response)
+        }
     }
 
     func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {

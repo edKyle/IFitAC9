@@ -10,6 +10,7 @@ import UIKit
 
 class PriceMapCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var priceImageView: UIImageView!
     @IBOutlet weak var pointLable: UILabel!
     @IBOutlet weak var imageTraillingContrant: NSLayoutConstraint!
     

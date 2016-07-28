@@ -19,6 +19,8 @@ class PriceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "我的獎勵"
+        
         priceUpperHalfCollectionView.dataSource = self
         priceUpperHalfCollectionView.delegate = self
         
@@ -97,7 +99,7 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
         case 1:
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item2", forIndexPath: indexPath) as!
             NewPriceCollectionViewCell
-            
+            item.index = 1
             item.goDelegate = self
             
             
@@ -107,8 +109,10 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item2", forIndexPath: indexPath) as!
             NewPriceCollectionViewCell
             
+            item.index = 2
             item.priceImageView.image = UIImage(named: "Post")
             item.priceDetailLable.text = "最新取得的鼓勵海報"
+            item.goDelegate = self
             
             return item
             
@@ -118,9 +122,12 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
 }
 
 extension PriceViewController: GoPageDelegate{
-    func goPage() {
-        
-        self.performSegueWithIdentifier("showDetailsegue", sender: nil)
+    func goPage(index:Int) {
+        if index == 1{
+            self.performSegueWithIdentifier("showDetailsegue", sender: nil)
+        }else if index == 2{
+            self.performSegueWithIdentifier("showPostPriceSegeu", sender: nil)
+        }
     }
     
 }
