@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGl-Vg-zbG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cGl-Vg-zbG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -104,9 +104,37 @@
                     <view key="view" contentMode="scaleToFill" id="DGw-Dk-asq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfE-SZ-SOX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MCu-l7-FLn">
+                                        <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="U4b-LN-0OZ"/>
+                                            <constraint firstAttribute="height" constant="50" id="gYJ-5Z-Jbg"/>
+                                        </constraints>
+                                        <color key="color" red="0.94509803920000002" green="0.25098039220000001" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="MCu-l7-FLn" firstAttribute="centerY" secondItem="lfE-SZ-SOX" secondAttribute="centerY" id="efJ-XF-Lyg"/>
+                                    <constraint firstItem="MCu-l7-FLn" firstAttribute="centerX" secondItem="lfE-SZ-SOX" secondAttribute="centerX" id="qGm-GW-Hye"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lfE-SZ-SOX" firstAttribute="leading" secondItem="DGw-Dk-asq" secondAttribute="leading" id="3lK-DW-WNV"/>
+                            <constraint firstAttribute="trailing" secondItem="lfE-SZ-SOX" secondAttribute="trailing" id="PbH-jQ-kKj"/>
+                            <constraint firstItem="Dhl-0y-RFW" firstAttribute="top" secondItem="lfE-SZ-SOX" secondAttribute="bottom" id="lxu-90-Bf0"/>
+                            <constraint firstItem="lfE-SZ-SOX" firstAttribute="top" secondItem="DGw-Dk-asq" secondAttribute="top" id="qfl-Oa-eVD"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingProgress" destination="MCu-l7-FLn" id="EtJ-79-ZIe"/>
+                        <outlet property="loadingView" destination="lfE-SZ-SOX" id="cWN-Uc-OwW"/>
                         <segue destination="E1P-sE-J8K" kind="presentation" identifier="logInSegue" id="XIs-kf-bk8"/>
                     </connections>
                 </viewController>

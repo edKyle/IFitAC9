@@ -13,6 +13,9 @@ class CurrentUser{
     var menberID:String?
     var name:String?
     var age:Int?
+    var mPhoneNumber:String?
+    var email:String?
+    var token:String?
     
     var record:[CurrentUser] = []
     

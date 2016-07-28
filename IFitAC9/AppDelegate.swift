@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Print message ID.
         
         //MARK: 閃退的地方
-        print("Message ID: \(userInfo["gcm.message_id"]!)")
+//        print("Message ID: \(userInfo["gcm.message_id"]!)")
         
         // Print full message.
         print("%@", userInfo)

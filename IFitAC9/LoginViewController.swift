@@ -16,8 +16,14 @@ class LoginViewController: UIViewController {
     let webView = WKWebView(frame:UIScreen.mainScreen().bounds)
     let url = NSURL(string: "http://auth.i-fit.com.tw/login?redirect_uri=http://alpha.i-fit.com.tw/ifit_user&client_id=alphacamp_web&scope=&state=&callback=")
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingProgress: UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingView.hidden = true
+        loadingProgress.activityIndicatorViewStyle = .WhiteLarge
         webView.navigationDelegate = self
         let request = NSURLRequest(URL: url!)
         self.view.addSubview(webView)
@@ -44,7 +50,8 @@ class LoginViewController: UIViewController {
     }
     
     func getuserdata(){
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": 1])
+        
+    Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": 1])
             .responseJSON { response in
                 
                 print(response.request)  // 请求对象
@@ -133,33 +140,51 @@ class LoginViewController: UIViewController {
 extension LoginViewController:WKNavigationDelegate{
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        
         print("Finished navigating to url \(self.webView.URL?.absoluteString)")
         let codeToWebArr = self.webView.URL?.absoluteString.componentsSeparatedByString("&")
         print(codeToWebArr)
         let codeFirst = codeToWebArr![0] as String
         let codeArr = codeFirst.componentsSeparatedByString("=")
-        let code = codeArr[1]
         print(codeArr)
-        print("Hello code      " + code)
-        let tokenFirst = codeToWebArr![3] as String
-        let tokenArr = tokenFirst.componentsSeparatedByString("=")
-        let token = tokenArr[1]
-        print("Hello token    " + token)
-        print(codeToWebArr)
-        Alamofire.request(.POST, "http://alpha.i-fit.com.tw/api/v1/login", parameters: ["code":code, "token": token, "callback": "", "state": ""])
-            .responseJSON { response in
-                
-                print(response.request)  // 请求对象
-                print(response.response) // 响应对象
-                print(response.data)     // 服务端返回的数据
-                
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                    let status = JSON["data"]
-                    self.getuserdata()
+        if codeArr[0] == "http://alpha.i-fit.com.tw/ifit_user?code"{
+            webView.hidden = true
+            loadingView.hidden = false
+            let code = codeArr[1]
+            print(codeArr)
+            print("Hello code      " + code)
+            let tokenFirst = codeToWebArr![3] as String
+            let tokenArr = tokenFirst.componentsSeparatedByString("=")
+            let token = tokenArr[1]
+            print("Hello token    " + token)
+            CurrentUser.user.token = token
+            print(codeToWebArr)
+            if code != "" && token != ""{
+                Alamofire.request(.POST, "http://alpha.i-fit.com.tw/api/v1/login", parameters: ["code":code, "token": token, "callback": "", "state": ""])
+                    .responseJSON { response in
+                        
+                        //                print(response.request)  // 请求对象
+                        //                print(response.response) // 响应对象
+                        //                print(response.data)     // 服务端返回的数据
+                        
+                        
+                        if let JSON = response.result.value {
+                            print("JSON: \(JSON)")
+                            let status = JSON["data"] as! NSArray
+                            print(status)
+                            print(status[0])
+                            let user = status[0]
+                            print(user["name"]!)
+                            CurrentUser.user.name = user["name"]! as? String
+                            CurrentUser.user.menberID = user["user_id"]! as? String
+                            CurrentUser.user.mPhoneNumber = user["mphone"]! as? String
+                            CurrentUser.user.email = user["email"]! as? String
+                            
+                            self.getuserdata()
+                        }
+                        
                 }
-                
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ target 'IFitAC9' do
   # Pods for IFitAC9
   
 pod 'CountdownLabel'
+pod 'SDWebImage', '~>3.8'
 pod 'FirebaseMessaging'
 pod 'Firebase/Core'
 pod 'MBCircularProgressBar'

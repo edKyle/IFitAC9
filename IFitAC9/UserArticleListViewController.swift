@@ -11,11 +11,14 @@ import BetterSegmentedControl
 import Alamofire
 import SwiftyJSON
 import WebKit
+import SDWebImage
+
 
 class UserArticleListViewController: UIViewController {
 
     var control = BetterSegmentedControl()
     var currentIndex:UInt = 0
+    var articleArr = [AnyObject]()
     
     @IBOutlet weak var articleTableView: UITableView!
     @IBOutlet weak var buttonView: UIView!
@@ -127,7 +130,13 @@ class UserArticleListViewController: UIViewController {
     func getArticle(){
         Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/posts/index", parameters: nil)
             .responseJSON { response in
-                print(response)
+                
+                if let JSON = response.result.value {
+                    let json = JSON["data"] as! NSArray
+                    self.articleArr = json as [AnyObject]
+                    print(self.articleArr)
+                    self.articleTableView.reloadData()
+                }
         }
     }
 
@@ -142,34 +151,40 @@ class UserArticleListViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showWeb"{
+            let desVc = segue.destinationViewController as! DetailWebViewController
+            let articleSelect = articleArr[sender as! Int]
+            desVc.urlStr = articleSelect["url"]! as? String
+        }
+    
+    
     }
-    */
+  
 
 }
 
 extension UserArticleListViewController: UITableViewDataSource, UITableViewDelegate{
     
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showWeb", sender: indexPath.row)
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        
+        return articleArr.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = articleTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ArticleTableViewCell
         
         cell.selectionStyle = .None
+        let article = articleArr[indexPath.row]
+    
+        cell.articleImage.sd_setImageWithURL(NSURL(string: article["logo"] as! String))
+        cell.tltleLable.text = article["title"] as? String
         
-        if indexPath.row == 1{
-            cell.articleImage.image = UIImage(named: "articleImage2")
-        }
         
         return cell
     }
