@@ -22,6 +22,7 @@
 		27426E491D41C38100FBA161 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27426E481D41C38100FBA161 /* MapViewController.swift */; };
 		27426E4B1D41C79200FBA161 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27426E4A1D41C79200FBA161 /* CoreLocation.framework */; };
 		27426E4D1D41C79E00FBA161 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27426E4C1D41C79E00FBA161 /* MapKit.framework */; };
+		276A6F981D49E24500B55792 /* Lion sound effects.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 276A6F971D49E24500B55792 /* Lion sound effects.mp3 */; };
 		278F453B1D475AF2007D47D6 /* CatTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */; };
 		278F453E1D47A0C6007D47D6 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F453C1D47A0C6007D47D6 /* UserDetail.storyboard */; };
 		27A078D21D3DC56A00AD264E /* lineRecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A078D11D3DC56A00AD264E /* lineRecordData.swift */; };
@@ -105,6 +106,7 @@
 		27426E481D41C38100FBA161 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		27426E4A1D41C79200FBA161 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		27426E4C1D41C79E00FBA161 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		276A6F971D49E24500B55792 /* Lion sound effects.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lion sound effects.mp3"; sourceTree = "<group>"; };
 		278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTabbarViewController.swift; sourceTree = "<group>"; };
 		278F453D1D47A0C6007D47D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserDetail.storyboard; sourceTree = "<group>"; };
 		27A078D11D3DC56A00AD264E /* lineRecordData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineRecordData.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				27098D831D3CC1340021543E /* Main.storyboard */,
 				278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */,
+				276A6F971D49E24500B55792 /* Lion sound effects.mp3 */,
 				27A7BD201D3F7AE8005E0C3A /* IFitStoreController */,
 				27A7BD1F1D3F798A005E0C3A /* UserDataViewController */,
 			);
@@ -558,6 +561,7 @@
 				6BA69AC11D45FCE900268341 /* TestTableViewCell.xib in Resources */,
 				27CFB1671D3E7F6A001B7A9F /* line2CollectionViewCell.xib in Resources */,
 				27098D931D3CC2440021543E /* AchievementStoryboard.storyboard in Resources */,
+				276A6F981D49E24500B55792 /* Lion sound effects.mp3 in Resources */,
 				27098D851D3CC1340021543E /* Main.storyboard in Resources */,
 				6BA782D81D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.xib in Resources */,
 			);

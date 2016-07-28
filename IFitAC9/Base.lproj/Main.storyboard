@@ -163,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="78" y="-84"/>
         </scene>
-        <!--User Data View Controller-->
+        <!--我的數據-->
         <scene sceneID="ivT-Yo-S3J">
             <objects>
                 <viewController id="sQc-q6-5TX" customClass="UserDataViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
@@ -261,7 +261,7 @@
                             <outletCollection property="gestureRecognizers" destination="Slp-3k-bbL" appends="YES" id="Vcq-xd-1mg"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="DCo-er-RYs"/>
+                    <navigationItem key="navigationItem" title="我的數據" id="eCw-Eg-z1l"/>
                     <connections>
                         <outlet property="ButtonView" destination="aeJ-HS-vJL" id="Gjs-R2-PHw"/>
                         <outlet property="UserDataTableView" destination="yFW-Jp-VwL" id="een-bl-VPn"/>

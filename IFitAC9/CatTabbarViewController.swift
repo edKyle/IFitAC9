@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CatTabbarViewController: UITabBarController {
     
@@ -15,9 +16,20 @@ class CatTabbarViewController: UITabBarController {
     var point = CGPoint()
     var beginTouch = UITouch()
     var catView = UIImageView()
+    var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Lion sound effects", ofType: "mp3")!)
+        do{
+            try audioPlayer = AVAudioPlayer(contentsOfURL: catSound)
+        }catch{
+            print(error)
+        }
+        
+            audioPlayer.prepareToPlay()
+    
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(animated: Bool) {
@@ -79,7 +91,9 @@ class CatTabbarViewController: UITabBarController {
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.count == 0{
+            audioPlayer.play()
             print(lineRecordData.recordData.userAdvice)
+            
             return
         }
         self.catView.frame.size = CGSize(width: 50, height: 50)

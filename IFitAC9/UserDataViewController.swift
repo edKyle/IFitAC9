@@ -14,7 +14,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
  
     var lineGraphView:ScrollableGraphView?
     //data
-    var howManyTimes:[String] = ["1","2","3","4","5","6"]
+    var howManyTimes:[String] = []
     var weightLocalArray:[Double] = []
     var muscleLocalArray:[Double] = []
     var fatPercentLocalArray:[Double] = []
@@ -49,7 +49,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         control = BetterSegmentedControl(
             frame: CGRect(x: 0.0, y: navHeight!+viewHeight+20, width: view.bounds.width, height: 5.0),
             titles: ["", "", "",""],
-            index: 1, backgroundColor: UIColor(red:1, green:1, blue:1, alpha:1),
+            index: 0, backgroundColor: UIColor(red:1, green:1, blue:1, alpha:1),
             titleColor: .blackColor(),
             indicatorViewBackgroundColor: UIColor(red:1, green:133/255, blue:133/255, alpha:1.00),
             selectedTitleColor: .blackColor())
@@ -362,6 +362,17 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 waterPercentLocalArray.removeAtIndex(0)
             }
         }
+        //存date
+        for n in lineRecordData.recordData.measuringDate{
+            howManyTimes.append(n)
+        }
+        if howManyTimes.count > 6{
+            for _ in 1...howManyTimes.count - 6{
+                howManyTimes.removeAtIndex(0)
+            }
+        }
+ 
+        
     }
     
     //判斷user各個標準值結果

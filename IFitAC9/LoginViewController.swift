@@ -54,6 +54,8 @@ class LoginViewController: UIViewController {
                 if let JSON = response.result.value {
                     let json = JSON["datas"] as! NSArray
                     
+                    print(json)
+                    
                     let lastJsonData = json[json.count-1]
                     
                     lineRecordData.recordData.userPerfectWeightMax = "\(lastJsonData["standard"]!!["weight_upper"]!!)"
@@ -89,6 +91,20 @@ class LoginViewController: UIViewController {
                     for n in json{
                         if let fat = n["composition"]!!["total_fat"]! {
                             lineRecordData.recordData.fatPercentage.append(Double(fat as! NSString as String)!)
+                        }
+                    }
+                    for n in json{
+                        if let day = n["composition"]!!["updated_at"]! {
+                            let dayString = day as! NSString as String!
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            let dateNs = dateFormatter.dateFromString(dayString)
+                            dateFormatter.dateStyle = .ShortStyle
+                            
+                            let calendar = NSCalendar.currentCalendar()
+                            let components = calendar.components([.Day , .Month , .Year], fromDate: dateNs!)
+                            
+                            lineRecordData.recordData.measuringDate.append("\(components.month)/\(components.day)")
                         }
                     }
                     

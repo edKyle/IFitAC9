@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import GestureRecognizerClosures
 
 // 宣告 locationManger 全域變數
 let locationManger = CLLocationManager()
@@ -30,7 +31,6 @@ class iFitStoreListTableViewController: UITableViewController, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManger.delegate = self
         locationManger.requestWhenInUseAuthorization()
         
@@ -62,10 +62,9 @@ class iFitStoreListTableViewController: UITableViewController, CLLocationManager
         switch section{
         case 0:
             return 1
-        case 1:
-            return 9
         default:
-            return 1
+            return 9
+
         }
     }
     
@@ -76,31 +75,19 @@ class iFitStoreListTableViewController: UITableViewController, CLLocationManager
             cell.topCellImageView.image = UIImage(named: "iFit")
             return cell
             
-        case 1:
+        default:
             let cell = tableView.dequeueReusableCellWithIdentifier("ifitStoreCell", forIndexPath: indexPath) as! iFitStoreListTableViewCell
             
             cell.storeImageView.image = UIImage(named: storeArray[indexPath.row])
+            cell.mapButton.onTap { (UITapGestureRecognizer) in
+            self.performSegue(self.AllStoreLocation[indexPath.row])
+            }
+
             
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCellWithIdentifier("topCell", forIndexPath: indexPath) as! topTableViewCell
-            cell.topCellImageView.image = UIImage(named: "")
             return cell
             
         }
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.section{
-        case 0:
-            break
-        case 1:
-            performSegue(AllStoreLocation[indexPath.row])
-        default:
-            break
-        }
-    }
-    
     
     /*
      // Override to support conditional editing of the table view.
