@@ -96,9 +96,9 @@ class CatTabbarViewController: UITabBarController{
             self.count = 1
             CatTabbarViewController.catView.transform = CGAffineTransformMakeTranslation(0, 0)
             CatTabbarViewController.catView.image = UIImage(named: "抓起")
-            CatTabbarViewController.catView.frame.size = CGSize(width: 100, height: 100)
+            CatTabbarViewController.catView.frame.size = CGSize(width: 120, height: 120)
             point = self.beginTouch.locationInView(CatTabbarViewController.catView.superview)
-            CatTabbarViewController.catView.center = point
+            CatTabbarViewController.catView.center = CGPoint(x: point.x-60, y: point.y+60)
         }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

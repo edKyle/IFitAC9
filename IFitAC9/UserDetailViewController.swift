@@ -13,17 +13,15 @@ class UserDetailViewController: UIViewController {
     
     var indexForArticle:UInt = 0
     
-    @IBOutlet weak var userQrcodeVew: UIView!
     @IBOutlet weak var userDetailHeaderView: UIView!
     @IBOutlet weak var settingCoverView: UIView!
     @IBOutlet weak var nameLable: UILabel!
-    @IBOutlet weak var qrCodeImageView: UIImageView!
+    
 
     
     @IBAction func settingAction(sender: AnyObject) {
         
-        userQrcodeVew.hidden = false
-        settingCoverView.hidden = false
+        
         
         NSURLCache.sharedURLCache().removeAllCachedResponses()
         NSURLCache.sharedURLCache().diskCapacity = 0
@@ -35,10 +33,6 @@ class UserDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func dismissSettingAction(sender: AnyObject) {
-        userQrcodeVew.hidden = true
-        settingCoverView.hidden = true
-    }
     
     @IBAction func eatButton(sender: AnyObject) {
         go(0)   
@@ -68,12 +62,7 @@ class UserDetailViewController: UIViewController {
         
         nameLable.text = CurrentUser.user.name
         
-        let qrCodeImage = generateQRCodeFromString(CurrentUser.user.email!)
-        qrCodeImageView.image = qrCodeImage
         
-        settingCoverView.alpha = 0.8
-        userQrcodeVew.hidden = true
-        settingCoverView.hidden = true
         
     }
 
@@ -90,21 +79,7 @@ class UserDetailViewController: UIViewController {
         
     }
     
-    func generateQRCodeFromString(string: String) -> UIImage? {
-        let data = string.dataUsingEncoding(NSISOLatin1StringEncoding)
-        
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            filter.setValue("H", forKey: "inputCorrectionLevel")
-            let transform = CGAffineTransformMakeScale(10, 10)
-            
-            if let output = filter.outputImage?.imageByApplyingTransform(transform) {
-                return UIImage(CIImage: output)
-            }
-        }
-        
-        return nil
-    }
+
     
 
 }
