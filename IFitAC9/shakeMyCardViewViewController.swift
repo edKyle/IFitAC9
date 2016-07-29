@@ -10,9 +10,11 @@ import UIKit
 
 class shakeMyCardViewViewController: UIViewController {
 
+    @IBOutlet weak var qRCodeImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        qRCodeImageView.image = CurrentUser.user.getUserQRCode()
         // Do any additional setup after loading the view.
     }
 
