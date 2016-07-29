@@ -29,6 +29,7 @@ class SettingViewController: UIViewController {
         settingTableView.registerNib(UINib(nibName: "SettingFuncTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
         self.tabBarController?.tabBar.hidden = true
+        CatTabbarViewController.catView.hidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -40,10 +41,11 @@ class SettingViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
+        CatTabbarViewController.catView.hidden = false
     }
     
     override func viewDidDisappear(animated: Bool) {
-        self.tabBarController?.tabBar.hidden = false
+        
     }
     
 

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="shakeMyCardViewViewController" customModule="IFitAC9" customModuleProvider="target">
             <connections>
+                <outlet property="coverView" destination="1aQ-aX-gDx" id="W0X-EK-7V8"/>
                 <outlet property="qRCodeImageView" destination="DEI-Pp-6At" id="2ra-IZ-xw9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -63,6 +64,9 @@
                                 <constraint firstAttribute="height" constant="36" id="tsO-L7-BUx"/>
                             </constraints>
                             <state key="normal" title="知道了" backgroundImage="buttonForPrice"/>
+                            <connections>
+                                <action selector="dismissAction:" destination="-1" eventType="touchUpInside" id="UZx-TF-o2I"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,7 +96,7 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1aQ-aX-gDx" secondAttribute="trailing" id="GEV-GD-mAy"/>
                 <constraint firstItem="1aQ-aX-gDx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ybf-93-NLe"/>

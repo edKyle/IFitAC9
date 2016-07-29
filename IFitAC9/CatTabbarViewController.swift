@@ -19,6 +19,7 @@ class CatTabbarViewController: UITabBarController{
     var beginTouch = UITouch()
     static var catView = UIImageView()
     var audioPlayer = AVAudioPlayer()
+    var qRCodeView = shakeMyCardViewViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,11 @@ class CatTabbarViewController: UITabBarController{
         }
         audioPlayer.prepareToPlay()
         
+        
+        
         // Do any additional setup after loading the view.
     }
+    
     override func viewDidAppear(animated: Bool) {
         
         CatTabbarViewController.catView = UIImageView(frame:CGRect(x: 200, y: 0, width: 50, height: 50))
@@ -65,6 +69,8 @@ class CatTabbarViewController: UITabBarController{
             }
             
         }
+        
+        
         
         
     }
@@ -134,6 +140,22 @@ class CatTabbarViewController: UITabBarController{
         }
     }
     
+    //MARK: Tim 搖搖QRCode
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake{
+            let width = UIScreen.mainScreen().bounds.width
+            let height = UIScreen.mainScreen().bounds.height
+            qRCodeView.view.frame.size = CGSize(width: width, height: height)
+            qRCodeView.dismissDelegate = self
+            self.view.addSubview(qRCodeView.view)
+            
+        }
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        
+    }
+    
     
     func swing(){
         UIView.animateWithDuration(0.8, delay: 0, options: .AllowUserInteraction, animations: {
@@ -168,4 +190,10 @@ class CatTabbarViewController: UITabBarController{
      }
      */
     
+}
+
+extension CatTabbarViewController: DismissQRCodeDelegatr{
+    func dismiss() {
+        self.qRCodeView.view.removeFromSuperview()
+    }
 }

@@ -8,19 +8,35 @@
 
 import UIKit
 
-class shakeMyCardViewViewController: UIViewController {
+protocol DismissQRCodeDelegatr:class {
+    func dismiss()
+}
 
+class shakeMyCardViewViewController: UIViewController {
+    
+    weak var dismissDelegate:DismissQRCodeDelegatr?
+
+    @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var qRCodeImageView: UIImageView!
+    
+    @IBAction func dismissAction(sender: AnyObject) {
+        dismissDelegate!.dismiss()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         qRCodeImageView.image = CurrentUser.user.getUserQRCode()
+        coverView.alpha = 0.8
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
     }
     
 

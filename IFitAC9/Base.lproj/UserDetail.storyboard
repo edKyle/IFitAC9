@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -338,80 +338,6 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-wg-jOn">
-                                <rect key="frame" x="166" y="115" width="269" height="370"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basicFrame" translatesAutoresizingMaskIntoConstraints="NO" id="grc-81-3QQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="269" height="370"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你的卡號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-hL-xny">
-                                        <rect key="frame" x="95" y="8" width="80" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wRA-9d-Sfs">
-                                        <rect key="frame" x="60" y="52" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="7xf-RQ-lL6"/>
-                                            <constraint firstAttribute="height" constant="150" id="lvY-ZX-k38"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="卡號的乳牛" translatesAutoresizingMaskIntoConstraints="NO" id="rgT-sF-NP2">
-                                        <rect key="frame" x="103" y="105" width="64" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="86J-nA-e5X"/>
-                                            <constraint firstAttribute="height" constant="43" id="Fiw-UP-oO2"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去 ift 實體門市請店員刷這個 QR code 就可以登錄你的資料囉！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zE-wb-N2J">
-                                        <rect key="frame" x="43" y="222" width="184" height="54"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="184" id="HlS-pw-Gqc"/>
-                                            <constraint firstAttribute="height" constant="54" id="VeR-B3-kkn"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbs-1j-poJ">
-                                        <rect key="frame" x="64" y="292" width="142" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="142" id="c5I-5y-sOI"/>
-                                            <constraint firstAttribute="height" constant="36" id="gt9-k5-lnK"/>
-                                        </constraints>
-                                        <state key="normal" title="知道了" backgroundImage="buttonForPrice"/>
-                                        <connections>
-                                            <action selector="dismissSettingAction:" destination="dyx-tv-9ln" eventType="touchUpInside" id="U9u-KN-5cx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="grc-81-3QQ" secondAttribute="bottom" id="0z6-ew-uim"/>
-                                    <constraint firstItem="grc-81-3QQ" firstAttribute="top" secondItem="Lfg-wg-jOn" secondAttribute="top" id="6BR-Op-cNd"/>
-                                    <constraint firstAttribute="width" constant="269" id="8Lw-2t-pK6"/>
-                                    <constraint firstItem="Sbs-1j-poJ" firstAttribute="top" secondItem="5zE-wb-N2J" secondAttribute="bottom" constant="16" id="8aY-ZV-Q4m"/>
-                                    <constraint firstItem="5zE-wb-N2J" firstAttribute="top" secondItem="wRA-9d-Sfs" secondAttribute="bottom" constant="20" id="HRW-d0-K5i"/>
-                                    <constraint firstItem="5zE-wb-N2J" firstAttribute="centerX" secondItem="wRA-9d-Sfs" secondAttribute="centerX" id="Nb6-nU-rxc"/>
-                                    <constraint firstAttribute="trailing" secondItem="grc-81-3QQ" secondAttribute="trailing" id="RRM-wX-TbW"/>
-                                    <constraint firstItem="wRA-9d-Sfs" firstAttribute="centerX" secondItem="Lfg-wg-jOn" secondAttribute="centerX" id="Uf6-a5-uKq"/>
-                                    <constraint firstItem="Sbs-1j-poJ" firstAttribute="centerX" secondItem="5zE-wb-N2J" secondAttribute="centerX" id="Wdv-X6-1yT"/>
-                                    <constraint firstItem="Sbs-1j-poJ" firstAttribute="top" secondItem="5zE-wb-N2J" secondAttribute="top" id="Xoc-jZ-48B"/>
-                                    <constraint firstItem="grc-81-3QQ" firstAttribute="leading" secondItem="Lfg-wg-jOn" secondAttribute="leading" id="ZK8-HJ-MDT"/>
-                                    <constraint firstItem="rgT-sF-NP2" firstAttribute="centerX" secondItem="wRA-9d-Sfs" secondAttribute="centerX" id="bTS-2s-OWZ"/>
-                                    <constraint firstItem="wRA-9d-Sfs" firstAttribute="top" secondItem="XiY-hL-xny" secondAttribute="bottom" constant="20" id="dpx-Yo-GfB"/>
-                                    <constraint firstAttribute="height" constant="370" id="fZM-K9-bD2"/>
-                                    <constraint firstItem="XiY-hL-xny" firstAttribute="centerX" secondItem="Lfg-wg-jOn" secondAttribute="centerX" id="lsI-eG-uzg"/>
-                                    <constraint firstItem="XiY-hL-xny" firstAttribute="top" secondItem="Lfg-wg-jOn" secondAttribute="top" constant="8" id="vHF-om-MOg"/>
-                                    <constraint firstItem="rgT-sF-NP2" firstAttribute="centerY" secondItem="wRA-9d-Sfs" secondAttribute="centerY" id="wam-SN-g4Z"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Xoc-jZ-48B"/>
-                                    </mask>
-                                </variation>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -419,8 +345,6 @@
                             <constraint firstAttribute="trailing" secondItem="aek-4u-lv0" secondAttribute="trailing" id="F8O-dD-eRS"/>
                             <constraint firstItem="8gL-H9-JXt" firstAttribute="top" secondItem="aek-4u-lv0" secondAttribute="bottom" id="Ffk-pk-gZI"/>
                             <constraint firstAttribute="trailing" secondItem="g44-zU-L1p" secondAttribute="trailing" id="Hlr-vY-ZjW"/>
-                            <constraint firstItem="Lfg-wg-jOn" firstAttribute="centerX" secondItem="OrA-iI-Znc" secondAttribute="centerX" id="Iyd-QO-EMz"/>
-                            <constraint firstItem="Lfg-wg-jOn" firstAttribute="centerY" secondItem="OrA-iI-Znc" secondAttribute="centerY" id="NaD-aw-ruY"/>
                             <constraint firstItem="8gL-H9-JXt" firstAttribute="top" secondItem="g44-zU-L1p" secondAttribute="bottom" id="PtH-QH-D8o"/>
                             <constraint firstItem="g44-zU-L1p" firstAttribute="top" secondItem="Fkz-lt-cJS" secondAttribute="bottom" id="amF-Z6-KYB"/>
                             <constraint firstItem="g44-zU-L1p" firstAttribute="leading" secondItem="OrA-iI-Znc" secondAttribute="leading" id="gkr-gg-nz7"/>
@@ -431,10 +355,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="nameLable" destination="bsL-Sb-3gp" id="bBG-ni-S0Y"/>
-                        <outlet property="qrCodeImageView" destination="wRA-9d-Sfs" id="wm1-bG-RTR"/>
                         <outlet property="settingCoverView" destination="aek-4u-lv0" id="Fdv-A5-a31"/>
                         <outlet property="userDetailHeaderView" destination="FOr-nM-IsV" id="vnw-Wl-QAb"/>
-                        <outlet property="userQrcodeVew" destination="Lfg-wg-jOn" id="pdZ-02-Fyt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPJ-y2-bcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -700,14 +622,11 @@
         <image name="UserDeatilGroup" width="686" height="818"/>
         <image name="UserDetailGroupRectangle" width="93" height="23"/>
         <image name="arrow-right" width="52" height="52"/>
-        <image name="basicFrame" width="819" height="1122"/>
-        <image name="buttonForPrice" width="426" height="120"/>
         <image name="cancel" width="52" height="52"/>
         <image name="setting" width="48" height="48"/>
         <image name="test_background" width="750" height="368"/>
         <image name="user_profile" width="176" height="176"/>
         <image name="個人專屬建議圖" width="243" height="246"/>
-        <image name="卡號的乳牛" width="189" height="129"/>
         <image name="選對運動內衣_美胸自在更好動篇修左" width="141" height="315"/>
         <image name="關於你" width="343" height="590"/>
         <image name="飲食推薦" width="158" height="178"/>

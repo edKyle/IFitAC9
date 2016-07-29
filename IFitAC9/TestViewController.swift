@@ -34,6 +34,7 @@ class TestViewController: UIViewController {
         
         self.navigationController?.navigationBar.hidden = true
         self.tabBarController?.tabBar.hidden = true
+        CatTabbarViewController.catView.hidden = true
         
         answerTableView.dataSource = self
         answerTableView.delegate = self
@@ -56,6 +57,7 @@ class TestViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
         self.tabBarController?.tabBar.hidden = false
+        CatTabbarViewController.catView.hidden = false
     }
     
 
