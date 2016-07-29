@@ -9,9 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseMessaging
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var audioPlayer = AVAudioPlayer()
     
     var window: UIWindow?
     

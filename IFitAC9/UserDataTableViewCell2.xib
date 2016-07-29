@@ -105,28 +105,32 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上次體重" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-pS-2pb">
-                                <rect key="frame" x="67" y="176" width="68" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上次數據" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-pS-2pb">
+                                <rect key="frame" x="59" y="176" width="100" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7SU-5E-IBM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前體重" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJK-cY-Erl">
-                                <rect key="frame" x="175" y="176" width="68" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數據變化" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5Y-Hm-3KD">
+                                <rect key="frame" x="259" y="176" width="100" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數據變化" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5Y-Hm-3KD">
-                                <rect key="frame" x="283" y="176" width="68" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前數據" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJK-cY-Erl">
+                                <rect key="frame" x="159" y="176" width="100" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="T5Y-Hm-3KD" firstAttribute="leading" secondItem="nJK-cY-Erl" secondAttribute="trailing" constant="40" id="0su-BU-sXR"/>
+                            <constraint firstItem="nJK-cY-Erl" firstAttribute="width" secondItem="kNa-pS-2pb" secondAttribute="width" id="0PG-sd-8fy"/>
+                            <constraint firstItem="T5Y-Hm-3KD" firstAttribute="leading" secondItem="nJK-cY-Erl" secondAttribute="trailing" id="0su-BU-sXR"/>
                             <constraint firstItem="ocJ-S6-gOe" firstAttribute="centerY" secondItem="pLB-yJ-1Ch" secondAttribute="centerY" id="32d-EZ-JuU"/>
                             <constraint firstAttribute="height" constant="250" id="4rf-44-Ch6"/>
                             <constraint firstItem="nJK-cY-Erl" firstAttribute="top" secondItem="YhT-de-Woc" secondAttribute="bottom" constant="8" id="4yO-vH-0Yv"/>
@@ -135,6 +139,7 @@
                             <constraint firstItem="ocJ-S6-gOe" firstAttribute="centerX" secondItem="pLB-yJ-1Ch" secondAttribute="centerX" id="DlT-to-I5B"/>
                             <constraint firstItem="nJK-cY-Erl" firstAttribute="centerX" secondItem="ys2-R4-8vh" secondAttribute="centerX" id="G4F-6k-CuX"/>
                             <constraint firstAttribute="bottom" secondItem="f5C-Pf-qth" secondAttribute="bottom" id="GlH-k1-tWS"/>
+                            <constraint firstItem="T5Y-Hm-3KD" firstAttribute="width" secondItem="nJK-cY-Erl" secondAttribute="width" id="Lqq-yN-MAJ"/>
                             <constraint firstItem="YhT-de-Woc" firstAttribute="centerX" secondItem="ys2-R4-8vh" secondAttribute="centerX" id="Qci-Sx-q2c"/>
                             <constraint firstItem="5kI-NM-rQy" firstAttribute="top" secondItem="ZbM-Cu-Esy" secondAttribute="bottom" constant="-3" id="SXE-kK-e6D"/>
                             <constraint firstItem="kNa-pS-2pb" firstAttribute="top" secondItem="YhT-de-Woc" secondAttribute="bottom" constant="8" id="Sao-m8-1il"/>
@@ -149,7 +154,7 @@
                             <constraint firstItem="DR0-OJ-eUj" firstAttribute="centerX" secondItem="Bo4-Xx-nCu" secondAttribute="centerX" id="sSo-ur-QjC"/>
                             <constraint firstItem="6Fe-IM-HE7" firstAttribute="centerX" secondItem="pLB-yJ-1Ch" secondAttribute="centerX" id="uaA-oV-EFX"/>
                             <constraint firstItem="f5C-Pf-qth" firstAttribute="leading" secondItem="ys2-R4-8vh" secondAttribute="leading" constant="8" id="xoq-f3-0ee"/>
-                            <constraint firstItem="nJK-cY-Erl" firstAttribute="leading" secondItem="kNa-pS-2pb" secondAttribute="trailing" constant="40" id="xvk-w2-WX2"/>
+                            <constraint firstItem="nJK-cY-Erl" firstAttribute="leading" secondItem="kNa-pS-2pb" secondAttribute="trailing" id="xvk-w2-WX2"/>
                             <constraint firstItem="5kI-NM-rQy" firstAttribute="centerX" secondItem="pfj-5z-Fmp" secondAttribute="centerX" id="zwG-jl-PDn"/>
                         </constraints>
                     </view>
@@ -167,6 +172,9 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="changValue" destination="ocJ-S6-gOe" id="Sb0-tN-0Pw"/>
+                <outlet property="changeLabel" destination="T5Y-Hm-3KD" id="aWQ-fd-ZzJ"/>
+                <outlet property="currentLabel" destination="nJK-cY-Erl" id="d6Q-Y0-JfI"/>
+                <outlet property="lastLabel" destination="kNa-pS-2pb" id="V69-y9-VpJ"/>
                 <outlet property="lasttimeValue" destination="DR0-OJ-eUj" id="Uz3-lA-VJ6"/>
                 <outlet property="lineImageView" destination="O7i-Jk-7It" id="54V-wH-b85"/>
                 <outlet property="nowValue" destination="ZbM-Cu-Esy" id="7YD-fb-gJu"/>

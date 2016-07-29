@@ -11,12 +11,13 @@ import AVFoundation
 
 class CatTabbarViewController: UITabBarController{
     
-    static var notificationUrl:String?
     var count = 0
+    static var notificationUrl:String?
     static var notification = false
+    
     var point = CGPoint()
     var beginTouch = UITouch()
-    var catView = UIImageView()
+    static var catView = UIImageView()
     var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
@@ -25,41 +26,42 @@ class CatTabbarViewController: UITabBarController{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeCat), name: "Notifi", object: nil)
         
         
+        
         let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Lion sound effects", ofType: "mp3")!)
         do{
             try audioPlayer = AVAudioPlayer(contentsOfURL: catSound)
         }catch{
             print(error)
         }
-        
         audioPlayer.prepareToPlay()
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(animated: Bool) {
         
-        catView = UIImageView(frame:CGRect(x: 200, y: 0, width: 50, height: 50))
-        self.catView.transform = CGAffineTransformIdentity
+        CatTabbarViewController.catView = UIImageView(frame:CGRect(x: 200, y: 0, width: 50, height: 50))
+        CatTabbarViewController.catView.transform = CGAffineTransformIdentity
         
-        catView.userInteractionEnabled = true
-        catView.contentMode = .ScaleAspectFit
-        catView.image = UIImage(named: "降落傘")
-        self.view.addSubview(catView)
+        CatTabbarViewController.catView.userInteractionEnabled = true
+        CatTabbarViewController.catView.contentMode = .ScaleAspectFit
+        CatTabbarViewController.catView.image = UIImage(named: "降落傘")
+        self.view.addSubview(CatTabbarViewController.catView)
         
         
         UIView.animateWithDuration(1.6, animations: {
             
-            self.catView.transform = CGAffineTransformMakeTranslation(-200, UIScreen.mainScreen().bounds.height-113)
+            CatTabbarViewController.catView.transform = CGAffineTransformMakeTranslation(-200, UIScreen.mainScreen().bounds.height-113)
             
-            self.catView.frame.size = CGSize(width: 80, height: 80)
+            CatTabbarViewController.catView.frame.size = CGSize(width: 80, height: 80)
             
             
         }) { (nil) in
-            self.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+            CatTabbarViewController.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
             
             if CatTabbarViewController.notification == true{
-                self.catView.image = UIImage(named: "有對話框的貓貓")
-                self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
+                CatTabbarViewController.catView.image = UIImage(named: "有對話框的貓貓")
+                CatTabbarViewController.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
+                AudioServicesPlaySystemSound (1000)
             }
             
         }
@@ -77,25 +79,29 @@ class CatTabbarViewController: UITabBarController{
         self.beginTouch = touches.first!
         self.count = 0
         if CatTabbarViewController.notification == true{
-            catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+            CatTabbarViewController.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
             CatTabbarViewController.notification = false
-            self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
+            CatTabbarViewController.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
         }
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        if beginTouch.view == self.catView{
+        if beginTouch.view == CatTabbarViewController.catView{
             self.count = 1
-            self.catView.transform = CGAffineTransformMakeTranslation(0, 0)
-            self.catView.image = UIImage(named: "抓起")
-            self.catView.frame.size = CGSize(width: 100, height: 100)
-            point = self.beginTouch.locationInView(self.catView.superview)
-            self.catView.center = point
+            CatTabbarViewController.catView.transform = CGAffineTransformMakeTranslation(0, 0)
+            CatTabbarViewController.catView.image = UIImage(named: "抓起")
+            CatTabbarViewController.catView.frame.size = CGSize(width: 100, height: 100)
+            point = self.beginTouch.locationInView(CatTabbarViewController.catView.superview)
+            CatTabbarViewController.catView.center = point
         }
     }
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if self.beginTouch.view == CatTabbarViewController.catView{
+        
         if self.count == 0{
+           
             audioPlayer.play()
+            
             print(lineRecordData.recordData.userAdvice)
             
             if CatTabbarViewController.notificationUrl != nil{
@@ -105,26 +111,26 @@ class CatTabbarViewController: UITabBarController{
             }
             return
         }
-        self.catView.frame.size = CGSize(width: 50, height: 50)
+       CatTabbarViewController.catView.frame.size = CGSize(width: 50, height: 50)
         
         UIView.animateWithDuration(1.6, animations: {
-            if self.beginTouch.view == self.catView{
                 
-                self.catView.frame.size = CGSize(width: 80, height: 80)
-                self.catView.image = UIImage(named: "降落傘")
-                self.catView.frame.origin.y = UIScreen.mainScreen().bounds.height-113
+                CatTabbarViewController.catView.frame.size = CGSize(width: 80, height: 80)
+                CatTabbarViewController.catView.image = UIImage(named: "降落傘")
+               CatTabbarViewController.catView.frame.origin.y = UIScreen.mainScreen().bounds.height-113
                 
                 let random = CGFloat(arc4random_uniform(200))
-                self.catView.frame.origin.x = random
+                CatTabbarViewController.catView.frame.origin.x = random
                 
                 self.swing()
                 self.swing()
                 
-            }}) { (nil) in
-                self.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+            }) { (nil) in
+                CatTabbarViewController.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
                 if CatTabbarViewController.notification == true{
-                    self.catView.image = UIImage(named: "有對話框的貓貓")
+                    CatTabbarViewController.catView.image = UIImage(named: "有對話框的貓貓")
                 }
+            }
         }
     }
     
@@ -132,12 +138,12 @@ class CatTabbarViewController: UITabBarController{
     func swing(){
         UIView.animateWithDuration(0.8, delay: 0, options: .AllowUserInteraction, animations: {
             Void in
-            self.catView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/8))
+            CatTabbarViewController.catView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/8))
             }, completion:{
                 succeed in
                 UIView.animateWithDuration(0.8, delay: 0, options: .AllowUserInteraction, animations: {
                     Void in
-                    self.catView.transform = CGAffineTransformMakeRotation(CGFloat(0))
+                   CatTabbarViewController.catView.transform = CGAffineTransformMakeRotation(CGFloat(0))
                     }, completion:{
                         succeed in
                 })
@@ -147,8 +153,9 @@ class CatTabbarViewController: UITabBarController{
     
     
     func changeCat(){
-        self.catView.image = UIImage(named: "有對話框的貓貓")
-        self.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
+        CatTabbarViewController.catView.image = UIImage(named: "有對話框的貓貓")
+        CatTabbarViewController.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 100, height: 100)
+        AudioServicesPlaySystemSound (1000)
     }
     
      /*

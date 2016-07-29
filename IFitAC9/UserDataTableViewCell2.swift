@@ -10,6 +10,9 @@ import UIKit
 
 class UserDataTableViewCell2: UITableViewCell {
 
+    @IBOutlet weak var changeLabel: UILabel!
+    @IBOutlet weak var currentLabel: UILabel!
+    @IBOutlet weak var lastLabel: UILabel!
     @IBOutlet weak var typeLabel3: UILabel!
     @IBOutlet weak var typeLabel2: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
