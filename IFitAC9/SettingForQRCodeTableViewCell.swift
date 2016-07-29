@@ -1,26 +1,28 @@
 //
-//  CurrentUser.swift
+//  SettingForQRCodeTableViewCell.swift
 //  IFitAC9
 //
-//  Created by Kyle on 7/18/16.
-//  Copyright © 2016 Alphacamp. All rights reserved.
+//  Created by YeouTimothy on 2016/7/29.
+//  Copyright © 2016年 Alphacamp. All rights reserved.
 //
 
 import UIKit
 
-class CurrentUser{
-    static let user = CurrentUser()
-    var menberID:String?
-    var name:String?
-    var age:Int?
-    var mPhoneNumber:String?
-    var email:String?
-    var token:String?
+class SettingForQRCodeTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var qRCodeImageView: UIImageView!
     
-    var record:[CurrentUser] = []
-    
-    func getUserInfo(user:CurrentUser){
-        self.record.append(user)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        qRCodeImageView.image = CurrentUser.user.getUserQRCode()
+        
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
     func generateQRCodeFromString(string: String) -> UIImage? {
@@ -38,11 +40,6 @@ class CurrentUser{
         
         return nil
     }
+
     
-    func getUserQRCode()->UIImage{
-        return self.generateQRCodeFromString(self.email!)!
-    }
-
 }
-
-

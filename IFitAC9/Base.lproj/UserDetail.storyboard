@@ -7,6 +7,45 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Setting View Controller-->
+        <scene sceneID="Nw5-GR-DMu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4jZ-ve-ho3" customClass="SettingViewController" customModule="IFitAC9" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hOg-eJ-JoB"/>
+                        <viewControllerLayoutGuide type="bottom" id="JYV-nE-Vn1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nJD-6E-xoG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="33T-Em-sMk">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JYV-nE-Vn1" firstAttribute="top" secondItem="33T-Em-sMk" secondAttribute="bottom" id="9dh-8a-k7X"/>
+                            <constraint firstAttribute="trailing" secondItem="33T-Em-sMk" secondAttribute="trailing" id="MAV-YX-GR2"/>
+                            <constraint firstItem="33T-Em-sMk" firstAttribute="top" secondItem="hOg-eJ-JoB" secondAttribute="bottom" id="bwi-d8-b5r"/>
+                            <constraint firstItem="33T-Em-sMk" firstAttribute="leading" secondItem="nJD-6E-xoG" secondAttribute="leading" id="q03-NB-Wim"/>
+                            <constraint firstItem="33T-Em-sMk" firstAttribute="top" secondItem="hOg-eJ-JoB" secondAttribute="bottom" id="vkO-mZ-ZTk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bwi-d8-b5r"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="settingTableView" destination="33T-Em-sMk" id="cuX-Kr-NsO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKi-Ja-AqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="357"/>
+        </scene>
         <!--個人指南-->
         <scene sceneID="3FF-w3-LyK">
             <objects>
@@ -244,6 +283,7 @@
                                                         <state key="normal" title="Button" image="setting"/>
                                                         <connections>
                                                             <action selector="settingAction:" destination="dyx-tv-9ln" eventType="touchUpInside" id="YHA-yn-vwk"/>
+                                                            <segue destination="4jZ-ve-ho3" kind="show" id="LgY-Ap-B9s"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -317,7 +357,7 @@
                                             <constraint firstAttribute="height" constant="150" id="lvY-ZX-k38"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="乳牛" translatesAutoresizingMaskIntoConstraints="NO" id="rgT-sF-NP2">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="卡號的乳牛" translatesAutoresizingMaskIntoConstraints="NO" id="rgT-sF-NP2">
                                         <rect key="frame" x="103" y="105" width="64" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="86J-nA-e5X"/>
@@ -666,8 +706,8 @@
         <image name="setting" width="48" height="48"/>
         <image name="test_background" width="750" height="368"/>
         <image name="user_profile" width="176" height="176"/>
-        <image name="乳牛" width="411" height="480"/>
         <image name="個人專屬建議圖" width="243" height="246"/>
+        <image name="卡號的乳牛" width="189" height="129"/>
         <image name="選對運動內衣_美胸自在更好動篇修左" width="141" height="315"/>
         <image name="關於你" width="343" height="590"/>
         <image name="飲食推薦" width="158" height="178"/>

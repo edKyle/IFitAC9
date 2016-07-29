@@ -109,7 +109,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfE-SZ-SOX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="857C29C1-88FB-483A-98AF-989A4114C387" translatesAutoresizingMaskIntoConstraints="NO" id="4dX-zx-cwI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E4053FB6-D8D3-41DF-95B5-F5D88A5FAD0F" translatesAutoresizingMaskIntoConstraints="NO" id="4dX-zx-cwI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MCu-l7-FLn">
@@ -299,6 +299,9 @@
                                         <state key="normal" title="內臟脂肪">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="visceralFatAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="JGo-DW-9EP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -407,7 +410,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="857C29C1-88FB-483A-98AF-989A4114C387" width="552" height="326">
+        <image name="E4053FB6-D8D3-41DF-95B5-F5D88A5FAD0F" width="552" height="326">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
