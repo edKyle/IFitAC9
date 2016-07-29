@@ -19,19 +19,23 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     var muscleLocalArray:[Double] = []
     var fatPercentLocalArray:[Double] = []
     var waterPercentLocalArray:[Double] = []
+    var visceralFatLocalArray:[Double] = []
     var weightStander:String = ""
     var muscleStandar:String = ""
     var fatPercentStandar:String = ""
     var waterPercentStandar:String = ""
+    var visceralFatStandar:String = ""
     
     var currentWeight:Double = 0
     var currentFat:Double = 0
     var currentMuscle:Double = 0
     var currentWater:Double = 0
+    var currentVisceralFat:Double = 0
     var lastWeight:Double = 0
     var lastFat:Double = 0
     var lastMuscle:Double = 0
     var lastWater:Double = 0
+    var lastVisceralFat:Double = 0
     
     //tableView
     @IBOutlet weak var ButtonView: UIView!
@@ -48,7 +52,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         
         control = BetterSegmentedControl(
             frame: CGRect(x: 0.0, y: navHeight!+viewHeight+20, width: view.bounds.width, height: 5.0),
-            titles: ["", "", "",""],
+            titles: ["", "", "","",""],
             index: 0, backgroundColor: UIColor(red:1, green:1, blue:1, alpha:1),
             titleColor: .blackColor(),
             indicatorViewBackgroundColor: UIColor(red:1, green:133/255, blue:133/255, alpha:1.00),
@@ -99,8 +103,6 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("topCell", forIndexPath: indexPath) as! UserDataTableViewCell
             
-            toKnowUserStander()
-            
             switch control.index{
             case 0:
                 if weightLocalArray.count == 0{
@@ -121,6 +123,15 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.getHandPointX(self.fatPercentStandar)
                 
             case 2:
+                if visceralFatLocalArray.count == 0{
+                    cell.topValueLabel.text = "\(0) %"
+                }else{
+                    cell.topValueLabel.text = "\(visceralFatLocalArray[visceralFatLocalArray.count-1]) %"
+                }
+                cell.topCellLabel.text = "內臟脂肪"
+                cell.getHandPointX(self.visceralFatStandar)
+                
+            case 3:
                 if muscleLocalArray.count == 0{
                     cell.topValueLabel.text = "\(0) %"
                 }else{
@@ -184,8 +195,26 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 makeLineView(self.fatPercentLocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
                 
-                
             case 2:
+                cell.lasttimeValue.text = "\(lastVisceralFat)"
+                cell.nowValue.text = "\(currentVisceralFat)"
+                
+                if lastVisceralFat == 0{
+                    cell.changValue.text = "0"
+                }else{
+                    cell.changValue.text = "\(lastVisceralFat-currentVisceralFat)"
+                }
+                
+                cell.typeLabel.text = "%"
+                cell.typeLabel2.text = "%"
+                cell.typeLabel3.text = "%"
+                
+                lineGraphView?.removeFromSuperview()
+                makeLineView(self.visceralFatLocalArray, times: howManyTimes)
+                cell.lineImageView.addSubview(lineGraphView!)
+
+                
+            case 3:
                 cell.lasttimeValue.text = "\(lastMuscle)"
                 cell.nowValue.text = "\(currentMuscle)"
                 
@@ -242,12 +271,19 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     //segamentControl
     @IBAction func waterAction(sender: AnyObject) {
         do{
-            try control.setIndex(3, animated: true)
+            try control.setIndex(4, animated: true)
         }catch{
             print(error)
         }
     }
     @IBAction func muscleAction(sender: AnyObject) {
+        do{
+            try control.setIndex(3, animated: true)
+        }catch{
+            print(error)
+        }
+    }
+    @IBAction func visceralFatAction(sender: AnyObject) {
         do{
             try control.setIndex(2, animated: true)
         }catch{
@@ -272,7 +308,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         let currentIndex = control.index
         if currentIndex == 0{
             do{
-                try control.setIndex(3, animated: true)
+                try control.setIndex(4, animated: true)
             }catch{
                 
             }
@@ -286,7 +322,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     }
     @IBAction func swipeLeft(sender: AnyObject) {
         let currentIndex = control.index
-        if currentIndex == 3{
+        if currentIndex == 4{
             do{
                 try control.setIndex(0, animated: true)
             }catch{
@@ -326,13 +362,22 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     
     //func 從model挖資料倒local controller
     func takeEveryDataToLocalArray(){
-        //存BMI
+        //存weight
         for n in lineRecordData.recordData.weight{
            weightLocalArray.append(n)
         }
         if weightLocalArray.count > 6{
             for _ in 1...weightLocalArray.count - 6 {
                 weightLocalArray.removeAtIndex(0)
+            }
+        }
+        //存visceralFat
+        for n in lineRecordData.recordData.visceralFat{
+            visceralFatLocalArray.append(n)
+        }
+        if visceralFatLocalArray.count > 6{
+            for _ in 1...visceralFatLocalArray.count - 6 {
+                visceralFatLocalArray.removeAtIndex(0)
             }
         }
         //存muscle
@@ -389,6 +434,9 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         if lineRecordData.recordData.waterPercentage != []{
             self.waterPercentStandar = makeData(waterPercentLocalArray[waterPercentLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectWaterMin)!, MaxData: Double(lineRecordData.recordData.userPerfectWaterMax)!)
         }
+        if lineRecordData.recordData.visceralFat != []{
+            self.visceralFatStandar = makeData(visceralFatLocalArray[visceralFatLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectVisceralFatMin)!, MaxData: Double(lineRecordData.recordData.userPerfectVisceralFatMax)!)
+        }
     }
     //判斷user各個標準值結果(標準值輔助計算公式)
     func makeData(data:Double,MinData:Double,MaxData:Double)->String{
@@ -432,6 +480,13 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             currentWater = waterPercentLocalArray.last!
             lastWater = waterPercentLocalArray[waterPercentLocalArray.count-2]
         }
+        if visceralFatLocalArray.count == 1 {
+            currentVisceralFat = visceralFatLocalArray.last!
+        }else if visceralFatLocalArray.count > 1 {
+            currentVisceralFat = visceralFatLocalArray.last!
+            lastVisceralFat = visceralFatLocalArray[visceralFatLocalArray.count-2]
+        }
+
     }
     
 }

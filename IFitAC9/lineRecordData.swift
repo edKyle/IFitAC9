@@ -21,6 +21,7 @@ class lineRecordData{
     var fatPercentage:[Double] = []
     var waterPercentage:[Double] = []
     var musclePercent:[Double] = []
+    var visceralFat:[Double] = []
    
     
     var userPerfectWeightMin = "0"
@@ -34,4 +35,7 @@ class lineRecordData{
     
     var userPerfectWaterMin = "0"
     var userPerfectWaterMax = "0"
+    
+    var userPerfectVisceralFatMin = "0"
+    var userPerfectVisceralFatMax = "0"
 }

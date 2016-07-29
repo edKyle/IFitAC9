@@ -73,11 +73,12 @@ class iFitStoreListTableViewController: UITableViewController, CLLocationManager
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("topCell", forIndexPath: indexPath) as! topTableViewCell
             cell.topCellImageView.image = UIImage(named: "iFit")
+            cell.selectionStyle = .None
             return cell
             
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("ifitStoreCell", forIndexPath: indexPath) as! iFitStoreListTableViewCell
-            
+            cell.selectionStyle = .None
             cell.storeImageView.image = UIImage(named: storeArray[indexPath.row])
             cell.mapButton.onTap { (UITapGestureRecognizer) in
             self.performSegue(self.AllStoreLocation[indexPath.row])

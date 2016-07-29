@@ -13,16 +13,17 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
     
+    let progressBar = UIProgressView(frame: CGRect(x: UIScreen.mainScreen().bounds.width/8, y: UIScreen.mainScreen().bounds.height/3, width: UIScreen.mainScreen().bounds.width-UIScreen.mainScreen().bounds.width/8*2, height: 5))
+   
     let webView = WKWebView(frame:UIScreen.mainScreen().bounds)
     let url = NSURL(string: "http://auth.i-fit.com.tw/login?redirect_uri=http://alpha.i-fit.com.tw/ifit_user&client_id=alphacamp_web&scope=&state=&callback=")
     
-    
     var startGym = true
     var gymArray = [UIImage]()
- 
+    
     @IBOutlet weak var gymImageView: UIImageView!
     @IBOutlet weak var loadingView: UIView!
-   
+    
     @IBOutlet weak var loadingProgress: UIActivityIndicatorView!
     
     var code:String?
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         loadingView.hidden = true
         
-          for i in 1...2{
+        for i in 1...2{
             let fileName1 = String(format:"gym%i.png",i)
             let img1 = UIImage(named: fileName1)
             self.gymArray.append(img1!)
@@ -42,7 +43,10 @@ class LoginViewController: UIViewController {
         webView.navigationDelegate = self
         loadingProgress.startAnimating()
         let request = NSURLRequest(URL: url!)
+        
         self.view.addSubview(webView)
+        self.webView.addSubview(progressBar)
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         
         webView.loadRequest(request)
         print(request.URL?.absoluteString)
@@ -64,6 +68,14 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "estimatedProgress"{
+            self.progressBar.setProgress(Float(webView.estimatedProgress), animated: true)
+        }
+    }
+
+    
+
     
     func getuserdata(){
         
@@ -94,6 +106,8 @@ class LoginViewController: UIViewController {
                     lineRecordData.recordData.userPerfectWaterMax = "\(lastJsonData["standard"]!!["water_rate_upper"]!!)"
                     lineRecordData.recordData.userPerfectWaterMin = "\(lastJsonData["standard"]!!["water_rate_lower"]!!)"
                     
+                    lineRecordData.recordData.userPerfectVisceralFatMax = "\(lastJsonData["standard"]!!["fat_rate_upper"]!!)"
+                    lineRecordData.recordData.userPerfectVisceralFatMin = "\(lastJsonData["standard"]!!["fat_rate_lower"]!!)"
                     
                     for n in json{
                         if let wei = n["composition"]!!["weight"]! {
@@ -116,51 +130,56 @@ class LoginViewController: UIViewController {
                         if let fat = n["composition"]!!["total_fat"]! {
                             lineRecordData.recordData.fatPercentage.append(Double(fat as! NSString as String)!)
                         }
-                    }
-                    for n in json{
-                        if let day = n["composition"]!!["updated_at"]! {
-                            let dayString = day as! NSString as String!
-                            let dateFormatter = NSDateFormatter()
-                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                            let dateNs = dateFormatter.dateFromString(dayString)
-                            dateFormatter.dateStyle = .ShortStyle
+                        for n in json{
+                            if let fat = n["composition"]!!["organ_fat"]! {
+                                lineRecordData.recordData.visceralFat.append(Double(fat as! NSNumber as Double))
+                                
+                            }
+                            for n in json{
+                                if let day = n["composition"]!!["updated_at"]! {
+                                    let dayString = day as! NSString as String!
+                                    let dateFormatter = NSDateFormatter()
+                                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                                    let dateNs = dateFormatter.dateFromString(dayString)
+                                    dateFormatter.dateStyle = .ShortStyle
+                                    
+                                    let calendar = NSCalendar.currentCalendar()
+                                    let components = calendar.components([.Day , .Month , .Year], fromDate: dateNs!)
+                                    
+                                    lineRecordData.recordData.measuringDate.append("\(components.month)/\(components.day)")
+                                }
+                            }
+                            if CurrentUser.user.name == "尤彥傑"{
+                                self.performSegueWithIdentifier("showOnboardView", sender: self)
+                                
+                            }
+                            self.performSegueWithIdentifier("logInSegue", sender: self)
                             
-                            let calendar = NSCalendar.currentCalendar()
-                            let components = calendar.components([.Day , .Month , .Year], fromDate: dateNs!)
-                            
-                            lineRecordData.recordData.measuringDate.append("\(components.month)/\(components.day)")
                         }
+                        
                     }
-                    if CurrentUser.user.name == "尤彥傑"{
-                    self.performSegueWithIdentifier("showOnboardView", sender: self)
-                    
+                    Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
+                        .responseJSON { response in
+                            
+                            if let advice = response.result.value{
+                                let adviceArray = advice["datas"] as! NSArray
+                                
+                                for n in adviceArray{
+                                    let advice = n["message"]!! as! String
+                                    lineRecordData.recordData.userAdvice.append(advice)
+                                }
+                            }
                     }
-                    self.performSegueWithIdentifier("logInSegue", sender: self)
-                    
-                }
-                
-        }
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
-            .responseJSON { response in
-                
-                if let advice = response.result.value{
-                    let adviceArray = advice["datas"] as! NSArray
-                    
-                    for n in adviceArray{
-                        let advice = n["message"]!! as! String
-                        lineRecordData.recordData.userAdvice.append(advice)
-                    }
-                    
                 }
         }
+        
     }
-    
 }
 
 extension LoginViewController:WKNavigationDelegate{
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        
+        self.progressBar.hidden = true
         print("Finished navigating to url \(self.webView.URL?.absoluteString)")
         let codeToWebArr = self.webView.URL?.absoluteString.componentsSeparatedByString("&")
         print(codeToWebArr)
@@ -170,7 +189,7 @@ extension LoginViewController:WKNavigationDelegate{
         if codeArr[0] == "http://alpha.i-fit.com.tw/ifit_user?code"{
             webView.hidden = true
             loadingView.hidden = false
-
+            
             loadingView.hidden = false
             
             if startGym{
@@ -184,7 +203,7 @@ extension LoginViewController:WKNavigationDelegate{
             
             
             let code = codeArr[1]
-
+            
             print(codeArr)
             print("Hello code      " + code)
             let tokenFirst = codeToWebArr![3] as String

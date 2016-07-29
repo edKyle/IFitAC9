@@ -105,7 +105,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             
             let storeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-            storeImageView.image = UIImage(named: "iFit")
+            storeImageView.image = UIImage(named: "iFit-1")
             storeImageView.contentMode = .ScaleAspectFit
             
             annotationView?.leftCalloutAccessoryView = storeImageView
