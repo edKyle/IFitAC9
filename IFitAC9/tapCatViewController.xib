@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="tapCatViewController" customModule="IFitAC9" customModuleProvider="target">
+            <connections>
+                <outlet property="cancleButton" destination="UdP-Ei-M9y" id="h7A-E7-Z9H"/>
+                <outlet property="messageButton" destination="tZ9-et-bvV" id="3N2-N4-TEY"/>
+                <outlet property="messageContentLabel" destination="r40-mp-yWR" id="NJ1-1w-Fp5"/>
+                <outlet property="messageImageView" destination="WXP-Ib-NgM" id="NUo-kI-y89"/>
+                <outlet property="messageTitleLabel" destination="g8j-ME-0nY" id="xlR-RV-C5H"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-mW-2bG">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.42352941179999998" green="0.42352941179999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basicFrame" translatesAutoresizingMaskIntoConstraints="NO" id="ETx-uJ-EcM">
+                    <rect key="frame" x="165" y="115" width="270" height="370"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="270" id="Lxb-JI-WCn"/>
+                        <constraint firstAttribute="height" constant="370" id="MK5-bd-ZxL"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="營養師說說" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8j-ME-0nY">
+                    <rect key="frame" x="165" y="123" width="270" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去 ift 實體門市請店員刷這個 QR code 就可以登錄你的資料囉！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r40-mp-yWR">
+                    <rect key="frame" x="200" y="297" width="200" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="rG4-Q8-O6V"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ9-et-bvV">
+                    <rect key="frame" x="229" y="425" width="142" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="142" id="ReE-zg-y4n"/>
+                        <constraint firstAttribute="height" constant="36" id="qqr-gU-zqE"/>
+                    </constraints>
+                    <state key="normal" title="喵～我知道了" backgroundImage="buttonForPrice"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="個人專屬建議圖" translatesAutoresizingMaskIntoConstraints="NO" id="WXP-Ib-NgM">
+                    <rect key="frame" x="250" y="177" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="9O8-TQ-8Q7"/>
+                        <constraint firstAttribute="width" constant="100" id="avs-k9-3xy"/>
+                    </constraints>
+                </imageView>
+                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="UdP-Ei-M9y">
+                    <rect key="frame" x="400" y="122" width="25" height="25"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="QRb-lb-T3x"/>
+                        <constraint firstAttribute="height" constant="25" id="Uxk-BW-gWl"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="dMe-Ad-eP0" appends="YES" id="kJj-09-yh9"/>
+                    </connections>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bgC-mW-2bG" secondAttribute="bottom" id="1gL-23-xzt"/>
+                <constraint firstItem="bgC-mW-2bG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="48K-xx-NuV"/>
+                <constraint firstItem="UdP-Ei-M9y" firstAttribute="leading" secondItem="g8j-ME-0nY" secondAttribute="trailing" constant="-35" id="6hX-4Z-sw2"/>
+                <constraint firstItem="WXP-Ib-NgM" firstAttribute="top" secondItem="g8j-ME-0nY" secondAttribute="bottom" constant="30" id="CEH-oB-8Y1"/>
+                <constraint firstItem="ETx-uJ-EcM" firstAttribute="top" secondItem="g8j-ME-0nY" secondAttribute="bottom" constant="-32" id="LZi-b0-6wI"/>
+                <constraint firstAttribute="trailing" secondItem="bgC-mW-2bG" secondAttribute="trailing" id="Lis-uB-5sK"/>
+                <constraint firstItem="ETx-uJ-EcM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Mt0-5v-Mzl"/>
+                <constraint firstItem="r40-mp-yWR" firstAttribute="top" secondItem="WXP-Ib-NgM" secondAttribute="bottom" constant="20" id="Qh2-1A-vv3"/>
+                <constraint firstItem="g8j-ME-0nY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Xw6-o4-34R"/>
+                <constraint firstItem="bgC-mW-2bG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="b9A-TN-ZXS"/>
+                <constraint firstItem="ETx-uJ-EcM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="cfR-k8-U7U"/>
+                <constraint firstItem="WXP-Ib-NgM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cfn-HG-BSg"/>
+                <constraint firstItem="tZ9-et-bvV" firstAttribute="centerX" secondItem="r40-mp-yWR" secondAttribute="centerX" id="fQY-Wu-YSc"/>
+                <constraint firstItem="ETx-uJ-EcM" firstAttribute="top" secondItem="UdP-Ei-M9y" secondAttribute="bottom" constant="-32" id="ghn-9N-zjj"/>
+                <constraint firstItem="tZ9-et-bvV" firstAttribute="top" secondItem="ETx-uJ-EcM" secondAttribute="bottom" constant="-60" id="o2T-Jc-ZcN"/>
+                <constraint firstItem="r40-mp-yWR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="y7g-53-YzM"/>
+                <constraint firstItem="g8j-ME-0nY" firstAttribute="width" secondItem="ETx-uJ-EcM" secondAttribute="width" id="zf5-PP-Hpm"/>
+            </constraints>
+        </view>
+        <tapGestureRecognizer id="dMe-Ad-eP0"/>
+    </objects>
+    <resources>
+        <image name="basicFrame" width="819" height="1122"/>
+        <image name="buttonForPrice" width="426" height="120"/>
+        <image name="cancel" width="52" height="52"/>
+        <image name="個人專屬建議圖" width="243" height="246"/>
+    </resources>
+</document>

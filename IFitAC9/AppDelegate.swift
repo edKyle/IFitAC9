@@ -49,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CatTabbarViewController.notification = true
         NSNotificationCenter.defaultCenter().postNotificationName("Notifi", object: nil)
+        
+        if let message = userInfo["message"]{
+            let messageString = message as! NSString as String
+            CatTabbarViewController.notificationMessage = messageString
+        }
 
         if let url = userInfo["url"]{
             

@@ -27,9 +27,9 @@ class UserDataTableViewCell: UITableViewCell {
         self.layer.shadowOpacity = 1
         self.layer.zPosition = 10
         
-        self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*6)
         self.tailImageView.transform = CGAffineTransformIdentity
-      
+        self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*5)
+        
         
         self.selectionStyle = .None
         
@@ -51,13 +51,13 @@ class UserDataTableViewCell: UITableViewCell {
                 switch standerValue{
                 case "過低":
                     self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*5)
-                    self.topStanderImageView.image = UIImage(named: "要加油啊")
+                    self.topStanderImageView.image = UIImage(named: "低標的圖")
                 case "標準":
                     self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*6)
                     self.topStanderImageView.image = UIImage(named: "標準")
                 default:
                     self.tailImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/3)*7)
-                    self.topStanderImageView.image = UIImage(named: "要小心喔")
+                    self.topStanderImageView.image = UIImage(named: "超標的圖")
                 }
             })
         }
