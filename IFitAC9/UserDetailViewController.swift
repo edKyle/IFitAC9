@@ -18,6 +18,12 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var nameLable: UILabel!
     
 
+    @IBAction func goTestAction(sender: AnyObject) {
+        let storyboard = UIStoryboard.init(name: "UserDetail", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
+        controller.whereYouFrom = 1
+            self.navigationController?.pushViewController(controller, animated: true)
+    }
     
     @IBAction func settingAction(sender: AnyObject) {
         

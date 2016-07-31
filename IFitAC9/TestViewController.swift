@@ -48,12 +48,12 @@ class TestViewController: UIViewController {
             questionLable.text = questionArr[currentQuestion]
             answerTableView.reloadData()
         }else if currentQuestion == 1{
-            let outcomePage = TestOutcomeViewController()
             let width = UIScreen.mainScreen().bounds.width
             let height = UIScreen.mainScreen().bounds.height
             outcomePage.view.frame.size = CGSize(width: width, height: height)
-            outcomePage.dismissDelegate = self
+            
             self.view.addSubview(outcomePage.view)
+            outcomePage.dismissDelegate = self
         }
     }
     

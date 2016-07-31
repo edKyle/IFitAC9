@@ -403,6 +403,9 @@
                                                         <state key="normal" title="接受測驗" backgroundImage="buttonForPrice">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="goTestAction:" destination="dyx-tv-9ln" eventType="touchUpInside" id="NRi-TR-ir4"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
