@@ -153,8 +153,6 @@ class LoginViewController: UIViewController {
                                 self.performSegueWithIdentifier("showOnboardView", sender: self)
                                 
                             }
-                            self.performSegueWithIdentifier("logInSegue", sender: self)
-                            
                         }
                         
                     }
@@ -233,6 +231,7 @@ extension LoginViewController:WKNavigationDelegate{
                             CurrentUser.user.mPhoneNumber = user["mphone"]! as? String
                             CurrentUser.user.email = user["email"]! as? String
                             self.getuserdata()
+                            self.performSegueWithIdentifier("logInSegue", sender: self)
                         }
                 }
             }

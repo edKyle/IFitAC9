@@ -27,6 +27,8 @@ class CatTabbarViewController: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeCat), name: "Notifi", object: nil)
         
         let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("貓叫聲", ofType: "mp3")!)
@@ -223,4 +225,5 @@ extension CatTabbarViewController: DismissQRCodeDelegatr{
     func dismiss() {
         self.qRCodeView.view.removeFromSuperview()
     }
+
 }

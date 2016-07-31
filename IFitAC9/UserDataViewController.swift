@@ -37,6 +37,8 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     var lastWater:Double = 0
     var lastVisceralFat:Double = 0
     
+    let refreshControl = UIRefreshControl()
+    
     //tableView
     @IBOutlet weak var ButtonView: UIView!
     @IBOutlet weak var UserDataTableView: UITableView!
@@ -67,6 +69,11 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         //tableView
         self.UserDataTableView.delegate = self
         self.UserDataTableView.dataSource = self
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        UserDataTableView.addSubview(refreshControl)
+
         
         let nibName = UINib(nibName: "UserDataTableViewCell", bundle: nil)
         UserDataTableView.registerNib(nibName, forCellReuseIdentifier: "topCell")
@@ -106,44 +113,44 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             switch control.index{
             case 0:
                 if weightLocalArray.count == 0{
-                    cell.topValueLabel.text = "\(0)Kg"
+                    cell.topValueLabel.text = "0 Kg"
                 }else{
-                    cell.topValueLabel.text = "\(weightLocalArray[weightLocalArray.count-1])Kg"
+                    cell.topValueLabel.text = String(format:"%.1f",weightLocalArray[weightLocalArray.count-1]) + " Kg"
                 }
                 cell.topCellLabel.text = "體重"
                 cell.getHandPointX(self.weightStander)
                 
             case 1:
                 if fatPercentLocalArray.count == 0{
-                    cell.topValueLabel.text = "\(0) %"
+                    cell.topValueLabel.text = "0 %"
                 }else{
-                    cell.topValueLabel.text = "\(fatPercentLocalArray[fatPercentLocalArray.count-1]) %"
+                    cell.topValueLabel.text = String(format:"%.1f",fatPercentLocalArray[fatPercentLocalArray.count-1]) + " %"
                 }
                 cell.topCellLabel.text = "體脂肪"
                 cell.getHandPointX(self.fatPercentStandar)
                 
             case 2:
                 if muscleLocalArray.count == 0{
-                    cell.topValueLabel.text = "\(0) %"
+                    cell.topValueLabel.text = "0 %"
                 }else{
-                    cell.topValueLabel.text = "\(muscleLocalArray[muscleLocalArray.count-1]) %"
+                    cell.topValueLabel.text = String(format:"%.1f",muscleLocalArray[muscleLocalArray.count-1]) + " %"
                 }
                 cell.topCellLabel.text = "肌肉量"
                 cell.getHandPointX(self.muscleStandar)
                 
             case 3:
                 if waterPercentLocalArray.count == 0{
-                    cell.topValueLabel.text = "\(0) %"
+                    cell.topValueLabel.text = "0 %"
                 }else{
-                    cell.topValueLabel.text = "\(waterPercentLocalArray[waterPercentLocalArray.count-1]) %"
+                    cell.topValueLabel.text = String(format:"%.1f",waterPercentLocalArray[waterPercentLocalArray.count-1]) + " %"
                 }
                 cell.topCellLabel.text = "含水量"
                 cell.getHandPointX(self.waterPercentStandar)
             default:
                 if visceralFatLocalArray.count == 0{
-                    cell.topValueLabel.text = "\(0)"
+                    cell.topValueLabel.text = "0"
                 }else{
-                    cell.topValueLabel.text = "\(visceralFatLocalArray[visceralFatLocalArray.count-1])"
+                    cell.topValueLabel.text = String(format:"%.1f",visceralFatLocalArray[visceralFatLocalArray.count-1])
                 }
                 cell.topCellLabel.text = "內臟脂肪"
                 cell.getHandPointX(self.visceralFatStandar)
@@ -157,13 +164,14 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             
             switch control.index{
             case 0:
-                cell.lasttimeValue.text = "\(lastWeight)"
-                cell.nowValue.text = "\(currentWeight)"
+                
+                cell.lasttimeValue.text = String(format:"%.1f",lastWeight)
+                cell.nowValue.text = String(format:"%.1f",currentWeight)
                 
                 if lastWeight == 0{
                     cell.changValue.text = "0"
                 }else{
-                    cell.changValue.text = "\(lastWeight-currentWeight)"
+                    cell.changValue.text = String(format:"%.1f", lastWeight-currentWeight)
                 }
                 
                 cell.typeLabel.text = "kg"
@@ -176,13 +184,13 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 
             case 1:
-                cell.lasttimeValue.text = "\(lastFat)"
-                cell.nowValue.text = "\(currentFat)"
+                cell.lasttimeValue.text = String(format:"%.1f",lastFat)
+                cell.nowValue.text = String(format:"%.1f",currentFat)
                 
                 if lastFat == 0{
                     cell.changValue.text = "0"
                 }else{
-                    cell.changValue.text = "\(lastFat-currentFat)"
+                    cell.changValue.text = String(format:"%.1f",lastFat-currentFat)
                 }
                 
                 cell.typeLabel.text = "%"
@@ -194,13 +202,13 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.lineImageView.addSubview(lineGraphView!)
                 
             case 2:
-                cell.lasttimeValue.text = "\(lastMuscle)"
-                cell.nowValue.text = "\(currentMuscle)"
+                cell.lasttimeValue.text = String(format:"%.1f",lastMuscle)
+                cell.nowValue.text = String(format:"%.1f",currentMuscle)
                 
                 if lastMuscle == 0{
                     cell.changValue.text = "0"
                 }else{
-                    cell.changValue.text = "\(lastMuscle-currentMuscle)"
+                    cell.changValue.text = String(format:"%.1f",lastMuscle-currentMuscle)
                 }
                 
                 cell.typeLabel.text = "%"
@@ -212,13 +220,13 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.lineImageView.addSubview(lineGraphView!)
                 
             case 3:
-                cell.lasttimeValue.text = "\(lastWater)"
-                cell.nowValue.text = "\(currentWater)"
+                cell.lasttimeValue.text = String(format:"%.1f",lastWater)
+                cell.nowValue.text = String(format:"%.1f",currentWater)
                 
                 if lastWater == 0{
                     cell.changValue.text = "0"
                 }else{
-                    cell.changValue.text = "\(lastWater-currentWater)"
+                    cell.changValue.text = String(format:"%.1f",lastWater-currentWater)
                 }
                 
                 cell.typeLabel.text = "%"
@@ -230,13 +238,13 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.lineImageView.addSubview(lineGraphView!)
                 
             default:
-                cell.lasttimeValue.text = "\(lastVisceralFat)"
-                cell.nowValue.text = "\(currentVisceralFat)"
+                cell.lasttimeValue.text = String(format:"%.1f",lastVisceralFat)
+                cell.nowValue.text = String(format:"%.1f",currentVisceralFat)
                 
                 if lastVisceralFat == 0{
                     cell.changValue.text = "0"
                 }else{
-                    cell.changValue.text = "\(lastVisceralFat-currentVisceralFat)"
+                    cell.changValue.text = String(format:"%.1f",lastVisceralFat-currentVisceralFat)
                 }
                 
                 cell.typeLabel.text = ""
@@ -485,5 +493,32 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         }
 
     }
+    func refresh(sender:AnyObject) {
+        lineRecordData.recordData.fatPercentage = []
+        lineRecordData.recordData.heigh = []
+        lineRecordData.recordData.measuringDate = []
+        lineRecordData.recordData.musclePercent = []
+        lineRecordData.recordData.userAdvice = []
+        lineRecordData.recordData.userPerfectFatMax = ""
+        lineRecordData.recordData.userPerfectFatMin = ""
+        lineRecordData.recordData.userPerfectMuscleMax = ""
+        lineRecordData.recordData.userPerfectMuscleMin = ""
+        lineRecordData.recordData.userPerfectVisceralFatMax = ""
+        lineRecordData.recordData.userPerfectVisceralFatMin = ""
+        lineRecordData.recordData.userPerfectWaterMax = ""
+        lineRecordData.recordData.userPerfectWaterMin = ""
+        lineRecordData.recordData.userPerfectWeightMax = ""
+        lineRecordData.recordData.userPerfectWeightMin = ""
+        lineRecordData.recordData.visceralFat = []
+        lineRecordData.recordData.waterPercentage = []
+        lineRecordData.recordData.weight = []
+        
+        let refreshController = LoginViewController()
+        refreshController.getuserdata()
+        self.takeEveryDataToLocalArray()
+        self.UserDataTableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
+
     
 }
