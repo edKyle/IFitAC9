@@ -233,8 +233,8 @@ extension LoginViewController:WKNavigationDelegate{
                             print(CurrentUser.user.menberID)
                             CurrentUser.user.mPhoneNumber = user["mphone"]! as? String
                             CurrentUser.user.email = user["email"]! as? String
-                            if let userType = user["user_type"] as? String{
-                                CurrentUser.user.userType = Int(userType)
+                            if let userType = user["user_type"] as? Int{
+                                CurrentUser.user.userType = userType
                             }
                             self.getuserdata()
                         }
