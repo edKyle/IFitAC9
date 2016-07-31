@@ -10,12 +10,13 @@ import UIKit
 
 class CurrentUser{
     static let user = CurrentUser()
-    var menberID:String?
+    var menberID:Int?
     var name:String?
     var age:Int?
     var mPhoneNumber:String?
     var email:String?
     var token:String?
+    var userType:Int?
     
     var record:[CurrentUser] = []
     
@@ -24,7 +25,8 @@ class CurrentUser{
     }
     
     func generateQRCodeFromString(string: String) -> UIImage? {
-        let data = string.dataUsingEncoding(NSISOLatin1StringEncoding)
+        let qrString = "email=" + string
+        let data = qrString.dataUsingEncoding(NSISOLatin1StringEncoding)
         
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")

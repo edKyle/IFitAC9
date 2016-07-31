@@ -149,9 +149,8 @@ class LoginViewController: UIViewController {
                                     lineRecordData.recordData.measuringDate.append("\(components.month)/\(components.day)")
                                 }
                             }
-                            if CurrentUser.user.name == "尤彥傑"{
+                            if CurrentUser.user.userType == nil{
                                 self.performSegueWithIdentifier("showOnboardView", sender: self)
-                                
                             }
                         }
                         
@@ -226,10 +225,15 @@ extension LoginViewController:WKNavigationDelegate{
                             print(status[0])
                             let user = status[0]
                             print(user["name"]!)
+                            print(user["user_id"])
                             CurrentUser.user.name = user["name"]! as? String
-                            CurrentUser.user.menberID = user["user_id"]! as? String
+                            CurrentUser.user.menberID = user["user_id"]! as? Int
+                            print(CurrentUser.user.menberID)
                             CurrentUser.user.mPhoneNumber = user["mphone"]! as? String
                             CurrentUser.user.email = user["email"]! as? String
+                            if let userType = user["user_type"] as? Int{
+                                CurrentUser.user.userType = userType
+                            }
                             self.getuserdata()
                             self.performSegueWithIdentifier("logInSegue", sender: self)
                         }

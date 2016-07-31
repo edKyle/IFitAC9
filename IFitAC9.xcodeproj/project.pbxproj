@@ -58,6 +58,8 @@
 		6B15FBEA1D4B4C6F0046E87D /* SettingFuncTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B15FBE81D4B4C6F0046E87D /* SettingFuncTableViewCell.xib */; };
 		6B15FBED1D4B54E40046E87D /* shakeMyCardViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B15FBEB1D4B54E40046E87D /* shakeMyCardViewViewController.swift */; };
 		6B15FBEE1D4B54E40046E87D /* shakeMyCardViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B15FBEC1D4B54E40046E87D /* shakeMyCardViewViewController.xib */; };
+		6B15FBF31D4DEB9B0046E87D /* TestOutcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B15FBF11D4DEB9B0046E87D /* TestOutcomeViewController.swift */; };
+		6B15FBF41D4DEB9B0046E87D /* TestOutcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B15FBF21D4DEB9B0046E87D /* TestOutcomeViewController.xib */; };
 		6B38E9D01D40B4500011FB3D /* BubbleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */; };
 		6B38E9D11D40B4500011FB3D /* BubblesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */; };
 		6B38E9D41D40B4A70011FB3D /* SIFloatingCollectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */; };
@@ -156,6 +158,8 @@
 		6B15FBE81D4B4C6F0046E87D /* SettingFuncTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingFuncTableViewCell.xib; sourceTree = "<group>"; };
 		6B15FBEB1D4B54E40046E87D /* shakeMyCardViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shakeMyCardViewViewController.swift; sourceTree = "<group>"; };
 		6B15FBEC1D4B54E40046E87D /* shakeMyCardViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shakeMyCardViewViewController.xib; sourceTree = "<group>"; };
+		6B15FBF11D4DEB9B0046E87D /* TestOutcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestOutcomeViewController.swift; sourceTree = "<group>"; };
+		6B15FBF21D4DEB9B0046E87D /* TestOutcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestOutcomeViewController.xib; sourceTree = "<group>"; };
 		6B38E9CE1D40B4500011FB3D /* BubbleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleNode.swift; sourceTree = "<group>"; };
 		6B38E9CF1D40B4500011FB3D /* BubblesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubblesScene.swift; sourceTree = "<group>"; };
 		6B38E9D21D40B4A70011FB3D /* SIFloatingCollectionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIFloatingCollectionScene.swift; sourceTree = "<group>"; };
@@ -426,6 +430,8 @@
 				6BA69AC21D45FD5A00268341 /* TestViewController.swift */,
 				6BA69ABE1D45FCE900268341 /* TestTableViewCell.swift */,
 				6BA69ABF1D45FCE900268341 /* TestTableViewCell.xib */,
+				6B15FBF11D4DEB9B0046E87D /* TestOutcomeViewController.swift */,
+				6B15FBF21D4DEB9B0046E87D /* TestOutcomeViewController.xib */,
 			);
 			name = TestForPesonal;
 			sourceTree = "<group>";
@@ -622,6 +628,7 @@
 				6BA69ABD1D45E3FD00268341 /* ArticleTableViewCell.xib in Resources */,
 				6BB703EF1D3E0BED00406E63 /* PriceDetailFirstRowTableViewCell.xib in Resources */,
 				278F453E1D47A0C6007D47D6 /* UserDetail.storyboard in Resources */,
+				6B15FBF41D4DEB9B0046E87D /* TestOutcomeViewController.xib in Resources */,
 				27098D871D3CC1340021543E /* Assets.xcassets in Resources */,
 				6B15FBEE1D4B54E40046E87D /* shakeMyCardViewViewController.xib in Resources */,
 				6B15FBDA1D49D8F90046E87D /* ImagePriceCollectionViewCell.xib in Resources */,
@@ -698,6 +705,7 @@
 				6BB703E51D3CFCE800406E63 /* ArchievementListTableViewCell.swift in Sources */,
 				6B15FBE51D4B48A00046E87D /* SettingForQRCodeTableViewCell.swift in Sources */,
 				6B15FBE21D4B46320046E87D /* SettingViewController.swift in Sources */,
+				6B15FBF31D4DEB9B0046E87D /* TestOutcomeViewController.swift in Sources */,
 				6BA69AC31D45FD5A00268341 /* TestViewController.swift in Sources */,
 				27CFB16E1D3E802F001B7A9F /* line4CollectionViewCell.swift in Sources */,
 				6BB703EE1D3E0BED00406E63 /* PriceDetailFirstRowTableViewCell.swift in Sources */,
