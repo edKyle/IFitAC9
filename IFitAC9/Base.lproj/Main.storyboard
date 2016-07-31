@@ -109,7 +109,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfE-SZ-SOX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5AA19D62-E8CE-46D1-B17F-53B7DBB1234C" translatesAutoresizingMaskIntoConstraints="NO" id="4dX-zx-cwI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AECA4D0E-247A-4EFF-9C14-F299DFB2A02E" translatesAutoresizingMaskIntoConstraints="NO" id="4dX-zx-cwI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MCu-l7-FLn">
@@ -267,15 +267,6 @@
                                             <action selector="fatActin:" destination="sQc-q6-5TX" eventType="touchUpInside" id="m1A-EL-trI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-Ua-knT">
-                                        <rect key="frame" x="480" y="0.0" width="120" height="50"/>
-                                        <state key="normal" title="水含量">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="waterAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="2XD-xT-zL9"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23U-hF-u8q">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
                                         <state key="normal" title="體重">
@@ -285,22 +276,31 @@
                                             <action selector="weightAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="hXF-js-K2A"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-UC-AU8">
-                                        <rect key="frame" x="360" y="0.0" width="120" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0g-k1-2Zg">
+                                        <rect key="frame" x="240" y="0.0" width="120" height="50"/>
                                         <state key="normal" title="肌肉量">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="muscleAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="S3P-a9-aSe"/>
+                                            <action selector="muscleAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="Rtn-uq-Nep"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0g-k1-2Zg">
-                                        <rect key="frame" x="240" y="0.0" width="120" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-Ua-knT">
+                                        <rect key="frame" x="480" y="0.0" width="120" height="50"/>
                                         <state key="normal" title="內臟脂肪">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="visceralFatAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="JGo-DW-9EP"/>
+                                            <action selector="visceralFatAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="aJp-RX-MSh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7Q-UC-AU8">
+                                        <rect key="frame" x="360" y="0.0" width="120" height="50"/>
+                                        <state key="normal" title="含水量">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="waterAction:" destination="sQc-q6-5TX" eventType="touchUpInside" id="MS9-Qb-3b5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -410,7 +410,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5AA19D62-E8CE-46D1-B17F-53B7DBB1234C" width="552" height="326">
+        <image name="AECA4D0E-247A-4EFF-9C14-F299DFB2A02E" width="552" height="326">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

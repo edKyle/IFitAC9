@@ -8,11 +8,13 @@
 
 import UIKit
 import AVFoundation
+import GestureRecognizerClosures
 
 class CatTabbarViewController: UITabBarController{
     
-    var count = 0
+    var hasBeenMove = false
     static var notificationUrl:String?
+    static var notificationMessage:String?
     static var notification = false
     
     var point = CGPoint()
@@ -20,15 +22,14 @@ class CatTabbarViewController: UITabBarController{
     static var catView = UIImageView()
     var audioPlayer = AVAudioPlayer()
     var qRCodeView = shakeMyCardViewViewController()
+    var messageViewController = tapCatViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeCat), name: "Notifi", object: nil)
         
-        
-        
-        let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Lion sound effects", ofType: "mp3")!)
+        let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("貓叫聲", ofType: "mp3")!)
         do{
             try audioPlayer = AVAudioPlayer(contentsOfURL: catSound)
         }catch{
@@ -83,17 +84,13 @@ class CatTabbarViewController: UITabBarController{
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.beginTouch = touches.first!
-        self.count = 0
-        if CatTabbarViewController.notification == true{
-            CatTabbarViewController.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
-            CatTabbarViewController.notification = false
-            CatTabbarViewController.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
-        }
+        self.hasBeenMove = false
+    
     }
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if beginTouch.view == CatTabbarViewController.catView{
-            self.count = 1
+            self.hasBeenMove = true
             CatTabbarViewController.catView.transform = CGAffineTransformMakeTranslation(0, 0)
             CatTabbarViewController.catView.image = UIImage(named: "抓起")
             CatTabbarViewController.catView.frame.size = CGSize(width: 120, height: 120)
@@ -104,26 +101,54 @@ class CatTabbarViewController: UITabBarController{
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.beginTouch.view == CatTabbarViewController.catView{
         
-        if self.count == 0{
+        if self.hasBeenMove == false{
            
             audioPlayer.play()
+
+            let width = UIScreen.mainScreen().bounds.width
+            let height = UIScreen.mainScreen().bounds.height
+            messageViewController.view.frame.size = CGSize(width: width, height: height)
+            self.view.addSubview(messageViewController.view)
             
-            print(lineRecordData.recordData.userAdvice)
-            
-            if CatTabbarViewController.notificationUrl != nil{
-            let url = NSURL(string: CatTabbarViewController.notificationUrl!)
-                print(url)
-            UIApplication.sharedApplication().openURL(url!)
+            if lineRecordData.recordData.userAdvice != []{
+            let random = Int(arc4random_uniform(UInt32(lineRecordData.recordData.userAdvice.count)))
+            messageViewController.messageContentLabel.text = "喵～\(lineRecordData.recordData.userAdvice[random])"
+            }else{
+                messageViewController.messageContentLabel.text = "喵～"
             }
+            
+            if CatTabbarViewController.notification == true{
+                CatTabbarViewController.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
+                CatTabbarViewController.notification = false
+               
+                CatTabbarViewController.catView.frame = CGRect(x: 0, y: UIScreen.mainScreen().bounds.height-113, width: 80, height: 80)
+
+                if CatTabbarViewController.notificationUrl != nil{
+                    var url = NSURL(string: CatTabbarViewController.notificationUrl!)
+                    UIApplication.sharedApplication().openURL(url!)
+                    url = nil
+                    CatTabbarViewController.notificationUrl = nil
+                }
+                if CatTabbarViewController.notificationMessage != nil{
+                    messageViewController.messageContentLabel.text = "喵～\(CatTabbarViewController.notificationMessage!)"
+                }
+            }
+            messageViewController.messageButton.onTap({ (UITapGestureRecognizer) in
+                self.messageViewController.view.removeFromSuperview()
+            })
+            messageViewController.cancleButton.onTap({ (UITapGestureRecognizer) in
+                self.messageViewController.view.removeFromSuperview()
+            })
+
             return
         }
        CatTabbarViewController.catView.frame.size = CGSize(width: 50, height: 50)
         
         UIView.animateWithDuration(1.6, animations: {
-                
+            
                 CatTabbarViewController.catView.frame.size = CGSize(width: 80, height: 80)
                 CatTabbarViewController.catView.image = UIImage(named: "降落傘")
-               CatTabbarViewController.catView.frame.origin.y = UIScreen.mainScreen().bounds.height-113
+                CatTabbarViewController.catView.frame.origin.y = UIScreen.mainScreen().bounds.height-113
                 
                 let random = CGFloat(arc4random_uniform(200))
                 CatTabbarViewController.catView.frame.origin.x = random
@@ -135,6 +160,8 @@ class CatTabbarViewController: UITabBarController{
                 CatTabbarViewController.catView.image = UIImage(named: "躺在_tab_bar_的貓貓")
                 if CatTabbarViewController.notification == true{
                     CatTabbarViewController.catView.image = UIImage(named: "有對話框的貓貓")
+                    CatTabbarViewController.catView.frame.size = CGSize(width: 100, height: 100)
+
                 }
             }
         }
