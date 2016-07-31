@@ -1,26 +1,30 @@
 //
-//  OnBoardViewController.swift
+//  TestOutcomeViewController.swift
 //  IFitAC9
 //
-//  Created by YeouTimothy on 2016/7/28.
+//  Created by YeouTimothy on 2016/7/31.
 //  Copyright © 2016年 Alphacamp. All rights reserved.
 //
 
 import UIKit
+import Alamofire
 
-class OnBoardViewController: UIViewController {
+class TestOutcomeViewController: UIViewController {
+    
+    weak var dismissDelegate:DismissQRCodeDelegatr?
 
-    @IBAction func goTestAction(sender: AnyObject) {
-        let storyboard = UIStoryboard.init(name: "UserDetail", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("TestViewController") as! TestViewController
-        controller.whereYouFrom = 0
-        self.showViewController(controller, sender: nil)
-//        self.navigationController?.pushViewController(controller, animated: true)
+   
+    @IBAction func cacelAction(sender: AnyObject) {
+        dismissDelegate?.dismiss()
+    }
+    
+    @IBAction func postAction(sender: AnyObject) {
+        dismissDelegate?.dismiss()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Hooooo")
         // Do any additional setup after loading the view.
     }
 

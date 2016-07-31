@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Alamofire
 
 class TestViewController: UIViewController {
     
     var selectedRow: NSIndexPath?
+    var whereYouFrom = 0
+    var currentQuestion = 0
+    let outcomePage = TestOutcomeViewController()
 
     @IBOutlet weak var nextButtonOutlet: UIButton!
     @IBOutlet weak var questionLable: UILabel!
     @IBOutlet weak var answerTableView: UITableView!
+    @IBOutlet weak var questionNum: UILabel!
     
     @IBAction func cancelButton(sender: AnyObject) {
         if self.navigationController != nil{
@@ -26,8 +31,38 @@ class TestViewController: UIViewController {
         }
     }
     
- 
-    let answerArr = ["規律運動，飲食健康生活", "減重為重心的積極生活", "認真健身的運動生活"]
+    @IBAction func nextButtonAction(sender: AnyObject) {
+        if whereYouFrom == 0{
+            
+            let width = UIScreen.mainScreen().bounds.width
+            let height = UIScreen.mainScreen().bounds.height
+            outcomePage.view.frame.size = CGSize(width: width, height: height)
+            self.view.addSubview(outcomePage.view)
+            outcomePage.dismissDelegate = self
+
+            
+        }else if currentQuestion == 0{
+            currentQuestion += 1
+            nextButtonOutlet.setTitle("完成", forState: .Normal)
+            questionNum.text = "2/2"
+            questionLable.text = questionArr[currentQuestion]
+            answerTableView.reloadData()
+        }else if currentQuestion == 1{
+            let outcomePage = TestOutcomeViewController()
+            let width = UIScreen.mainScreen().bounds.width
+            let height = UIScreen.mainScreen().bounds.height
+            outcomePage.view.frame.size = CGSize(width: width, height: height)
+            outcomePage.dismissDelegate = self
+            self.view.addSubview(outcomePage.view)
+        }
+    }
+    
+    let questionFromLogin = ["你想要哪種瘦身生活？"]
+    
+    let answerFromLogin = ["規律運動，飲食健康生活", "減重為重心的積極生活", "認真健身的運動生活"]
+    
+    let questionArr = ["你的目標？", "平常一週運動頻率是？"]
+    let answerArr = ["規律運動，飲食健康生活", "減重為重心的積極生活", "認真健身的運動生活", "很少", "一個月一次", "兩個禮拜一次"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +78,21 @@ class TestViewController: UIViewController {
         
         let tableViewHeight = answerTableView.frame.height
         
-        answerTableView.rowHeight = tableViewHeight/CGFloat(answerArr.count)
-        answerTableView.estimatedRowHeight = tableViewHeight/CGFloat(answerArr.count)
+        answerTableView.rowHeight = tableViewHeight/CGFloat(answerArr.count/2)
+        answerTableView.estimatedRowHeight = tableViewHeight/CGFloat(answerArr.count/2)
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if whereYouFrom == 0{
+            nextButtonOutlet.setTitle("完成", forState: .Normal)
+            questionLable.text = questionFromLogin[0]
+            questionNum.text = "1/1"
+        }else{
+            questionLable.text = questionArr[0]
+            questionNum.text = "1/2"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,13 +155,40 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate{
         } else {
             cell.accessoryView = .None
         }
-
-        cell.answerLable.text = answerArr[indexPath.row]
-
+        
+        if currentQuestion == 0{
+            cell.answerLable.text = answerArr[indexPath.row]
+        }else{
+            cell.answerLable.text = answerArr[indexPath.row + 3]
+        }
         
         return cell
     }
+}
+
+extension TestViewController: DismissQRCodeDelegatr{
     
+    func dismiss() {
+        print(CurrentUser.user.menberID)
+        Alamofire.request(.POST, "http://alpha.i-fit.com.tw/api/v1/user_type", parameters: ["user_id":CurrentUser.user.menberID!, "user_type": "0"])
+            .responseJSON { response in
+                
+                //                print(response.request)  // 请求对象
+                //                print(response.response) // 响应对象
+                //                print(response.data)     // 服务端返回的数据
+                
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                    let userType = JSON["user_type"] as? Int
+                    print(userType)
+                    CurrentUser.user.userType = userType
+
+                        self.cancelButton(self)
+
+                }
+        }
+    }
     
 }
 
