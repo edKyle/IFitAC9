@@ -13,6 +13,8 @@ class lineRecordData{
     static let recordData = lineRecordData()
     
     var userAdvice:[String] = []
+    var userAdviceDay:[String] = []
+    
     var measuringDate:[String] = []
     
     var heigh:[Double] = []

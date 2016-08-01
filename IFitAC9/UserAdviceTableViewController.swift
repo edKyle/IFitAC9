@@ -48,10 +48,17 @@ class UserAdviceTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("adviceCell", forIndexPath: indexPath) as! UseradviceTableViewCell
         
-        cell.adviceDay.setTitle(lineRecordData.recordData.measuringDate[indexPath.row]
-            , forState: .Normal)
-        cell.adviceLabel.text = lineRecordData.recordData.userAdvice[indexPath.row]
-        // Configure the cell...
+        if lineRecordData.recordData.userAdvice.count != 0 {
+ 
+            cell.adviceDay.setTitle(lineRecordData.recordData.userAdviceDay[indexPath.row]
+                , forState: .Normal)
+            cell.adviceLabel.text = lineRecordData.recordData.userAdvice[indexPath.row]
+            
+        }else{
+            cell.adviceLabel.text = ""
+            cell.adviceDay.setTitle("", forState: .Normal)
+        }
+            // Configure the cell...
         
         return cell
     }
