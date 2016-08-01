@@ -125,13 +125,6 @@
                                                             <constraint firstAttribute="height" constant="24" id="nQD-Xg-YIA"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="選對運動內衣_美胸自在更好動篇修左" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-Dc-lbj">
-                                                        <rect key="frame" x="34" y="181" width="60" height="84"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="5hh-oS-evk"/>
-                                                            <constraint firstAttribute="height" constant="84" id="Gnf-5A-yam"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="運動推薦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-j3-qfJ">
                                                         <rect key="frame" x="114" y="209" width="96" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -163,6 +156,13 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="5GQ-yL-n2Z"/>
                                                             <constraint firstAttribute="height" constant="24" id="Qce-wh-JH2"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="選對運動內衣_美胸自在更好動篇修左" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-Dc-lbj">
+                                                        <rect key="frame" x="39" y="181" width="50" height="84"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="5hh-oS-evk"/>
+                                                            <constraint firstAttribute="height" constant="84" id="Gnf-5A-yam"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -251,7 +251,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSL-fK-gsP">
-                                                        <rect key="frame" x="94" y="121" width="18.5" height="21"/>
+                                                        <rect key="frame" x="94" y="121" width="19" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -592,7 +592,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ulr-wP-tTJ" id="hhc-Mu-mAo">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
