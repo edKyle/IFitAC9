@@ -200,7 +200,7 @@ extension LoginViewController:WKNavigationDelegate{
             
             
             let code = codeArr[1]
-            
+
             print(codeArr)
             print("Hello code      " + code)
             let tokenFirst = codeToWebArr![3] as String
@@ -212,11 +212,6 @@ extension LoginViewController:WKNavigationDelegate{
             if code != "" && token != ""{
                 Alamofire.request(.POST, "http://alpha.i-fit.com.tw/api/v1/login", parameters: ["code":code, "token": token!, "callback": "", "state": ""])
                     .responseJSON { response in
-                        
-                        //                print(response.request)  // 请求对象
-                        //                print(response.response) // 响应对象
-                        //                print(response.data)     // 服务端返回的数据
-                        
                         
                         if let JSON = response.result.value {
                             print("JSON: \(JSON)")
@@ -239,7 +234,7 @@ extension LoginViewController:WKNavigationDelegate{
                         }
                 }
             }
-            
+        
         }
     }
 }

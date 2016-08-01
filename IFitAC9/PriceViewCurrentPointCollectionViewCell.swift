@@ -11,6 +11,8 @@ import MBCircularProgressBar
 
 class PriceViewCurrentPointCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var targetLable: UILabel!
+    @IBOutlet weak var currentPointLable: UILabel!
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
     @IBOutlet weak var itemWidthConstraint: NSLayoutConstraint!
     

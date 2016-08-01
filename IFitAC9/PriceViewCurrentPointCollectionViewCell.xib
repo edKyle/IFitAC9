@@ -191,8 +191,10 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="currentPointLable" destination="eXd-7T-8FD" id="fkF-NS-ODx"/>
                 <outlet property="itemWidthConstraint" destination="ICS-nr-5JG" id="mgR-lW-CEC"/>
                 <outlet property="progressBar" destination="9mf-Yi-Rxf" id="eUp-wj-wzg"/>
+                <outlet property="targetLable" destination="6fA-va-kXH" id="fyW-FG-RcP"/>
             </connections>
             <point key="canvasLocation" x="291.5" y="338.5"/>
         </collectionViewCell>

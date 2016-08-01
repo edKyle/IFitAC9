@@ -89,8 +89,8 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOn-1a-YRa">
-                            <rect key="frame" x="63" y="318" width="142" height="36"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOn-1a-YRa">
+                            <rect key="frame" x="63" y="321.5" width="142" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="PFK-XT-Xiu"/>
                                 <constraint firstAttribute="width" constant="142" id="kBm-fY-0Q0"/>

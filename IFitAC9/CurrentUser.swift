@@ -17,6 +17,7 @@ class CurrentUser{
     var email:String?
     var token:String?
     var userType:Int?
+    var currentPoint:Int?
     
     var record:[CurrentUser] = []
     

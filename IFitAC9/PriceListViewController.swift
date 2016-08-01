@@ -8,8 +8,15 @@
 
 import UIKit
 import CountdownLabel
+import Alamofire
+import SDWebImage
 
 class PriceListViewController: UIViewController {
+    
+    var price = [AnyObject]()
+    var priceName = [String]()
+    var pricePoint = [Int]()
+    var priceImageUrl = [String]()
     
     @IBOutlet weak var priceButton: UIButton!
     @IBOutlet weak var priceViewIside: UIView!
@@ -48,8 +55,18 @@ class PriceListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/products/index", parameters: [:])
+            .responseJSON { response in
+                if let JSON = response.result.value{
+                    self.price = JSON["data"] as! NSArray as [AnyObject]
+                    print(self.price)
+                    self.sortArray(self.price)
+                }
+        }
+        
         self.navigationItem.title = "獎勵列表"
         self.tabBarController?.tabBar.hidden = true
+        CatTabbarViewController.catView.hidden = true
         
         priceListTableView.dataSource = self
         priceListTableView.delegate = self
@@ -74,7 +91,37 @@ class PriceListViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
+        CatTabbarViewController.catView.hidden = false
     }
+    
+    func sortArray(Array:[AnyObject]){
+        if Array.count > 2{
+            
+            var ansArray = [AnyObject]()
+            for _ in 0...Array.count - 1{
+                ansArray.append(["a":"b"])
+            }
+            var position = 0
+            var i = 0
+            var biggerThen = 0
+            while  i < Array.count {
+                for y in 0...Array.count-1{
+                    if (price[i].objectForKey("required_points") as! Int) < (price[y].objectForKey("required_points") as! Int){
+                        biggerThen += 1
+                    }
+                }
+                position = price.count - biggerThen - 1
+                ansArray[position] = price[i]
+                i += 1
+                position = 0
+                biggerThen = 0
+            }
+            price = ansArray
+            print(price)
+            self.priceListTableView.reloadData()
+        }
+    }
+
     
 
     /*
@@ -92,23 +139,23 @@ class PriceListViewController: UIViewController {
 extension PriceListViewController:UITableViewDataSource, UITableViewDelegate{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return price.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = priceListTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PriceDetailListTableViewCell
         cell.goPriceDelegate = self
-        if indexPath.section == 0{
+        cell.priceNameLable.text = price[indexPath.row].objectForKey("name") as? String
+        cell.priceImageView.sd_setImageWithURL(NSURL(string: (price[indexPath.row].objectForKey("logo") as? String)!))
+        if CurrentUser.user.currentPoint >= price[indexPath.row].objectForKey("required_points") as? Int{
             cell.priceImageView.alpha = 1
-            cell.getPriceButtonOutlet.setTitle("未兌換", forState: .Normal)
+            cell.getPriceButtonOutlet.setTitle("可兌換", forState: .Normal)
             cell.getPriceButtonOutlet.setBackgroundImage(UIImage(named: "buttonForPriceRed"), forState: .Normal)
-        }
-        
-        if indexPath.section == 1{
+        }else{
             cell.priceImageView.alpha = 0.3
             cell.getPriceButtonOutlet.setTitle("未取得", forState: .Normal)
             cell.getPriceButtonOutlet.setBackgroundImage(UIImage(named: "buttonForPriceGray"), forState: .Normal)
