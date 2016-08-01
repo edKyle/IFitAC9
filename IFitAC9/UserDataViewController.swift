@@ -9,9 +9,8 @@
 import UIKit
 import BetterSegmentedControl
 
-class UserDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class UserDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,refreshTableView{
     
- 
     var lineGraphView:ScrollableGraphView?
     //data
     var howManyTimes:[String] = []
@@ -48,6 +47,8 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        LoginViewController.delegate = self
+        
         //segamentControl
         let navHeight = navigationController?.navigationBar.frame.height
         let viewHeight = ButtonView.frame.height
@@ -73,7 +74,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         UserDataTableView.addSubview(refreshControl)
-
+        
         
         let nibName = UINib(nibName: "UserDataTableViewCell", bundle: nil)
         UserDataTableView.registerNib(nibName, forCellReuseIdentifier: "topCell")
@@ -90,7 +91,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Do any additional setup after loading the view.
     }
- 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,7 +155,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 cell.topCellLabel.text = "內臟脂肪"
                 cell.getHandPointX(self.visceralFatStandar)
-                           }
+            }
             return cell
             
         default:
@@ -255,7 +256,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 makeLineView(self.visceralFatLocalArray, times: howManyTimes)
                 cell.lineImageView.addSubview(lineGraphView!)
                 
-                           }
+            }
             return cell
         }
         
@@ -369,7 +370,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
     func takeEveryDataToLocalArray(){
         //存weight
         for n in lineRecordData.recordData.weight{
-           weightLocalArray.append(n)
+            weightLocalArray.append(n)
         }
         if weightLocalArray.count > 6{
             for _ in 1...weightLocalArray.count - 6 {
@@ -421,7 +422,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
                 howManyTimes.removeAtIndex(0)
             }
         }
- 
+        
         
     }
     
@@ -455,7 +456,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         return ""
     }
     
-    //算上次目前跟變化值
+    //算上次目前
     func lastNowChangValue(){
         
         if weightLocalArray.count == 1 {
@@ -471,14 +472,14 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             currentFat = fatPercentLocalArray.last!
             lastFat = fatPercentLocalArray[fatPercentLocalArray.count-2]
         }
-
+        
         if muscleLocalArray.count == 1 {
             currentMuscle = muscleLocalArray.last!
         }else if muscleLocalArray.count > 1 {
             currentMuscle = muscleLocalArray.last!
             lastMuscle = muscleLocalArray[muscleLocalArray.count-2]
         }
-
+        
         if waterPercentLocalArray.count == 1 {
             currentWater = waterPercentLocalArray.last!
         }else if waterPercentLocalArray.count > 1 {
@@ -491,9 +492,33 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             currentVisceralFat = visceralFatLocalArray.last!
             lastVisceralFat = visceralFatLocalArray[visceralFatLocalArray.count-2]
         }
-
+        
     }
     func refresh(sender:AnyObject) {
+        
+        self.howManyTimes = []
+        self.weightLocalArray = []
+        self.muscleLocalArray = []
+        self.fatPercentLocalArray = []
+        self.waterPercentLocalArray = []
+        self.visceralFatLocalArray = []
+        self.weightStander = ""
+        self.muscleStandar = ""
+        self.fatPercentStandar = ""
+        self.waterPercentStandar = ""
+        self.visceralFatStandar = ""
+        
+        self.currentWeight = 0
+        self.currentFat = 0
+        self.currentMuscle = 0
+        self.currentWater = 0
+        self.currentVisceralFat = 0
+        self.lastWeight = 0
+        self.lastFat = 0
+        self.lastMuscle = 0
+        self.lastWater = 0
+        self.lastVisceralFat = 0
+        
         lineRecordData.recordData.fatPercentage = []
         lineRecordData.recordData.heigh = []
         lineRecordData.recordData.measuringDate = []
@@ -515,10 +540,10 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         
         let refreshController = LoginViewController()
         refreshController.getuserdata()
+     }
+    func refeshTableView(){
         self.takeEveryDataToLocalArray()
         self.UserDataTableView.reloadData()
         self.refreshControl.endRefreshing()
     }
-
-    
 }

@@ -84,8 +84,6 @@ class UserDetailViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
         
     }
-    
-
-    
+     
 
 }

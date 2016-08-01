@@ -17,6 +17,10 @@
 		270ECAA71D405C9A001F74DE /* AchievementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BB703E01D3CDD4800406E63 /* AchievementTableViewCell.xib */; };
 		270ECAAC1D40D8FB001F74DE /* AllDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270ECAAA1D40D8FB001F74DE /* AllDataTableViewCell.swift */; };
 		270ECAAD1D40D8FB001F74DE /* AllDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270ECAAB1D40D8FB001F74DE /* AllDataTableViewCell.xib */; };
+		2721FE5B1D4EECC700EE21DA /* UserAdviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721FE5A1D4EECC700EE21DA /* UserAdviceTableViewController.swift */; };
+		2721FE5E1D4EED5D00EE21DA /* UseradviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721FE5C1D4EED5D00EE21DA /* UseradviceTableViewCell.swift */; };
+		2721FE5F1D4EED5D00EE21DA /* UseradviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2721FE5D1D4EED5D00EE21DA /* UseradviceTableViewCell.xib */; };
+		2721FE611D4F23AC00EE21DA /* cat1b.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2721FE601D4F23AC00EE21DA /* cat1b.mp3 */; };
 		27426E441D41B82400FBA161 /* topTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27426E421D41B82400FBA161 /* topTableViewCell.swift */; };
 		27426E451D41B82400FBA161 /* topTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27426E431D41B82400FBA161 /* topTableViewCell.xib */; };
 		27426E491D41C38100FBA161 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27426E481D41C38100FBA161 /* MapViewController.swift */; };
@@ -117,6 +121,10 @@
 		27098D9A1D3CCECD0021543E /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		270ECAAA1D40D8FB001F74DE /* AllDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllDataTableViewCell.swift; sourceTree = "<group>"; };
 		270ECAAB1D40D8FB001F74DE /* AllDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllDataTableViewCell.xib; sourceTree = "<group>"; };
+		2721FE5A1D4EECC700EE21DA /* UserAdviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAdviceTableViewController.swift; sourceTree = "<group>"; };
+		2721FE5C1D4EED5D00EE21DA /* UseradviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseradviceTableViewCell.swift; sourceTree = "<group>"; };
+		2721FE5D1D4EED5D00EE21DA /* UseradviceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UseradviceTableViewCell.xib; sourceTree = "<group>"; };
+		2721FE601D4F23AC00EE21DA /* cat1b.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cat1b.mp3; sourceTree = "<group>"; };
 		27426E421D41B82400FBA161 /* topTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = topTableViewCell.swift; sourceTree = "<group>"; };
 		27426E431D41B82400FBA161 /* topTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = topTableViewCell.xib; sourceTree = "<group>"; };
 		27426E481D41C38100FBA161 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 			children = (
 				27098D831D3CC1340021543E /* Main.storyboard */,
 				278F453A1D475AF2007D47D6 /* CatTabbarViewController.swift */,
+				2721FE601D4F23AC00EE21DA /* cat1b.mp3 */,
 				2787F1C21D4CB62800E0726E /* 貓叫聲.mp3 */,
 				6B15FBEB1D4B54E40046E87D /* shakeMyCardViewViewController.swift */,
 				6B15FBEC1D4B54E40046E87D /* shakeMyCardViewViewController.xib */,
@@ -420,6 +429,9 @@
 				6BA69ABA1D45E3FD00268341 /* ArticleTableViewCell.swift */,
 				6BA69ABB1D45E3FD00268341 /* ArticleTableViewCell.xib */,
 				6B15FBDB1D49EC910046E87D /* DetailWebViewController.swift */,
+				2721FE5A1D4EECC700EE21DA /* UserAdviceTableViewController.swift */,
+				2721FE5C1D4EED5D00EE21DA /* UseradviceTableViewCell.swift */,
+				2721FE5D1D4EED5D00EE21DA /* UseradviceTableViewCell.xib */,
 			);
 			name = UserDetail;
 			sourceTree = "<group>";
@@ -636,11 +648,13 @@
 				6B15FBE61D4B48A00046E87D /* SettingForQRCodeTableViewCell.xib in Resources */,
 				2787F1BF1D4CA20900E0726E /* tapCatViewController.xib in Resources */,
 				6BA69AC11D45FCE900268341 /* TestTableViewCell.xib in Resources */,
+				2721FE611D4F23AC00EE21DA /* cat1b.mp3 in Resources */,
 				6B15FBEA1D4B4C6F0046E87D /* SettingFuncTableViewCell.xib in Resources */,
 				27CFB1671D3E7F6A001B7A9F /* line2CollectionViewCell.xib in Resources */,
 				27098D931D3CC2440021543E /* AchievementStoryboard.storyboard in Resources */,
 				2787F1C31D4CB62800E0726E /* 貓叫聲.mp3 in Resources */,
 				27098D851D3CC1340021543E /* Main.storyboard in Resources */,
+				2721FE5F1D4EED5D00EE21DA /* UseradviceTableViewCell.xib in Resources */,
 				6BA782D81D3F4E2000024D30 /* PriceDetailThirdRowTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +727,7 @@
 				27426E441D41B82400FBA161 /* topTableViewCell.swift in Sources */,
 				6BB703F71D3E133200406E63 /* PriceDetailSecondRowCollectionViewCell.swift in Sources */,
 				6B15FBED1D4B54E40046E87D /* shakeMyCardViewViewController.swift in Sources */,
+				2721FE5E1D4EED5D00EE21DA /* UseradviceTableViewCell.swift in Sources */,
 				6BCDEBE91D488B930016089E /* PriceListViewController.swift in Sources */,
 				27AF99671D44AD7B00EB5237 /* UserDataTableViewCell.swift in Sources */,
 				6BA7831C1D4088D000024D30 /* BubbleViewController.swift in Sources */,
@@ -750,6 +765,7 @@
 				6B38E9D01D40B4500011FB3D /* BubbleNode.swift in Sources */,
 				270ECAAC1D40D8FB001F74DE /* AllDataTableViewCell.swift in Sources */,
 				6BA7830E1D40771500024D30 /* ChooseCoinViewController.swift in Sources */,
+				2721FE5B1D4EECC700EE21DA /* UserAdviceTableViewController.swift in Sources */,
 				6B15FBDC1D49EC910046E87D /* DetailWebViewController.swift in Sources */,
 				6BB703F31D3E10FF00406E63 /* PriceDetailSecondRowTableViewCell.swift in Sources */,
 				27AF996B1D44AE8A00EB5237 /* UserDataTableViewCell2.swift in Sources */,

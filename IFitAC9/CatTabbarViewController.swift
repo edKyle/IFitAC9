@@ -24,22 +24,15 @@ class CatTabbarViewController: UITabBarController{
     var qRCodeView = shakeMyCardViewViewController()
     var messageViewController = tapCatViewController()
     
+    // sound effect
+    var soundEffect = ["貓叫聲","cat1b"]
+    var catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("貓叫聲", ofType: "mp3")!)
+    var voiceCount = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.changeCat), name: "Notifi", object: nil)
-        
-        let catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("貓叫聲", ofType: "mp3")!)
-        do{
-            try audioPlayer = AVAudioPlayer(contentsOfURL: catSound)
-        }catch{
-            print(error)
-        }
-        audioPlayer.prepareToPlay()
-        
-        
         
         // Do any additional setup after loading the view.
     }
@@ -104,8 +97,13 @@ class CatTabbarViewController: UITabBarController{
         if self.beginTouch.view == CatTabbarViewController.catView{
         
         if self.hasBeenMove == false{
-           
-            audioPlayer.play()
+            
+            if voiceCount == 1{
+                voiceCount = 0
+            }else{
+                voiceCount += 1
+            }
+            self.catVoice()
 
             let width = UIScreen.mainScreen().bounds.width
             let height = UIScreen.mainScreen().bounds.height
@@ -225,5 +223,14 @@ extension CatTabbarViewController: DismissQRCodeDelegatr{
     func dismiss() {
         self.qRCodeView.view.removeFromSuperview()
     }
-
+    func catVoice(){
+        self.catSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundEffect[voiceCount], ofType: "mp3")!)
+        do{
+            try audioPlayer = AVAudioPlayer(contentsOfURL: catSound)
+        }catch{
+            print(error)
+        }
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+    }
 }

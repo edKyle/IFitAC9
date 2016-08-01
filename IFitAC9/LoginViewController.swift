@@ -11,10 +11,16 @@ import WebKit
 import Alamofire
 import SwiftyJSON
 
+protocol refreshTableView {
+    func refeshTableView()
+}
+
 class LoginViewController: UIViewController {
     
+    static var delegate:refreshTableView?
+    
     let progressBar = UIProgressView(frame: CGRect(x: UIScreen.mainScreen().bounds.width/8, y: UIScreen.mainScreen().bounds.height/3, width: UIScreen.mainScreen().bounds.width-UIScreen.mainScreen().bounds.width/8*2, height: 5))
-   
+    
     let webView = WKWebView(frame:UIScreen.mainScreen().bounds)
     let url = NSURL(string: "http://auth.i-fit.com.tw/login?redirect_uri=http://alpha.i-fit.com.tw/ifit_user&client_id=alphacamp_web&scope=&state=&callback=")
     
@@ -73,9 +79,9 @@ class LoginViewController: UIViewController {
             self.progressBar.setProgress(Float(webView.estimatedProgress), animated: true)
         }
     }
-
     
-
+    
+    
     
     func getuserdata(){
         
@@ -92,6 +98,7 @@ class LoginViewController: UIViewController {
                     
                     print(json)
                     
+                    if json.count >= 1{
                     let lastJsonData = json[json.count-1]
                     
                     lineRecordData.recordData.userPerfectWeightMax = "\(lastJsonData["standard"]!!["weight_upper"]!!)"
@@ -111,67 +118,72 @@ class LoginViewController: UIViewController {
                     
                     for n in json{
                         if let wei = n["composition"]!!["weight"]! {
-                            lineRecordData.recordData.weight.append(Double(wei as! NSString as String)!)
+                            lineRecordData.recordData.weight.insert(Double(wei as! NSString as String)!, atIndex: 0)
+                            print(lineRecordData.recordData.weight)
                         }
                     }
                     
                     for n in json{
                         if let mus = n["composition"]!!["total_muscle"]! {
-                            lineRecordData.recordData.musclePercent.append(Double(mus as! NSString as String)!)
+                            lineRecordData.recordData.musclePercent.insert(Double(mus as! NSString as String)!, atIndex: 0)
                         }
                     }
                     
                     for n in json{
                         if let wat = n["composition"]!!["water_rate"]! {
-                            lineRecordData.recordData.waterPercentage.append(wat as! NSNumber as Double)
+                            lineRecordData.recordData.waterPercentage.insert(wat as! NSNumber as Double, atIndex: 0)
                         }
                     }
                     for n in json{
                         if let fat = n["composition"]!!["total_fat"]! {
-                            lineRecordData.recordData.fatPercentage.append(Double(fat as! NSString as String)!)
+                            lineRecordData.recordData.fatPercentage.insert(Double(fat as! NSString as String)!, atIndex: 0)
                         }
-                        for n in json{
-                            if let fat = n["composition"]!!["organ_fat"]! {
-                                lineRecordData.recordData.visceralFat.append(Double(fat as! NSNumber as Double))
-                                
-                            }
-                            for n in json{
-                                if let day = n["composition"]!!["updated_at"]! {
-                                    let dayString = day as! NSString as String!
-                                    let dateFormatter = NSDateFormatter()
-                                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                                    let dateNs = dateFormatter.dateFromString(dayString)
-                                    dateFormatter.dateStyle = .ShortStyle
-                                    
-                                    let calendar = NSCalendar.currentCalendar()
-                                    let components = calendar.components([.Day , .Month , .Year], fromDate: dateNs!)
-                                    
-                                    lineRecordData.recordData.measuringDate.append("\(components.month)/\(components.day)")
-                                }
-                            }
-                            if CurrentUser.user.userType == nil{
-                                self.performSegueWithIdentifier("showOnboardView", sender: self)
-                            }
-                        }
-                        
                     }
-                    Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
-                        .responseJSON { response in
+                    for n in json{
+                        if let fat = n["composition"]!!["organ_fat"]! {
+                            lineRecordData.recordData.visceralFat.insert(Double(fat as! NSNumber as Double), atIndex: 0)
+                        }
+                    }
+                    for n in json{
+                        if let day = n["composition"]!!["created_at"]! {
+                            let dayString = day as! NSString as String!
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                            let dateNs = dateFormatter.dateFromString(dayString)
+                            dateFormatter.dateStyle = .ShortStyle
                             
-                            if let advice = response.result.value{
-                                let adviceArray = advice["datas"] as! NSArray
-                                
-                                for n in adviceArray{
-                                    let advice = n["message"]!! as! String
-                                    lineRecordData.recordData.userAdvice.append(advice)
-                                }
-                            }
+                            let calendar = NSCalendar.currentCalendar()
+                            let components = calendar.components([.Day , .Month , .Year], fromDate: dateNs!)
+                            
+                            lineRecordData.recordData.measuringDate.insert("\(components.month)/\(components.day)", atIndex: 0)
+                        }
+                    }
+                    
+                    LoginViewController.delegate?.refeshTableView()
+                    
+                    if CurrentUser.user.userType == nil{
+                        self.performSegueWithIdentifier("showOnboardView", sender: self)
+                    }
+                }
+            }
+        }
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
+            .responseJSON { response in
+                
+                if let advice = response.result.value{
+                    let adviceArray = advice["datas"] as! NSArray
+                    
+                    for n in adviceArray{
+                        let advice = n["message"]!! as! String
+                        lineRecordData.recordData.userAdvice.append(advice)
                     }
                 }
         }
-        
     }
 }
+
+
+
 
 extension LoginViewController:WKNavigationDelegate{
     
@@ -243,5 +255,4 @@ extension LoginViewController:WKNavigationDelegate{
         }
     }
 }
-
 
