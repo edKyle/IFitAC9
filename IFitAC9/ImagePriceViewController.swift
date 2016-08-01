@@ -17,6 +17,7 @@ class ImagePriceViewController: UIViewController {
         
         self.navigationItem.title = "桌布列表"
         self.tabBarController?.tabBar.hidden = true
+        CatTabbarViewController.catView.hidden = true
         
         imageCollectionView.registerNib(UINib(nibName: "ImagePriceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Item")
         
@@ -32,6 +33,7 @@ class ImagePriceViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         self.tabBarController?.tabBar.hidden = false
+        CatTabbarViewController.catView.hidden = false
     }
 
     

@@ -158,6 +158,7 @@ extension PriceListViewController:UITableViewDataSource, UITableViewDelegate{
         }else{
             cell.priceImageView.alpha = 0.3
             cell.getPriceButtonOutlet.setTitle("未取得", forState: .Normal)
+            cell.getPriceButtonOutlet.enabled = false
             cell.getPriceButtonOutlet.setBackgroundImage(UIImage(named: "buttonForPriceGray"), forState: .Normal)
         }
         
