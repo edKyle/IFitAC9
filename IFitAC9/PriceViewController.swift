@@ -13,6 +13,7 @@ import Alamofire
 class PriceViewController: UIViewController {
     
     let refreshControl = UIRefreshControl()
+    let userId:Int = CurrentUser.user.menberID!
 
     @IBOutlet weak var priceScrollView: UIScrollView!
     @IBOutlet weak var priceUpperHalfCollectionView: UICollectionView!
@@ -45,7 +46,7 @@ class PriceViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": 1])
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": userId])
             .responseJSON { response in
                 
                 if let point = response.result.value{
@@ -68,8 +69,9 @@ class PriceViewController: UIViewController {
     }
     
     func refresh(sender:AnyObject) {
-        let currentPoint:Int = CurrentUser.user.currentPoint!
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": currentPoint])
+        
+        print(userId)
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": userId])
             .responseJSON { response in
                 
                 if let point = response.result.value{
