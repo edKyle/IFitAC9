@@ -161,10 +161,7 @@ class LoginViewController: UIViewController {
                     
                     LoginViewController.delegate?.refeshTableView()
                     
-                    if CurrentUser.user.userType == nil{
-                        self.performSegueWithIdentifier("showOnboardView", sender: self)
                     }
-                }
             }
         }
         Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
@@ -175,9 +172,22 @@ class LoginViewController: UIViewController {
                     
                     for n in adviceArray{
                         let advice = n["message"]!! as! String
-                        lineRecordData.recordData.userAdvice.append(advice)
+                        lineRecordData.recordData.userAdvice.insert(advice, atIndex: 0)
+                    }
+                    for n in adviceArray{
+                        let adviceDay = n["created_at"] as! NSString as String!
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        let dateNs = dateFormatter.dateFromString(adviceDay)
+                        dateFormatter.dateStyle = .ShortStyle
+                        
+                        let calendar = NSCalendar.currentCalendar()
+                        let components = calendar.components([.Day , .Month , .Year], fromDate: dateNs!)
+                        
+                        lineRecordData.recordData.userAdviceDay.insert("\(components.month)/\(components.day)", atIndex: 0)
                     }
                 }
+                
         }
     }
 }
@@ -242,6 +252,9 @@ extension LoginViewController:WKNavigationDelegate{
                                 CurrentUser.user.userType = userType
                             }
                             self.getuserdata()
+                            if CurrentUser.user.userType == nil{
+                                self.performSegueWithIdentifier("showOnboardView", sender: self)
+                            }
                             self.performSegueWithIdentifier("logInSegue", sender: self)
                         }
                 }
