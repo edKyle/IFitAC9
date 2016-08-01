@@ -84,9 +84,9 @@ class LoginViewController: UIViewController {
     
     
     func getuserdata(){
+        var userId:Int = CurrentUser.user.menberID!
         
-        
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": 1])
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": userId])
             .responseJSON { response in
                 
                 print(response.request)  // 请求对象
@@ -167,7 +167,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": 1])
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/advice_messages", parameters: ["user_id": userId])
             .responseJSON { response in
                 
                 if let advice = response.result.value{

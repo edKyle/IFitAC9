@@ -133,7 +133,7 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
                             switch point {
                             case 0...19:
                                 target = 20
-                            case 19...40:
+                            case 19...39:
                                 target = 40
                             default:
                                 target = 55
