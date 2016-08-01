@@ -68,8 +68,8 @@ class PriceViewController: UIViewController {
     }
     
     func refresh(sender:AnyObject) {
-        
-        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": 1])
+        let currentPoint:Int = CurrentUser.user.currentPoint!
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": currentPoint])
             .responseJSON { response in
                 
                 if let point = response.result.value{

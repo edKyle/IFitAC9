@@ -84,7 +84,7 @@ class LoginViewController: UIViewController {
     
     
     func getuserdata(){
-        var userId:Int = CurrentUser.user.menberID!
+        let userId:Int = CurrentUser.user.menberID!
         
         Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/compositions", parameters: ["user_id": userId])
             .responseJSON { response in
