@@ -119,7 +119,6 @@ class LoginViewController: UIViewController {
                     for n in json{
                         if let wei = n["composition"]!!["weight"]! {
                             lineRecordData.recordData.weight.insert(Double(wei as! NSString as String)!, atIndex: 0)
-                            print(lineRecordData.recordData.weight)
                         }
                     }
                     
@@ -161,6 +160,8 @@ class LoginViewController: UIViewController {
                     
                     LoginViewController.delegate?.refeshTableView()
                     
+                    }else{
+                        LoginViewController.delegate?.refeshTableView()
                     }
             }
         }
@@ -236,7 +237,8 @@ extension LoginViewController:WKNavigationDelegate{
                     .responseJSON { response in
                         
                         if let JSON = response.result.value {
-                            print("JSON: \(JSON)")
+//                            print("JSON: \(JSON)")
+                            if JSON["data"] != nil{
                             let status = JSON["data"] as! NSArray
                             print(status)
                             print(status[0])
@@ -257,6 +259,7 @@ extension LoginViewController:WKNavigationDelegate{
                             }
                             self.performSegueWithIdentifier("logInSegue", sender: self)
                         }
+                    }
                 }
             }
         
