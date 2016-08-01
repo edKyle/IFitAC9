@@ -8,9 +8,13 @@
 
 import UIKit
 import MBCircularProgressBar
+import Alamofire
 
 class PriceViewController: UIViewController {
+    
+    let refreshControl = UIRefreshControl()
 
+    @IBOutlet weak var priceScrollView: UIScrollView!
     @IBOutlet weak var priceUpperHalfCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var progressView: UIView!
@@ -28,6 +32,12 @@ class PriceViewController: UIViewController {
         
         priceUpperHalfCollectionView.registerNib(UINib(nibName: "NewPriceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Item2")
         
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(PriceViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.priceUpperHalfCollectionView.alwaysBounceVertical = true
+        priceScrollView.addSubview(refreshControl)
+        
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
@@ -35,6 +45,17 @@ class PriceViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": 1])
+            .responseJSON { response in
+                
+                if let point = response.result.value{
+                    let currentPoint = point["points"] as! Int
+                    CurrentUser.user.currentPoint = currentPoint
+                    self.priceUpperHalfCollectionView.reloadData()
+                    
+                }
+        }
+
         priceUpperHalfCollectionView.reloadData()
     }
     override func viewDidAppear(animated: Bool) {
@@ -44,6 +65,21 @@ class PriceViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refresh(sender:AnyObject) {
+        
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": 1])
+            .responseJSON { response in
+                
+                if let point = response.result.value{
+                    let currentPoint = point["points"] as! Int
+                    CurrentUser.user.currentPoint = currentPoint
+                    self.priceUpperHalfCollectionView.reloadData()
+                    self.refreshControl.endRefreshing()
+                    
+                }
+        }
     }
     
 
@@ -86,11 +122,33 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
         case 0:
             let item = priceUpperHalfCollectionView.dequeueReusableCellWithReuseIdentifier("Item1", forIndexPath: indexPath) as! PriceViewCurrentPointCollectionViewCell
             item.progressBar.value = 1
+            
+            
             UIView.animateWithDuration(1, animations: {
                 }, completion: {
                     succees in
                     if succees{
-                        item.progressBar.setValue(50, animateWithDuration: 2)
+                        if let point = CurrentUser.user.currentPoint{
+                            var target:CGFloat = 30
+                            switch point {
+                            case 0...19:
+                                target = 20
+                            case 19...40:
+                                target = 40
+                            default:
+                                target = 55
+                            }
+
+                            print(point)
+                            let pointHere = (CGFloat(point)/target*100)
+                            let progress = round(pointHere)
+                            print(progress)
+                            item.progressBar.setValue(progress, animateWithDuration: 2)
+                            item.targetLable.text = "/\(Int(target))"
+                            item.currentPointLable.text = String(point)
+                        }else{
+                            item.progressBar.setValue(0, animateWithDuration: 2)
+                        }
                     }
             })
             
