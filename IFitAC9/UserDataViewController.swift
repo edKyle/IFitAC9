@@ -524,6 +524,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         lineRecordData.recordData.measuringDate = []
         lineRecordData.recordData.musclePercent = []
         lineRecordData.recordData.userAdvice = []
+        lineRecordData.recordData.userAdviceDay = []
         lineRecordData.recordData.userPerfectFatMax = ""
         lineRecordData.recordData.userPerfectFatMin = ""
         lineRecordData.recordData.userPerfectMuscleMax = ""
@@ -537,6 +538,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         lineRecordData.recordData.visceralFat = []
         lineRecordData.recordData.waterPercentage = []
         lineRecordData.recordData.weight = []
+      
         
         let refreshController = LoginViewController()
         refreshController.getuserdata()
