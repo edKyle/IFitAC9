@@ -444,6 +444,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             self.visceralFatStandar = makeData(visceralFatLocalArray[visceralFatLocalArray.count-1], MinData: Double(lineRecordData.recordData.userPerfectVisceralFatMin)!, MaxData: Double(lineRecordData.recordData.userPerfectVisceralFatMax)!)
         }
     }
+    
     //判斷user各個標準值結果(標準值輔助計算公式)
     func makeData(data:Double,MinData:Double,MaxData:Double)->String{
         if data > MinData && data < MaxData{
@@ -486,14 +487,15 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
             currentWater = waterPercentLocalArray.last!
             lastWater = waterPercentLocalArray[waterPercentLocalArray.count-2]
         }
+        
         if visceralFatLocalArray.count == 1 {
             currentVisceralFat = visceralFatLocalArray.last!
         }else if visceralFatLocalArray.count > 1 {
             currentVisceralFat = visceralFatLocalArray.last!
             lastVisceralFat = visceralFatLocalArray[visceralFatLocalArray.count-2]
         }
-        
     }
+    
     func refresh(sender:AnyObject) {
         
         self.howManyTimes = []
@@ -539,14 +541,15 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
         lineRecordData.recordData.waterPercentage = []
         lineRecordData.recordData.weight = []
       
-        
         let refreshController = LoginViewController()
         refreshController.getuserdata()
      }
+    
     func refeshTableView(){
         self.takeEveryDataToLocalArray()
         self.toKnowUserStander()
         self.UserDataTableView.reloadData()
         self.refreshControl.endRefreshing()
     }
+    
 }
