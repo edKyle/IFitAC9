@@ -521,15 +521,19 @@
                                                     <constraint firstItem="FbN-26-ZWW" firstAttribute="leading" secondItem="dJy-fD-hB5" secondAttribute="leading" id="M9M-up-fJS"/>
                                                     <constraint firstAttribute="height" constant="86" id="N1o-Of-C1S"/>
                                                     <constraint firstItem="jYv-yE-1xI" firstAttribute="centerY" secondItem="bsL-Sb-3gp" secondAttribute="centerY" id="WV1-ww-KHS"/>
+                                                    <constraint firstItem="jYv-yE-1xI" firstAttribute="leading" secondItem="bsL-Sb-3gp" secondAttribute="trailing" constant="14" id="Ylz-8g-9V6"/>
                                                     <constraint firstItem="FbN-26-ZWW" firstAttribute="top" secondItem="dJy-fD-hB5" secondAttribute="top" id="bmB-Cd-JJM"/>
                                                     <constraint firstItem="jYv-yE-1xI" firstAttribute="leading" secondItem="bsL-Sb-3gp" secondAttribute="trailing" constant="2" id="bpX-aj-whU"/>
                                                     <constraint firstAttribute="bottom" secondItem="FbN-26-ZWW" secondAttribute="bottom" id="kLh-aP-IEQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="jYv-yE-1xI" secondAttribute="trailing" id="neh-Tg-dNq"/>
+                                                    <constraint firstItem="jYv-yE-1xI" firstAttribute="leading" secondItem="bsL-Sb-3gp" secondAttribute="trailing" constant="14" id="sZx-KF-hdV"/>
                                                     <constraint firstAttribute="width" constant="205" id="vpf-h3-VxU"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="bpX-aj-whU"/>
+                                                        <exclude reference="neh-Tg-dNq"/>
+                                                        <exclude reference="sZx-KF-hdV"/>
                                                     </mask>
                                                 </variation>
                                             </view>
