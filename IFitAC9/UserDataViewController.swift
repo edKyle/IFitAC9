@@ -545,6 +545,7 @@ class UserDataViewController: UIViewController, UITableViewDelegate, UITableView
      }
     func refeshTableView(){
         self.takeEveryDataToLocalArray()
+        self.toKnowUserStander()
         self.UserDataTableView.reloadData()
         self.refreshControl.endRefreshing()
     }
