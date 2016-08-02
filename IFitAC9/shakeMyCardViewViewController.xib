@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="shakeMyCardViewViewController" customModule="IFitAC9" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="shakeMyCardViewViewController" customModule="Fit_U" customModuleProvider="target">
             <connections>
                 <outlet property="coverView" destination="1aQ-aX-gDx" id="W0X-EK-7V8"/>
                 <outlet property="qRCodeImageView" destination="DEI-Pp-6At" id="2ra-IZ-xw9"/>
