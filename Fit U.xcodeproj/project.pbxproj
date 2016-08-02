@@ -110,7 +110,7 @@
 
 /* Begin PBXFileReference section */
 		0974A19EF0B744EDAE385DE1 /* Pods-IFitAC9.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFitAC9.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9.debug.xcconfig"; sourceTree = "<group>"; };
-		27098D7C1D3CC1340021543E /* IFitAC9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IFitAC9.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27098D7C1D3CC1340021543E /* Fit U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit U.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27098D7F1D3CC1340021543E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27098D841D3CC1340021543E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27098D861D3CC1340021543E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 		27098D7D1D3CC1340021543E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27098D7C1D3CC1340021543E /* IFitAC9.app */,
+				27098D7C1D3CC1340021543E /* Fit U.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -555,9 +555,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27098D7B1D3CC1340021543E /* IFitAC9 */ = {
+		27098D7B1D3CC1340021543E /* Fit U */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27098D8E1D3CC1340021543E /* Build configuration list for PBXNativeTarget "IFitAC9" */;
+			buildConfigurationList = 27098D8E1D3CC1340021543E /* Build configuration list for PBXNativeTarget "Fit U" */;
 			buildPhases = (
 				9A043438B515E9BF14426F9C /* [CP] Check Pods Manifest.lock */,
 				27098D781D3CC1340021543E /* Sources */,
@@ -570,9 +570,9 @@
 			);
 			dependencies = (
 			);
-			name = IFitAC9;
+			name = "Fit U";
 			productName = IFitAC9;
-			productReference = 27098D7C1D3CC1340021543E /* IFitAC9.app */;
+			productReference = 27098D7C1D3CC1340021543E /* Fit U.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -596,7 +596,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 27098D771D3CC1340021543E /* Build configuration list for PBXProject "IFitAC9" */;
+			buildConfigurationList = 27098D771D3CC1340021543E /* Build configuration list for PBXProject "Fit U" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -609,7 +609,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27098D7B1D3CC1340021543E /* IFitAC9 */,
+				27098D7B1D3CC1340021543E /* Fit U */,
 			);
 		};
 /* End PBXProject section */
@@ -907,7 +907,7 @@
 				INFOPLIST_FILE = IFitAC9/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.Alphacamp.IFitAC9;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Fit U";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -922,7 +922,7 @@
 				INFOPLIST_FILE = IFitAC9/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.Alphacamp.IFitAC9;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Fit U";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -930,7 +930,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27098D771D3CC1340021543E /* Build configuration list for PBXProject "IFitAC9" */ = {
+		27098D771D3CC1340021543E /* Build configuration list for PBXProject "Fit U" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27098D8C1D3CC1340021543E /* Debug */,
@@ -939,7 +939,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27098D8E1D3CC1340021543E /* Build configuration list for PBXNativeTarget "IFitAC9" */ = {
+		27098D8E1D3CC1340021543E /* Build configuration list for PBXNativeTarget "Fit U" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				27098D8F1D3CC1340021543E /* Debug */,
