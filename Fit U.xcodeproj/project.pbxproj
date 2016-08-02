@@ -105,11 +105,11 @@
 		6BCDEBE91D488B930016089E /* PriceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDEBE81D488B930016089E /* PriceListViewController.swift */; };
 		6BCDEBEC1D488D950016089E /* PriceDetailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCDEBEA1D488D950016089E /* PriceDetailListTableViewCell.swift */; };
 		6BCDEBED1D488D950016089E /* PriceDetailListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCDEBEB1D488D950016089E /* PriceDetailListTableViewCell.xib */; };
-		9095AD1C4ABDB94734ED86D7 /* Pods_IFitAC9.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */; };
+		93A185145B157CBC9877A3B4 /* Pods_Fit_U.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B9523ABB05675E7E73D09F /* Pods_Fit_U.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0974A19EF0B744EDAE385DE1 /* Pods-IFitAC9.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFitAC9.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9.debug.xcconfig"; sourceTree = "<group>"; };
+		0169C025B89B3DFA7D6773A4 /* Pods-Fit U.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fit U.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fit U/Pods-Fit U.debug.xcconfig"; sourceTree = "<group>"; };
 		27098D7C1D3CC1340021543E /* Fit U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit U.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27098D7F1D3CC1340021543E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27098D841D3CC1340021543E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,7 +153,6 @@
 		27DBCD371D3E69DC00720291 /* lineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lineCollectionViewCell.swift; sourceTree = "<group>"; };
 		27DBCD381D3E69DC00720291 /* lineCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lineCollectionViewCell.xib; sourceTree = "<group>"; };
 		27E78C661D488E8A0058E775 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IFitAC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B15FBD51D49D8070046E87D /* ImagePriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePriceViewController.swift; sourceTree = "<group>"; };
 		6B15FBD71D49D8F90046E87D /* ImagePriceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePriceCollectionViewCell.swift; sourceTree = "<group>"; };
 		6B15FBD81D49D8F90046E87D /* ImagePriceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePriceCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -210,7 +209,8 @@
 		6BCDEBE81D488B930016089E /* PriceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceListViewController.swift; sourceTree = "<group>"; };
 		6BCDEBEA1D488D950016089E /* PriceDetailListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDetailListTableViewCell.swift; sourceTree = "<group>"; };
 		6BCDEBEB1D488D950016089E /* PriceDetailListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceDetailListTableViewCell.xib; sourceTree = "<group>"; };
-		6DD7BA9DE5410810141BF984 /* Pods-IFitAC9.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFitAC9.release.xcconfig"; path = "Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9.release.xcconfig"; sourceTree = "<group>"; };
+		D24F900BAA861747471CD568 /* Pods-Fit U.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fit U.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fit U/Pods-Fit U.release.xcconfig"; sourceTree = "<group>"; };
+		E2B9523ABB05675E7E73D09F /* Pods_Fit_U.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fit_U.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,7 +220,7 @@
 			files = (
 				27426E4D1D41C79E00FBA161 /* MapKit.framework in Frameworks */,
 				27426E4B1D41C79200FBA161 /* CoreLocation.framework in Frameworks */,
-				9095AD1C4ABDB94734ED86D7 /* Pods_IFitAC9.framework in Frameworks */,
+				93A185145B157CBC9877A3B4 /* Pods_Fit_U.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +232,7 @@
 			children = (
 				27426E4C1D41C79E00FBA161 /* MapKit.framework */,
 				27426E4A1D41C79200FBA161 /* CoreLocation.framework */,
-				684C3786D551FB9F511C9AFC /* Pods_IFitAC9.framework */,
+				E2B9523ABB05675E7E73D09F /* Pods_Fit_U.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,8 +384,8 @@
 		49A3DC4F7B148BBF0D0AC8AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0974A19EF0B744EDAE385DE1 /* Pods-IFitAC9.debug.xcconfig */,
-				6DD7BA9DE5410810141BF984 /* Pods-IFitAC9.release.xcconfig */,
+				0169C025B89B3DFA7D6773A4 /* Pods-Fit U.debug.xcconfig */,
+				D24F900BAA861747471CD568 /* Pods-Fit U.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -674,7 +674,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fit U/Pods-Fit U-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9A043438B515E9BF14426F9C /* [CP] Check Pods Manifest.lock */ = {
@@ -704,7 +704,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IFitAC9/Pods-IFitAC9-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fit U/Pods-Fit U-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -899,7 +899,7 @@
 		};
 		27098D8F1D3CC1340021543E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0974A19EF0B744EDAE385DE1 /* Pods-IFitAC9.debug.xcconfig */;
+			baseConfigurationReference = 0169C025B89B3DFA7D6773A4 /* Pods-Fit U.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -914,7 +914,7 @@
 		};
 		27098D901D3CC1340021543E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DD7BA9DE5410810141BF984 /* Pods-IFitAC9.release.xcconfig */;
+			baseConfigurationReference = D24F900BAA861747471CD568 /* Pods-Fit U.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

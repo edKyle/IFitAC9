@@ -4,18 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Fit U.xcscheme</key>
+		<key>IFitAC9.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>27098D7B1D3CC1340021543E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>
