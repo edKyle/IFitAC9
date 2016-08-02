@@ -34,7 +34,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DEI-Pp-6At">
-                            <rect key="frame" x="34.5" y="52" width="200" height="200"/>
+                            <rect key="frame" x="34" y="52" width="200" height="200"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="200" id="G2W-Nc-nqO"/>
                                 <constraint firstAttribute="width" constant="200" id="SdH-14-skA"/>
@@ -47,8 +47,8 @@
                                 <constraint firstAttribute="height" constant="43" id="YEG-32-l6S"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去 ift 實體門市請店員刷這個 QR code 就可以登錄你的資料囉！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDM-E1-xFL">
-                            <rect key="frame" x="42" y="253" width="184" height="54"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去 IFit 實體門市請店員刷這個 QR code 就可以登錄你的資料囉！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDM-E1-xFL">
+                            <rect key="frame" x="42.5" y="253" width="184" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="184" id="eA7-Th-WIF"/>
                                 <constraint firstAttribute="height" constant="54" id="iME-49-xEj"/>

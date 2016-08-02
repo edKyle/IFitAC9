@@ -139,7 +139,6 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
                     self.runningGirl.transform = CGAffineTransformMakeRotation(CGFloat(0))
                     }, completion:{
                         succeed in
-                        
                 })
         })
         
@@ -165,7 +164,7 @@ extension PriceMapViewController: UICollectionViewDataSource, UICollectionViewDe
         item.goPageDelegate = self
         let point =  price[indexPath.item].objectForKey("required_points") as? Int
         item.pointLable.text = "\(point!)點獎勵"
-        item.imageTraillingContrant.constant = 20
+        item.imageTraillingContrant.constant = 25
         item.priceImageView.sd_setImageWithURL(NSURL(string: (price[indexPath.item].objectForKey("logo") as? String)!))
         
         return item
