@@ -12,6 +12,7 @@ import Alamofire
 
 class PriceViewController: UIViewController {
     
+    var price = [AnyObject]()
     let refreshControl = UIRefreshControl()
     let userId:Int = CurrentUser.user.menberID!
 
@@ -56,9 +57,18 @@ class PriceViewController: UIViewController {
                     
                 }
         }
-
+        
+        Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/products/index", parameters: [:])
+            .responseJSON { response in
+                if let JSON = response.result.value{
+                    self.price = JSON["data"] as! NSArray as [AnyObject]
+                    print(self.price)
+                    self.sortArray(self.price)
+                }
+        }
         priceUpperHalfCollectionView.reloadData()
     }
+    
     override func viewDidAppear(animated: Bool) {
         priceUpperHalfCollectionView.reloadData()
     }
@@ -69,7 +79,6 @@ class PriceViewController: UIViewController {
     }
     
     func refresh(sender:AnyObject) {
-        
         print(userId)
         Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": userId])
             .responseJSON { response in
@@ -79,23 +88,44 @@ class PriceViewController: UIViewController {
                     CurrentUser.user.currentPoint = currentPoint
                     self.priceUpperHalfCollectionView.reloadData()
                     self.refreshControl.endRefreshing()
-                    
                 }
-        }
+            }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func sortArray(Array:[AnyObject]){
+        if Array.count > 2{
+            var ansArray = [AnyObject]()
+            for _ in 0...Array.count - 1{
+                ansArray.append(["a":"b"])
+            }
+            var position = 0
+            var i = 0
+            var biggerThen = 0
+            while  i < Array.count {
+                for y in 0...Array.count-1{
+                    if (price[i].objectForKey("required_points") as! Int) < (price[y].objectForKey("required_points") as! Int){
+                        biggerThen += 1
+                    }
+                }
+                position = price.count - biggerThen - 1
+                ansArray[position] = price[i]
+                i += 1
+                position = 0
+                biggerThen = 0
+            }
+            price = ansArray
+            print(price)
+            self.priceUpperHalfCollectionView.reloadData()
+            }
     }
-    */
-
 }
+                
+
+
+    
+
+
+
 
 extension PriceViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
@@ -133,12 +163,12 @@ extension PriceViewController: UICollectionViewDataSource, UICollectionViewDeleg
                         if let point = CurrentUser.user.currentPoint{
                             var target:CGFloat = 30
                             switch point {
-                            case 0...19:
-                                target = 20
-                            case 19...39:
+                            case 0...39:
                                 target = 40
-                            default:
+                            case 40...54:
                                 target = 55
+                            default:
+                                target = 70
                             }
 
                             print(point)

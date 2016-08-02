@@ -14,6 +14,7 @@ class PriceMapViewController: UIViewController {
     
     var price = [AnyObject]()
     var isFirst:Bool?
+    let userId:Int = CurrentUser.user.menberID!
     
     @IBOutlet weak var priceMapCollectionView: UICollectionView!
     @IBOutlet weak var runningGirl: UIImageView!
@@ -73,7 +74,7 @@ class PriceMapViewController: UIViewController {
             print(price)
             self.priceMapCollectionView.reloadData()
             var startItem = 0
-            Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": 1])
+            Alamofire.request(.GET, "http://alpha.i-fit.com.tw/api/v1/points", parameters: ["user_id": userId])
                 .responseJSON { response in
                     
                     if let point = response.result.value{

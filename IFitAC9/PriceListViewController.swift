@@ -118,6 +118,7 @@ class PriceListViewController: UIViewController {
             }
             price = ansArray
             print(price)
+            print(CurrentUser.user.currentPoint)
             self.priceListTableView.reloadData()
         }
     }

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="shakeMyCardViewViewController" customModule="IFitAC9" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="shakeMyCardViewViewController" customModule="Fit_U" customModuleProvider="target">
             <connections>
                 <outlet property="coverView" destination="1aQ-aX-gDx" id="W0X-EK-7V8"/>
                 <outlet property="qRCodeImageView" destination="DEI-Pp-6At" id="2ra-IZ-xw9"/>
@@ -47,8 +47,8 @@
                                 <constraint firstAttribute="height" constant="43" id="YEG-32-l6S"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去 IFit 實體門市請店員刷這個 QR code 就可以登錄你的資料囉！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDM-E1-xFL">
-                            <rect key="frame" x="42.5" y="253" width="184" height="54"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去 iFit 實體門市請店員刷這個 QR code 就可以登錄你的資料囉！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDM-E1-xFL">
+                            <rect key="frame" x="42" y="253" width="184" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="184" id="eA7-Th-WIF"/>
                                 <constraint firstAttribute="height" constant="54" id="iME-49-xEj"/>
